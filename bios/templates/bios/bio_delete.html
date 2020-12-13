@@ -1,0 +1,15 @@
+{% extends "bios/bio_base.html" %}
+{% load bootstrap %}
+{% block prepost %}
+<div class="">
+  <br><br><br><br><br>
+</div>
+<form class="container" method="POST">
+{% csrf_token %}
+<h1>Do You Want to delete You Profile from the database?</h1>
+<input type="submit" name="" class="btn btn-outline-warning" value="Delete">
+</form>
+<div class="">
+  <br><br><br><br><br><br><br><br>
+</div>
+{% endblock %}

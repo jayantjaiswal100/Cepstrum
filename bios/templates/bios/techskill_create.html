@@ -1,0 +1,15 @@
+{% extends "bios/bio_base.html" %}
+{% load bootstrap %}
+{% block prepost %}
+<div class="">
+  <br><br><br><br><br>
+</div>
+<form class="container" method="POST">
+{% csrf_token %}
+{{ form|bootstrap }}
+<input type="submit" name="" class="btn btn-outline-success" value="Create Technical Skill">
+</form>
+<div class="">
+  <br><br><br><br><br><br><br><br>
+</div>
+{% endblock %}

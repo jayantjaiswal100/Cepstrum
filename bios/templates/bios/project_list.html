@@ -1,0 +1,53 @@
+{% extends "bios/bio_base.html" %}
+{% load bootstrap %}
+{% block post_content %}
+{% if user.is_authenticated %}
+<br><br>
+<div id="mySidenav" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  <h1>Filter:</h1>
+  <form method="GET">
+    {{ filter.form|bootstrap }}
+    <button type="submit" class="btn btn-outline-success" name="button">Submit</button>
+    <a href="{% url 'bios:project_list' %}" class="btn btn-outline-danger btn-sm">Clear</a>
+  </form>
+</div>
+<div id="main">
+  <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; Filter</span>
+  <script>
+    function openNav() {
+      document.getElementById("mySidenav").style.width = "350px";
+      document.getElementById("main").style.marginLeft = "350px";
+    }
+
+    function closeNav() {
+      document.getElementById("mySidenav").style.width = "0";
+      document.getElementById("main").style.marginLeft = "0";
+    }
+  </script>
+  <h1 style="text-align:center;">This is Project List</h1>
+  <div class="row container">
+    <br>
+    {% for i in filter.qs %}
+
+      <div style="text-align:center;" class="col-sm-6 my-5">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title text-muted">{{i}}</h5>
+            <a href="{% url 'bios:project_detail' i.id %}" class="btn btn-outline-info"> Project Details</a>
+          </div>
+        </div>
+      </div>
+      <hr>
+
+    <br>
+
+    <br>
+    {% endfor %}
+  </div>
+</div>
+
+
+
+{% endif %}
+{% endblock %}

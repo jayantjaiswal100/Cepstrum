@@ -1,0 +1,15 @@
+{% extends "bios/bio_base.html" %}
+{% load bootstrap %}
+{% block post_content %}
+
+<div class="container">
+  <h3>Create a New Bio</h3>
+  <form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form|bootstrap }}
+    <input type="submit" value="Submit" class="btn btn-large btn-primary">
+  </form>
+</div>
+<br><br><br><br><br>
+
+{% endblock %}

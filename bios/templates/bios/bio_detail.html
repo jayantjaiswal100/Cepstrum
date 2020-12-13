@@ -1,0 +1,128 @@
+{% extends "bios/bio_base.html" %}
+{% load static %}
+{% block css %}
+<link rel="stylesheet" href="{% static 'KYS/css/detail.css' %}">
+{% endblock %}
+{% block post_content %}
+<div class="main-container">
+  <!-- HEADER -->
+  <header class="block">
+    <ul class="header-menu horizontal-list">
+      <li>
+          <a class="header-menu-tab" href="{{object.facebook}}"><span class="fa fa-lg fa-facebook"></span> : Facebook</a>
+        </li>
+      <li>
+        <a class="header-menu-tab" href="{{object.instagram}}"><span class="fa fa-lg fa-instagram"></span> : Instagram</a>
+      </li>
+      <li>
+        <a class="header-menu-tab" href="{{object.linkedin}}"><span class="fa fa-lg fa-linkedin"></span> : Linkedin</a>
+      </li>
+      <li>
+        <p class="header-menu-tab" href=""><span class="fa fa-lg fa-mail"></span><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-envelope-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+  <path fill-rule="evenodd" d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414.05 3.555zM0 4.697v7.104l5.803-3.558L0 4.697zM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586l-1.239-.757zm3.436-.586L16 11.801V4.697l-5.803 3.546z"/>
+</svg>: {{object.owner.email}}</p>
+      </li>
+      <li>
+        <p class="header-menu-tab" href=""><span class="disabled"></span> <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-telephone-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd"
+              d="M2.267.98a1.636 1.636 0 0 1 2.448.152l1.681 2.162c.309.396.418.913.296 1.4l-.513 2.053a.636.636 0 0 0 .167.604L8.65 9.654a.636.636 0 0 0 .604.167l2.052-.513a1.636 1.636 0 0 1 1.401.296l2.162 1.681c.777.604.849 1.753.153 2.448l-.97.97c-.693.693-1.73.998-2.697.658a17.47 17.47 0 0 1-6.571-4.144A17.47 17.47 0 0 1 .639 4.646c-.34-.967-.035-2.004.658-2.698l.97-.969z" />
+          </svg> {{object.number}}</p>
+      </li>
+    </ul>
+  </header>
+
+  <!-- LEFT-CONTAINER -->
+  <div class="left-container container">
+    <div class="menu-box block">
+      <!-- MENU BOX (LEFT-CONTAINER) -->
+      <h2 class="titular">Field Of Intrest</h2>
+      <ul class="menu-box-menu">
+        {% for intrest in object.intrest.all %}
+        <li class="menu-box-tab" class="text-center">{{intrest}}</li>
+        {% endfor %}
+      </ul>
+    </div>
+
+
+    <div class="menu-box block">
+      <!-- MENU BOX (LEFT-CONTAINER) -->
+      <h2 class="titular">Technical Club</h2>
+      <ul class="menu-box-menu">
+        {% if not object.tech_club %}
+        <h1 class="text-center">No Tech CLub</h1>
+        {% else %}
+        {% for intrest in object.tech_club.all %}
+        <li class="menu-box-tab" class="text-center">{{intrest}}</li>
+        {% endfor %}
+        {% endif %}
+      </ul>
+    </div>
+
+
+   
+  </div>
+  <!-- MIDDLE-CONTAINER -->
+  <div class="middle-container container">
+    <div class="profile block">
+      <!-- PROFILE (MIDDLE-CONTAINER) -->
+      <div class="profile-picture big-profile-picture clear">
+        <img width="150px" height="150px" alt="{{object.name}}" src="{{object.picture}}">
+      </div>
+      <h1 class="user-name">{{object.name}}</h1>
+      <div class="profile-description">
+        <p class="scnd-font-color">{{object.text|safe|linebreaksbr}}</p>
+      </div>
+    </div>
+    <div class="menu-box block">
+      <!-- MENU BOX (LEFT-CONTAINER) -->
+      <h2 class="titular">Cultural Club</h2>
+      <ul class="menu-box-menu">
+        {% if not object.cult_club %}
+        <h1 class="text-center">No Cultural CLub</h1>
+        {% else %}
+        {% for intrest in object.cult_club.all %}
+        <li class="menu-box-tab" class="text-center">{{intrest}}</li>
+        {% endfor %}
+        {% endif %}
+      </ul>
+    </div>
+  </div>
+
+  <!-- RIGHT-CONTAINER -->
+  <div class="right-container container">
+    <div class="menu-box block">
+      <!-- MENU BOX (LEFT-CONTAINER) -->
+      <h2 class="titular">Projects</h2>
+      <ul class="menu-box-menu">
+        {% if object.project %}
+        {% for project in object.project.all %}
+        <li class="menu-box-tab"><a href="{% url 'bios:project_detail' project.id %}">{{project}}</a></li>
+        {% endfor %}
+        {% else %}
+        <h1 class="text-center">No Project</h1>
+        {% endif %}
+      </ul>
+    </div>
+
+  </div> <!-- end right-container -->
+  <div class="right-container container">
+    <div class="menu-box block">
+      <!-- MENU BOX (LEFT-CONTAINER) -->
+      <h2 class="titular">Sports Clubs</h2>
+      <ul class="menu-box-menu">
+        {% if object.sport_club %}
+        {% for club in object.sport_club.all %}
+        <li class="menu-box-tab">{{club}}</li>
+        {% endfor %}
+        {% else %}
+        <h1 class="text-center">No Sports</h1>
+        {% endif %}
+      </ul>
+    </div>
+
+  </div> <!-- end right-container -->
+  <br><br>
+  <a href="{% url 'bios:all'%}" class="btn btn-outline-warning">Back to Main Menu</a><br><br>
+</div>
+
+{% endblock %}
