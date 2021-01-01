@@ -59,6 +59,7 @@ INSTALLED_APPS = [
     'django_cleanup',
 ]
 
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 SOCIALACCOUNT_PROVIDERS = {
     'microsoft': {

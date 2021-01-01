@@ -4,7 +4,11 @@
 <div class="">
   <br><br><br><br><br>
 </div>
+
+<div class="container"><h1>Create Project:- </h1></div>
+<br>
 <form class="container" method="POST">
+  <h5>if you didn't found your relevent technical skill then <a href="{% url 'bios:techskill_create' %}">Create a new one.</a></h5>
 {% csrf_token %}
 {{ form|bootstrap }}
 <input type="submit" name="" class="btn btn-outline-success" value="Submit">

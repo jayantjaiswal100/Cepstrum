@@ -13,7 +13,7 @@ class BioForm(forms.ModelForm):
     intrest = forms.ModelMultipleChoiceField(
             queryset=Intrest.objects.all(),
             widget=forms.CheckboxSelectMultiple,
-            label="Check your Field of Intrest * (if you didn't find your intrest then create the one)"
+            label=""
             )
     tech_club = forms.ModelMultipleChoiceField(
             queryset=TechClub.objects.all(),
@@ -28,7 +28,7 @@ class BioForm(forms.ModelForm):
     project = forms.ModelMultipleChoiceField(
             queryset=Projects.objects.all(),
             widget=forms.CheckboxSelectMultiple,
-            label="Check the Projects You have done * (if you didn't find your project then create the one) "
+            label=""
             )
     sport_club = forms.ModelMultipleChoiceField(
             queryset=SportClub.objects.all(),
@@ -40,6 +40,7 @@ class BioForm(forms.ModelForm):
     facebook = forms.URLField(required=False, label="Link to your Facebook handle")
     instagram = forms.URLField(required=False, label="Link to your Instagram handle")
     linkedin = forms.URLField(required=False, label="Link to your Linkedin handle")
+    picture = forms.CharField(label="Please enter the link of the image *", max_length=500, required=True)
     # Call this 'picture' so it gets copied from the form to the in-memory model
     # It will not be the "bytes", it will be the "InMemoryUploadedFile"
     # because we need to pull out things like content_type

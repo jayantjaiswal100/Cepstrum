@@ -42,6 +42,7 @@ class AlumniForm(forms.ModelForm):
             "present_work": "Current area of work *",
             "present_work_org": "Current University/Company/Post *",
             "junior_intraction":"Are you interested in interacting or helping your juniors *",
+            "picture":"Please enter the link of the image *",
         }
     # Validate the size of the picture
     def clean(self) :
