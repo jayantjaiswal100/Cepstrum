@@ -6,8 +6,9 @@
 {% if user.is_authenticated %}
 <br><br>
 <div id="mySidenav" class="sidenav">
-	<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
 	<h1>Filter:</h1>
+	
+	<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
 	<form method="GET" class="">
 		{{filter.form|bootstrap}}
 		<br>
@@ -19,14 +20,6 @@
 <div id="main">
 	{% if bio_list %}
 	<span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; Filter</span>
-	<!--	<div class="a">
-		<h3 style="text-align: center;">Filter:</h3>
-		<form method="GET" class="">
-			{{ filter.form.as_table }}<br><br>
-			<button type="submit" class="btn btn-outline-success">Search</button>
-			<a href="{% url 'bios:all' %}" class="btn btn-outline-danger"> Clear</a>
-		</form>
-	</div>-->
 	<script>
 		function openNav() {
 			document.getElementById("mySidenav").style.width = "300px";
@@ -38,15 +31,7 @@
 			document.getElementById("main").style.marginLeft = "0";
 		}
 
-		$(document).ready(function() {
-			$('#id_intrest').select2();
-		});
 	</script>
-	<!--
-<div class="jumbotron">
-<a class="btn btn-outline-primary" href="{% url 'bios:bio_create' %}">Create ur bio</a>
-</div>
--->
 	<div class="row">
 		{% for i in filter.qs %}
 		<div class="col-xs-12 col-sm-4 col-md-4">

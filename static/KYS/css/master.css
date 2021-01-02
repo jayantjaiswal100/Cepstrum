@@ -21,4 +21,10 @@ body {
   user-select: none;
   font-family: Arial;
 }
-
+.dropdown-item{
+  background-color: blue;
+  color: white;
+}
+.dropdown-menu{
+  background-color: blue;
+}

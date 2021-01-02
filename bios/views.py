@@ -93,7 +93,7 @@ class ProjectDetailView(DetailView):
 class ProjectCreateView(LoginRequiredMixin, CreateView):
     template_name = 'bios/project_create.html'
     form_class = ProjectForm
-    success_url = reverse_lazy('bios:all')
+    success_url = reverse_lazy('bios:project_list')
 
     def form_valid(self, form):
         form.instance.owner = self.request.user
@@ -101,7 +101,7 @@ class ProjectCreateView(LoginRequiredMixin, CreateView):
 
 class ProjectUpdateView(LoginRequiredMixin, View):
     template_name = 'bios/project_create.html'
-    success_url = reverse_lazy('bios:all')
+    success_url = reverse_lazy('bios:project_list')
     def get(self, request, pk) :
         pic = get_object_or_404(Projects, id=pk, owner=self.request.user)
         form = ProjectForm(instance=pic)
