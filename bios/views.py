@@ -89,6 +89,13 @@ class ProjectListView(LoginRequiredMixin, ListView):
 class ProjectDetailView(DetailView):
     model = Projects
     template_name = "bios/project_detail.html"
+    def get_context_data(self, **kwargs):
+        context = super(ProjectDetailView, self).get_context_data(**kwargs)
+        context['bios'] = self.object.bio_set.all()
+
+        return context
+
+
 
 class ProjectCreateView(LoginRequiredMixin, CreateView):
     template_name = 'bios/project_create.html'
