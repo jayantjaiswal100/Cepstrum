@@ -85,6 +85,9 @@ body{
         {% else %}
 
         {% endif %}
+        <li class="nav-item">
+          <a class="nav-link" aria-current="page" href="{% url 'team:all' %}">Team</a>
+        </li>
       </ul>
       <ul class="navbar-nav ml-auto">
         {% if user.is_authenticated %}

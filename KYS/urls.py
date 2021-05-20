@@ -18,7 +18,7 @@ from django.urls import path
 from django.conf.urls import include,url
 from django.conf import settings
 from django.conf.urls.static import static
-from KYS import views
+from . import views
 
 urlpatterns = [
     url(r'^$',views.HomePage.as_view(),name='home'),
@@ -27,6 +27,7 @@ urlpatterns = [
     path('accounts/', include('allauth.urls')),
     url(r'^accounts/',include('django.contrib.auth.urls')),
     url('bios/', include('bios.urls')),
+    url('team/', include('team.urls')),
     url('alumni/', include('alumni.urls')),
     url(r'^test/',views.TestPage.as_view(),name='test'),
     url(r'^thanks/',views.ThanksPage.as_view(),name='thanks'),

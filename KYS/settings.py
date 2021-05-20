@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'accounts',
     'alumni',
     'bios',
+    'team',
     'django_filters',
     'allauth',
     'allauth.account',

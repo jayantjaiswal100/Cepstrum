@@ -1,9 +1,9 @@
 from django.shortcuts import render
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required
-from bios.models import Bio, Intrest, Projects
+from .models import Bio, Intrest, Projects
 from django.utils import timezone
-from bios.forms import BioForm, IntrestForm, ProjectForm, TechSkillForm
+from .forms import BioForm, IntrestForm, ProjectForm, TechSkillForm
 from django.views.generic import TemplateView,ListView, DetailView, CreateView, UpdateView,DeleteView
 from django.urls import reverse_lazy,reverse
 from django.views import View

@@ -1,5 +1,5 @@
 from django.contrib import admin
-from alumni.models import GraduationYear, Branch, PROGRAM,Bio
+from .models import GraduationYear, Branch, PROGRAM,Bio
 # Register your models here.
 admin.site.register(Bio)
 admin.site.register(PROGRAM)
