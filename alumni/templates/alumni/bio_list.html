@@ -3,58 +3,36 @@
 {% load bootstrap %}
 {% block prepost %}
 {% if user.is_authenticated %}
-<br><br>
-<div id="mySidenav" class="sidenav">
-	<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-	<h1>Filter:</h1>
-	<form method="GET" class="">
-		{{filter.form|bootstrap}}
-		<!--{% for i in filter.form %}
-		<div class="dropdown">
-			<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-				{{i.label}}
-			</button>
-			<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-				{{i|bootstrap}}
-			</div>
+
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+	Filter
+  </button>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" style="color: black;">
+	<div class="modal-dialog">
+	  <div class="modal-content">
+		<div class="modal-header">
+		  <h5 class="modal-title" id="exampleModalLabel">Filters</h5>
+		  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
 		</div>
-		<br>
-		{% endfor %}--><br>
-		<button type="submit" class="btn btn-outline-success btn-lg">Search</button>
-		<a href="{% url 'alumni:all' %}" class="btn btn-outline-danger btn-sm">Clear</a>
-	</form>
-</div>
+		<div class="modal-body">
+			<form method="GET" class="">
+				{{filter.form|bootstrap}}
+				<button type="submit" class="btn btn-primary">Search</button>
+				<a href="{% url 'bios:all' %}" class="btn btn-secondary">Clear</a>
+				
+			</form>
+		</div>
+		<div class="modal-footer">
+		  
+		</div>
+	  </div>
+	</div>
+  </div>
+  <br><br>
 <div id="main">
 	{% if bio_list %}
-	<span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; Filter</span>
-	<!--	<div class="a">
-		<h3 style="text-align: center;">Filter:</h3>
-		<form method="GET" class="">
-			{{ filter.form.as_table }}<br><br>
-			<button type="submit" class="btn btn-outline-success">Search</button>
-			<a href="{% url 'bios:all' %}" class="btn btn-outline-danger"> Clear</a>
-		</form>
-	</div>-->
-	<script>
-		function openNav() {
-			document.getElementById("mySidenav").style.width = "300px";
-			document.getElementById("main").style.marginLeft = "300px";
-		}
-
-		function closeNav() {
-			document.getElementById("mySidenav").style.width = "0";
-			document.getElementById("main").style.marginLeft = "0";
-		}
-
-		$(document).ready(function() {
-			$('#id_intrest').select2();
-		});
-	</script>
-	<!--
-<div class="jumbotron">
-<a class="btn btn-outline-primary" href="{% url 'bios:bio_create' %}">Create ur bio</a>
-</div>
--->
 	<div class="row">
 		{% for i in filter.qs %}
 		<div class="col-xs-12 col-sm-4 col-md-4">

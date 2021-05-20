@@ -3,28 +3,32 @@
 {% block post_content %}
 {% if user.is_authenticated %}
 <br><br>
-<div id="mySidenav" class="sidenav">
-  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-  <h1>Filter:</h1>
-  <form method="GET">
-    {{ filter.form|bootstrap }}
-    <button type="submit" class="btn btn-outline-success" name="button">Submit</button>
-    <a href="{% url 'bios:project_list' %}" class="btn btn-outline-danger btn-sm">Clear</a>
-  </form>
-</div>
-<div id="main">
-  <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; Filter</span>
-  <script>
-    function openNav() {
-      document.getElementById("mySidenav").style.width = "350px";
-      document.getElementById("main").style.marginLeft = "350px";
-    }
-
-    function closeNav() {
-      document.getElementById("mySidenav").style.width = "0";
-      document.getElementById("main").style.marginLeft = "0";
-    }
-  </script>
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+	Filter
+  </button>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" style="color: black;">
+	<div class="modal-dialog">
+	  <div class="modal-content">
+		<div class="modal-header">
+		  <h5 class="modal-title" id="exampleModalLabel">Filters</h5>
+		  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+		</div>
+		<div class="modal-body">
+			<form method="GET" class="">
+				{{filter.form|bootstrap}}
+				<button type="submit" class="btn btn-primary">Search</button>
+				<a href="{% url 'bios:all' %}" class="btn btn-secondary">Clear</a>
+				
+			</form>
+		</div>
+		<div class="modal-footer">
+		  
+		</div>
+	  </div>
+	</div>
+  </div>
   <h1 style="text-align:center;">This is Project List</h1>
   <div class="row container">
     <br>

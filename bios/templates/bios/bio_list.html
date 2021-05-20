@@ -4,34 +4,38 @@
 {% load bootstrap %}
 {% block prepost %}
 {% if user.is_authenticated %}
-<br><br>
-<div id="mySidenav" class="sidenav">
-	<h1>Filter:</h1>
-	
-	<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-	<form method="GET" class="">
-		{{filter.form|bootstrap}}
-		<br>
-		<button type="submit" class="btn btn-outline-success"><a>Search</a></button>
-		<button type="button" class="btn btn-outline-danger"><a href="{% url 'bios:all' %}">Clear</a></button>
-		
-	</form>
-</div>
-<div id="main">
+
 	{% if bio_list %}
-	<span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; Filter</span>
-	<script>
-		function openNav() {
-			document.getElementById("mySidenav").style.width = "300px";
-			document.getElementById("main").style.marginLeft = "300px";
-		}
-
-		function closeNav() {
-			document.getElementById("mySidenav").style.width = "0";
-			document.getElementById("main").style.marginLeft = "0";
-		}
-
-	</script>
+	
+	
+	<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+	Filter
+  </button>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" style="color: black;">
+	<div class="modal-dialog">
+	  <div class="modal-content">
+		<div class="modal-header">
+		  <h5 class="modal-title" id="exampleModalLabel">Filters</h5>
+		  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+		</div>
+		<div class="modal-body">
+			<form method="GET" class="">
+				{{filter.form|bootstrap}}
+				<button type="submit" class="btn btn-primary">Search</button>
+				<a href="{% url 'bios:all' %}" class="btn btn-secondary">Clear</a>
+				
+			</form>
+		</div>
+		<div class="modal-footer">
+		  
+		</div>
+	  </div>
+	</div>
+  </div>
+  <br><br>
 	<div class="row">
 		{% for i in filter.qs %}
 		<div class="col-xs-12 col-sm-4 col-md-4">
@@ -64,7 +68,7 @@
 	{% else %}
 	<p>There are no bio in the database.</p>
 	{% endif %}
-</div>
+
 
 {% endif %}
 {% endblock %}
