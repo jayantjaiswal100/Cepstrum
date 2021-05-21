@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'alumni',
     'bios',
     'team',
+    'inphase',
     'django_filters',
     'allauth',
     'allauth.account',
@@ -57,7 +58,7 @@ INSTALLED_APPS = [
     'bootstrap3',
     'crispy_forms',
     'bootstrapform',
-    'django_cleanup',
+    'django_cleanup.apps.CleanupConfig',
 ]
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
