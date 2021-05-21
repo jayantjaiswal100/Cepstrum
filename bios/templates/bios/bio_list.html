@@ -15,7 +15,7 @@
   
   <!-- Modal -->
   <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" style="color: black;">
-	<div class="modal-dialog">
+	<div class="modal-dialog modal-dialog-scrollable">
 	  <div class="modal-content">
 		<div class="modal-header">
 		  <h5 class="modal-title" id="exampleModalLabel">Filters</h5>
@@ -40,7 +40,7 @@
 		{% for i in filter.qs %}
 		<div class="col-xs-12 col-sm-4 col-md-4">
 
-			<div class="card" style="width: 18rem;">
+			<div class="card mx-5 my-5" style="width: 18rem;">
 				<img class="card-img-top" src="{{ i.picture }}" alt="{{i.name}}" style="width: 18rem;height: 15rem;">
 				<div class="card-body">
 					<h5 class="card-title text-muted">{{i.name}}</h5>
