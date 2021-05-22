@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+<br><br><br>
+<div class="container" style="text-align: center;">
+    <img src="{{object.pic.url}}" alt="" width="100%">
+    <h1>{{object.title|safe}}</h1>
+    <div class="addthis_inline_share_toolbox"></div><br><br>
+    <h5>{{object.intro|safe}}</h5>
+    <p>{{object.article|safe}}</p>
+
+    <h1>..............</h1>
+</div>
+{% endblock content %}
+
+{% block js %}
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-60a8891d6f283957"></script>
+{% endblock js %}
+    
+    

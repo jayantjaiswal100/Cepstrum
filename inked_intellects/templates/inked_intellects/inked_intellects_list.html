@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<br><br><br><br>
+
+<div class="container" style="align-items: center;">
+{% for i in inked_list %}
+    
+<div class="col">
+<div class="card mb-3" style="max-width: 90%;">
+    <img src="{{i.pic.url}}" class="card-img-top" alt="...">
+    <div class="card-body">
+        <a href="{% url 'inked_intellects:detail' i.id %}"><h5 class="card-title" style="color: black;">{{i.title}}</h5></a>
+        <p class="card-text"><small class="text-muted">Last updated on {{i.created_at}}</small></p>
+    </div>
+</div>
+</div>
+{% endfor %}
+</div>
+{% endblock content %}
+    

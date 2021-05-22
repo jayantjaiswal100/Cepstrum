@@ -85,10 +85,17 @@ body{
         {% else %}
 
         {% endif %}
-        <li class="nav-item">
-          <a class="nav-link" aria-current="page" href="{% url 'inphase:all' %}">Inphase</a>
+        <li class="nav-item dropdown active" class="">
+          <a class="nav-link dropdown-toggle" href="" id="dropdownMenuButton" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Initiatives
+          </a>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" href="{% url 'inphase:all' %}">Inphase</a>
+            <a class="dropdown-item" href="{% url 'inplace:all' %}">Inplace</a>
+            <a class="dropdown-item" href="{% url 'inked_intellects:all' %}">Inked Intellects</a>
+          </div>
         </li>
-        <li class="nav-item">
+        <li class="nav-item active">
           <a class="nav-link" aria-current="page" href="{% url 'team:all' %}">Team</a>
         </li>
       </ul>
@@ -113,6 +120,11 @@ body{
 {% block content %}
   
 {% endblock content %}
+
+
+{% block js %}
+  
+{% endblock js %}
   
    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>  

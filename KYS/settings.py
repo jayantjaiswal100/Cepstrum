@@ -50,6 +50,8 @@ INSTALLED_APPS = [
     'bios',
     'team',
     'inphase',
+    'inplace',
+    'inked_intellects',
     'django_filters',
     'allauth',
     'allauth.account',
@@ -58,8 +60,11 @@ INSTALLED_APPS = [
     'bootstrap3',
     'crispy_forms',
     'bootstrapform',
+    'ckeditor',
+    'ckeditor_uploader',
     'django_cleanup.apps.CleanupConfig',
 ]
+CKEDITOR_UPLOAD_PATH = "post/"
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
