@@ -52,6 +52,7 @@ INSTALLED_APPS = [
     'inphase',
     'inplace',
     'paperman',
+    'celebration',
     'inked_intellects',
     'django_filters',
     'allauth',

@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<br><br><br>
+    <h1>this is celebration list </h1>
+    
+    {% for i in celebration_list %}
+    <h1><a href="{% url 'celebration:celebration_detail' i.id %}">{{i.name}}</a></h1>
+       
+    {% endfor %}
+        
+{% endblock content %}
+    

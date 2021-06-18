@@ -34,6 +34,7 @@ urlpatterns = [
     url('inphase/', include('inphase.urls')),
     url('inplace/', include('inplace.urls')),
     url('alumni/', include('alumni.urls')),
+    url('celebration/', include('celebration.urls')),
     url('paperman/', include('paperman.urls')),
     url(r'^test/',views.TestPage.as_view(),name='test'),
     url(r'^thanks/',views.ThanksPage.as_view(),name='thanks'),
