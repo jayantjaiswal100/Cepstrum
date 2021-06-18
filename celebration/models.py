@@ -4,6 +4,7 @@ from django.db import models
 class Celebration(models.Model):
     name = models.CharField(max_length=50)
     desc = models.TextField()
+    pic = models.ImageField(upload_to='celebration_list', height_field=None, width_field=None, max_length=None,null=True)
 
     def __str__(self):
         return self.name
