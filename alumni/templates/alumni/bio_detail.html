@@ -13,7 +13,7 @@
           <img width="250px" height="250px" alt="{{object.name}}" src="{{object.picture}}">
         </div>
       </div>
-      <div class="col-md-6">
+      <div class="col-md-8">
         <div class="profile-head">
           <h5>
             {{object.name}}
@@ -34,6 +34,21 @@
               <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Social Media</a>
             </li>
             {% else %}{% endif %}
+            <li class="nav-item">
+              <a class="nav-link" id="home-tab" data-toggle="tab" href="#intern" role="tab" aria-controls="home" aria-selected="true">Their Internship</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" id="home-tab" data-toggle="tab" href="#club_memories" role="tab" aria-controls="home" aria-selected="true">Their Club Memories</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" id="home-tab" data-toggle="tab" href="#project_memories" role="tab" aria-controls="home" aria-selected="true">Their Project Experience</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" id="home-tab" data-toggle="tab" href="#por_experience" role="tab" aria-controls="home" aria-selected="true">Their POR Experience</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" id="home-tab" data-toggle="tab" href="#placement_experince" role="tab" aria-controls="home" aria-selected="true">Their Placement Experience</a>
+            </li>
           </ul>
         </div>
       </div>
@@ -138,6 +153,21 @@
                 {% endif %}
               </div>
             </div>
+          </div>
+          <div class="tab-pane fade" id="intern" role="tabpanel" aria-labelledby="profile-tab">
+            <p>{{object.intern_experience|safe}}</p>
+          </div>
+          <div class="tab-pane fade" id="club_memories" role="tabpanel" aria-labelledby="profile-tab">
+            <p>{{object.club_memories|safe}}</p>
+          </div>
+          <div class="tab-pane fade" id="project_memories" role="tabpanel" aria-labelledby="profile-tab">
+            <p>{{object.project_memories|safe}}</p>
+          </div>
+          <div class="tab-pane fade" id="por_experience" role="tabpanel" aria-labelledby="profile-tab">
+            <p>{{object.por_experience|safe}}</p>
+          </div>
+          <div class="tab-pane fade" id="placement_experince" role="tabpanel" aria-labelledby="profile-tab">
+            <p>{{object.placement_experince|safe}}</p>
           </div>
         </div>
       </div>

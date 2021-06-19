@@ -21,7 +21,7 @@ class AlumniForm(forms.ModelForm):
     # Hint: this will need to be changed for use in the ads application :)
     class Meta:
         model = Bio
-        fields = ['name', 'branch', 'program','year_of_graduation','number','present_work','present_work_org','junior_intraction','picture','facebook','linkedin']  # Picture is manual
+        fields = ['name', 'branch', 'program','year_of_graduation','number','present_work','present_work_org','junior_intraction','picture','facebook','linkedin','profile_of_intrest','intern_experience','club_memories','project_memories','por_experience','placement_experince']  # Picture is manual
         widgets = {
             'name' : forms.TextInput(attrs={'class':'form-control'}),
             'branch' : forms.Select(attrs={'class':'form-control'}),

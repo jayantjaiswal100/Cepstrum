@@ -56,7 +56,7 @@ body{
     margin-bottom:5%;
 }
 .profile-head .nav-tabs .nav-link{
-    font-weight:600;
+    font-weight:50;
     border: none;
 }
 .profile-head .nav-tabs .nav-link.active{

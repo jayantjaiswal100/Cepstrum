@@ -1,6 +1,7 @@
 from django.db import models
 from django.utils import timezone
 from django.conf import settings
+from ckeditor.fields import RichTextField
 
 # Create your models here.
 
@@ -23,6 +24,12 @@ class PROGRAM(models.Model):
     def __str__(self):
         return self.name
 
+class ProfileOfIntrest(models.Model):
+    name = models.CharField(max_length=55)
+
+    def __str__(self):
+        return self.name
+
 
 class Bio(models.Model):
     owner = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE,default='',related_name='alumni_bio')
@@ -39,6 +46,13 @@ class Bio(models.Model):
     picture = models.CharField(name='picture',max_length=500)
     published_date = models.DateTimeField(default=timezone.now)
     updated_date = models.DateTimeField(blank=True, null=True)
+    profile_of_intrest = models.ForeignKey(ProfileOfIntrest, on_delete=models.CASCADE,default="",blank=True, null=True)
+    intern_experience = RichTextField(blank=True, null=True)
+    club_memories = RichTextField(blank=True, null=True)
+    project_memories = RichTextField(blank=True, null=True)
+    por_experience = RichTextField(blank=True, null=True)
+    placement_experince = RichTextField(blank=True, null=True)
+
 
     def __str__(self):
         return self.name
