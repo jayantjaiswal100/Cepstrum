@@ -50,7 +50,7 @@ body{
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         {% if user.is_authenticated %}
-        <li class="nav-item dropdown" class="">
+        <li class="nav-item dropdown active" class="">
           <a class="nav-link dropdown-toggle" href="" id="dropdownMenuButton" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Current Campus Junta
           </a>
@@ -62,7 +62,7 @@ body{
             <a class="dropdown-item" href="{% url 'bios:project_list' %}">Project List</a>
           </div>
         </li>
-        <li class="nav-item dropdown" class="">
+        <li class="nav-item dropdown active" class="">
           <a class="nav-link dropdown-toggle" href="" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Alumni
           </a>
@@ -73,7 +73,7 @@ body{
             {% endif %}
           </div>
         </li>
-        <li class="nav-item dropdown" class="">
+        <li class="nav-item dropdown active" class="">
           <a class="nav-link dropdown-toggle" href="" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Account Management
           </a>
@@ -93,6 +93,15 @@ body{
             <a class="dropdown-item" href="{% url 'inphase:all' %}">Inphase</a>
             <a class="dropdown-item" href="{% url 'inplace:all' %}">Inplace</a>
             <a class="dropdown-item" href="{% url 'inked_intellects:all' %}">Inked Intellects</a>
+            <a class="dropdown-item" href="{% url 'inked_intellects:all' %}">Paperman</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown active" class="">
+          <a class="nav-link dropdown-toggle" href="" id="dropdownMenuButton" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Events
+          </a>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" href="{% url 'celebration:all' %}">Celebrations</a>
           </div>
         </li>
         <li class="nav-item active">
