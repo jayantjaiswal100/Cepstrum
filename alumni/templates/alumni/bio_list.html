@@ -1,6 +1,7 @@
 {% extends "bios/bio_base.html" %}
 {% load humanize %}
 {% load bootstrap %}
+{% load static %}
 {% block prepost %}
 {% if user.is_authenticated %}
 
@@ -38,7 +39,7 @@
 		<div class="col-xs-12 col-sm-4 col-md-4">
 
 			<div class="card mx-5 my-5" style="width: 18rem;">
-				<img class="card-img-top" src="{{i.picture}}" alt="{{i.name}}" style="width: 18rem;height: 15rem;">
+				<img class="card-img-top" src="{{i.picture.url}}" alt="{{i.name}}" style="width: 18rem;height: 15rem;">
 				<div class="card-body">
 					<h5 class="card-title text-muted">{{i.name}}</h5>
 					<h6 class="card-subtitle mb-2 text-muted">{{i.branch}}</h6>

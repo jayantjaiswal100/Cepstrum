@@ -43,7 +43,7 @@ class Bio(models.Model):
     facebook = models.URLField(name='facebook',default=None,null=True)
     linkedin = models.URLField(name='linkedin',default=None,null=True)
     junior_intraction = models.BooleanField(null=True)
-    picture = models.CharField(name='picture',max_length=500)
+    picture = models.ImageField(upload_to='alumni', height_field=None, width_field=None, max_length=None)
     published_date = models.DateTimeField(default=timezone.now)
     updated_date = models.DateTimeField(blank=True, null=True)
     profile_of_intrest = models.ForeignKey(ProfileOfIntrest, on_delete=models.CASCADE,default="",blank=True, null=True)
