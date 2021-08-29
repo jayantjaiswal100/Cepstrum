@@ -20,6 +20,23 @@
         color: white;
 
     }
+
+#pics {
+    color: white;
+    background-color: transparent;
+    border-radius: 15px;
+    font-size: 30px;
+    font-family: monospace;
+    box-shadow: 5px 5px 10px 10px rgba(0,0,0,0.5);
+    transition: 0.2s all;
+}
+
+#pics:hover {
+    background-color: blueviolet;
+    color: white;
+    transform: scale(0.98);
+}
+
 </style>
 
 {% endblock %}
@@ -42,8 +59,10 @@
         <div class="carousel-item {% if i.id == 3 %}active{% else %}{% endif %}" style="background-image:
         url('{{i.pic.url}}'); opacity: 0.8;">
             <div style="text-align: center; padding-top: 40%;">
-                <a href="{% url 'celebration:celebration_detail' i.id %}" class="btn btn-info">
-                    <h1>See pics</h1>
+                <a href="{% url 'celebration:celebration_detail' i.id %}">
+                    <button id="pics">
+                        See Pics
+                    </button>
                 </a>
             </div>
 
