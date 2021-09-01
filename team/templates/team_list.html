@@ -38,6 +38,23 @@
   padding: 1%;
   margin: 40px 0%;
 }
+
+.carousel-item-content {
+    /* margin-top: 20%;
+  margin-left: 15%;
+  margin-right: 30%; */
+    font-size: 24px;
+  }
+
+  .carousel-item-screen {
+    color: white;
+    background-color: rgba(0, 0, 0, 0.6);
+    width: 100%;
+    height: 100%;
+    padding: 15% 20% 0 15%;
+  }
+
+
   </style>
   
 {% endblock %}
@@ -46,19 +63,34 @@
 my-carousel" data-ride="carousel">
 <div class="carousel-inner" role="listbox">
   <div class="carousel-item active" style="background-image: url('/static/team/team.jpg') ">
-    <div style="text-align: center; padding-top: 40%;">
+      <!-- <div style="text-align: center; padding-top: 40%;"> -->
       <!-- <button type="button" class="btn btn-outline-primary btn-lg" data-toggle="modal" data-target=".bd-example-modal-xl">Team EXECUTIVES</button>
       <button type="button" class="btn btn-outline-primary btn-lg" data-toggle="modal" data-target=".bd-example-modal-xl1">4th Year</button>
       <button type="button" class="btn btn-outline-primary btn-lg" data-toggle="modal" data-target=".bd-example-modal-xl2">5rd Year</button>
       <button type="button" class="btn btn-outline-primary btn-lg" data-toggle="modal" data-target=".bd-example-modal-xl3">Inphase Team</button> -->
       <!-- <button type="button" class="btn btn-outline-primary btn-lg" data-toggle="modal" data-target=".bd-example-modal-xl4">Web Ops Team</button> -->
+    <div class="carousel-item-screen">
+      <div class="carousel-item-content">
+        <h1><b>Our Team </b> </h1>
+        <br>
+        <p>
+          We are a bunch of students looking over the welfare of all students of the Department of Electronics and Electrical 
+          Engineering, IIT Guwahati. We are the backbone of all the student activities right from fresher's orientation to 
+          farewell and we take pride in bridging the gap between students, professors and alumni for continued parallel development 
+          of the department.
+        </p>
+        <br>
+        <br>
 
-      <button type="button" class="btn btn-outline-primary btn-lg" onclick="window.location.href = '#Executives';">Team EXECUTIVES</button>
-      <button type="button" class="btn btn-outline-primary btn-lg" onclick="window.location.href = '#4yr';">4th Year</button>
-      <button type="button" class="btn btn-outline-primary btn-lg" onclick="window.location.href = '#3yr';">3rd Year</button>
-      <button type="button" class="btn btn-outline-primary btn-lg" onclick="window.location.href = '';">2nd Year</button>
-      <button type="button" class="btn btn-outline-primary btn-lg" onclick="window.location.href = '#Inphase';">Inphase Team</button>
-      <button type="button" class="btn btn-outline-primary btn-lg" onclick="window.location.href = '#WebOps';">Web Ops Team</button>
+        <button type="button" class="btn btn-outline-primary btn-lg" onclick="window.location.href = '#Executives';">Team EXECUTIVES</button>
+        <button type="button" class="btn btn-outline-primary btn-lg" onclick="window.location.href = '#4yr';">4th Year</button>
+        <button type="button" class="btn btn-outline-primary btn-lg" onclick="window.location.href = '#3yr';">3rd Year</button>
+        <button type="button" class="btn btn-outline-primary btn-lg" onclick="window.location.href = '';">2nd Year</button>
+        <button type="button" class="btn btn-outline-primary btn-lg" onclick="window.location.href = '#Inphase';">Inphase Team</button>
+        <button type="button" class="btn btn-outline-primary btn-lg" onclick="window.location.href = '#WebOps';">Web Ops Team</button>
+      </div>
+
+      
     </div>
   </div>
   
