@@ -10,6 +10,42 @@
   background-size: cover;
 
 }
+
+.tabs-secondary {
+  float: right;
+  padding-top: 5%;
+  padding-right: 5%;
+  font-size: 24px;
+  color: white;
+  line-height: 200%;
+  }
+
+  .link-tab {
+    color: #CCCCCC;
+    text-decoration: none;
+    }
+
+  .link-active {
+    color: white;
+    font-weight: bold;
+  }
+
+  .carousel-item-content {
+    /* margin-top: 20%;
+  margin-left: 15%;
+  margin-right: 30%; */
+    font-size: 24px;
+  }
+
+  .carousel-item-screen {
+    color: white;
+    background-color: rgba(0, 0, 0, 0.6);
+    width: 100%;
+    height: 100%;
+    padding: 10% 70% 0 5%;
+  }
+
+
   </style>
   
 {% endblock %}
@@ -18,10 +54,35 @@
 my-carousel" data-ride="carousel">
 <div class="carousel-inner" role="listbox">
   <div class="carousel-item active" style="background-image: url('/static/inphase/cover.png') ">
-    <div style="padding-top: 40%; padding-left: 10%;">
+    <!-- <div style="padding-top: 40%; padding-left: 10%;">
         <button type="button" class="btn btn-secondary btn-lg" data-toggle="modal" data-target=".bd-example-modal-xl">Know more</button>
 
+      </div> -->
+      <div class="tabs-secondary">
+        <a class="link-tab link-active" href="{% url 'inphase:all' %}">Inphase</a><br>
+        <a class="link-tab" href="{% url 'inplace:all' %}">Inplace</a><br>
+        <a class="link-tab" href="{% url 'paperman:all' %}">Paperman</a><br>
+        <a class="link-tab" href="{% url 'inked_intellects:all' %}">Human</a><br>
+
+    </div>
+
+    <div class="carousel-item-screen">
+      <div class="carousel-item-content">
+        <h1>Inphase</b> </h1>
+        <br>
+        <p>
+          A conglomeration of the typical seniors a fresher comes across and the 2 am friends hostellers make during
+          their stay here in campus, Cepstrum is the students' society of the department of Electronics and Electrical
+          Engineering, IIT Guwahati.
+          <br>
+          <br>
+          <br>
+          <button type="button" class="btn btn-secondary btn-lg" data-toggle="modal" data-target=".bd-example-modal-xl">Know more</button>
+        </p>
       </div>
+
+
+    </div>
   </div>
   
 
