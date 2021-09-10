@@ -17,5 +17,12 @@ class TeamList(mixins.ListModelMixin, GenericAPIView):
     def get(self,request,*args,**kwargs):
         return self.list(request,*args,**kwargs)
 
+class TeamRetrive(mixins.RetrieveModelMixin, GenericAPIView):
+    queryset = Team.objects.all()
+    serializer_class = TeamSerializers
+
+    def get(self,request,*args,**kwargs):
+        return self.retrieve(request,*args,**kwargs)
+
 
 

@@ -26,3 +26,10 @@ class PaperManList(mixins.ListModelMixin, GenericAPIView):
 
     def get(self,request,*args,**kwargs):
         return self.list(request,*args,**kwargs)
+
+class PaperManRetrive(mixins.RetrieveModelMixin, GenericAPIView):
+    queryset = PaperMan.objects.all()
+    serializer_class = PaperManSerializers
+
+    def get(self,request,*args,**kwargs):
+        return self.retrieve(request,*args,**kwargs)

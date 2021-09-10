@@ -5,5 +5,6 @@ app_name='paperman'
 urlpatterns = [
       path('', views.PaperManListView.as_view(), name='all'),
       path('api', views.PaperManList.as_view()),
+      path('api/<int:pk>', views.PaperManRetrive.as_view()),
     
 ]

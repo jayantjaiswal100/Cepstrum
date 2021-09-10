@@ -4,6 +4,7 @@ from . import views
 app_name='team'
 urlpatterns = [
       path('', views.TeamListView.as_view(), name='all'),
-      path('teamapi/', views.TeamList.as_view()),
+      path('api/', views.TeamList.as_view()),
+      path('api/<int:pk>', views.TeamRetrive.as_view()),
     
 ]
