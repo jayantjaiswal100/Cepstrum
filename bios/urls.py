@@ -15,4 +15,5 @@ urlpatterns = [
     path('intrest', views.IntrestCreateView.as_view(), name='intrest_create'),
     path('techskill', views.TechSkillCreateView.as_view(), name='techskill_create'),
     
+    path('api', views.BioTable.as_view()),
 ]

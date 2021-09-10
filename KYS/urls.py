@@ -24,6 +24,7 @@ from . import views
 urlpatterns = [
     url(r'^$',views.HomePage.as_view(),name='home'),
     path('admin/', admin.site.urls),
+    path('api-auth/', include('rest_framework.urls')),
     url(r'^accounts/',include('accounts.urls',namespace='accounts')),
     path('accounts/', include('allauth.urls')),
     path('inked-intellects/', include('inked_intellects.urls')),

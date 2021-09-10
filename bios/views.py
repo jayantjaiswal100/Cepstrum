@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required
+from rest_framework import serializers
 from .models import Bio, Intrest, Projects
 from django.utils import timezone
 from .forms import BioForm, IntrestForm, ProjectForm, TechSkillForm
@@ -11,7 +12,10 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.http import HttpResponse
 from .filters import BioFilter, ProjectFilter
 from django.contrib.auth.mixins import UserPassesTestMixin
-
+from rest_framework.views import APIView
+from rest_framework.response import Response
+from rest_framework import status
+from .serializers import BioSerializers
 
 # Create your views here.
 class BioListView(ListView,LoginRequiredMixin):
@@ -41,7 +45,20 @@ class BioCreateView(UserPassesTestMixin, LoginRequiredMixin, CreateView):
     def form_valid(self, form):
         form.instance.owner = self.request.user
         return super().form_valid(form)
+#//////////////////////////////////////////////////
+class BioTable(APIView):
+    def get(self, request):
+        bio = Bio.objects.all()
+        bioserializer = BioSerializers(bio, many=True)
+        return Response(bioserializer.data)
 
+    def post(self,request,**kwargs):
+        serializer=BioSerializers(data=request.data)
+        if serializers.is_valid():
+            serializers.save(owner=request.user)
+            return Response(serializers.data,status=status.HTTP_201_CREATED)
+        return Response(serializers.errors, status=status.HTTP_400_BAD_REQUEST)
+#//////////////////////////////////////////////////
 class BioDeleteView(LoginRequiredMixin,DeleteView):
     model = Bio
     template_name = 'bios/bio_delete.html'
