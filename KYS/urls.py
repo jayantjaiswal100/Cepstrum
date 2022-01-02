@@ -37,6 +37,7 @@ urlpatterns = [
     url('alumni/', include('alumni.urls')),
     url('celebration/', include('celebration.urls')),
     url('paperman/', include('paperman.urls')),
+    url('timetable/', include('timetable.urls')),
     url(r'^test/',views.TestPage.as_view(),name='test'),
     url(r'^thanks/',views.ThanksPage.as_view(),name='thanks'),
 
