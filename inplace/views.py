@@ -15,7 +15,7 @@ class InplaceListView(ListView):
     ordering = ['-created_at']
 
 
-class PostDetailView(DetailView):
+class InplaceDetailView(DetailView):
     model = Post
     template_name = "inplace/inplace_detail.html"
 

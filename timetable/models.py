@@ -4,7 +4,8 @@ from django.db import models
 days=['mon','tue','wed','thur','fri']
 slots=['8_9','9_10','10_11','11_12','12_1','2_3','3_4','4_5']
 class Timetable(models.Model):
-    roll_number=models.IntegerField(primary_key=True)
+    year=models.IntegerField(primary_key=True)
+    branch=models.IntegerField(default=0)
     mon_8_9 = models.CharField(max_length=41, default='', blank=True)
     mon_9_10 = models.CharField(max_length=41, default='', blank=True)
     mon_10_11 = models.CharField(max_length=41, default='', blank=True)
