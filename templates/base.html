@@ -53,7 +53,30 @@ NavItem{
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent" >
-      <ul class="navbar-nav ml-auto mb-2 mb-lg-0" style="font-size: 1.5em;">
+      <ul class="navbar-nav ml-auto mb-2 mb-lg-0">
+        
+        <!-- <li class="nav-item dropdown active" class="">
+          <a class="nav-link dropdown-toggle" href="" id="dropdownMenuButton" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Initiatives
+          </a>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" href="{% url 'inphase:all' %}">Inphase</a>
+            <a class="dropdown-item" href="{% url 'inplace:all' %}">Inplace</a>
+            <a class="dropdown-item" href="{% url 'inked_intellects:all' %}">Inked Intellects</a>
+            <a class="dropdown-item" href="{% url 'paperman:all' %}">Paperman</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown active" class="">
+          <a class="nav-link dropdown-toggle" href="" id="dropdownMenuButton" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Events
+          </a>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" href="{% url 'celebration:all' %}">Celebrations</a>
+          </div>
+        </li> -->
+        <li class="nav-item active NavItem mx-3">
+          <a class="nav-link" aria-current="page" href="{% url 'home' %}">Home</a>
+        </li>
         {% if user.is_authenticated %}
         <li class="nav-item dropdown active" class="">
           <a class="nav-link dropdown-toggle" href="" id="dropdownMenuButton" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -90,30 +113,11 @@ NavItem{
         {% else %}
 
         {% endif %}
-        <!-- <li class="nav-item dropdown active" class="">
-          <a class="nav-link dropdown-toggle" href="" id="dropdownMenuButton" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Initiatives
-          </a>
-          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <a class="dropdown-item" href="{% url 'inphase:all' %}">Inphase</a>
-            <a class="dropdown-item" href="{% url 'inplace:all' %}">Inplace</a>
-            <a class="dropdown-item" href="{% url 'inked_intellects:all' %}">Inked Intellects</a>
-            <a class="dropdown-item" href="{% url 'paperman:all' %}">Paperman</a>
-          </div>
-        </li>
-        <li class="nav-item dropdown active" class="">
-          <a class="nav-link dropdown-toggle" href="" id="dropdownMenuButton" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Events
-          </a>
-          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <a class="dropdown-item" href="{% url 'celebration:all' %}">Celebrations</a>
-          </div>
-        </li> -->
-        <li class="nav-item active NavItem mx-3">
-          <a class="nav-link" aria-current="page" href="{% url 'home' %}">Home</a>
-        </li>
         <li class="nav-item active NavItem mx-3">
           <a class="nav-link" aria-current="page" href="{% url 'inphase:all' %}">Initiatives</a>
+        </li>
+        <li class="nav-item active NavItem mx-3">
+          <a class="nav-link" aria-current="page" href="{% url 'timetable:index' %}">Timetable</a>
         </li>
         <li class="nav-item active NavItem mx-3">
           <a class="nav-link" aria-current="page" href="{% url 'celebration:all' %}">Events</a>
@@ -121,15 +125,20 @@ NavItem{
         <li class="nav-item active NavItem mx-3">
           <a class="nav-link" aria-current="page" href="{% url 'team:all' %}">Team</a>
         </li>
+        {% if 'AR' in user.groups.all.0.name %}
+        <li class="nav-item active NavItem mx-3">
+          <a class="nav-link" aria-current="page" href="{% url 'timetable:adminpanel' %}">Timetable Admin</a>
+        </li>
+        {% endif %}
       </ul>
-      <!-- <ul class="navbar-nav ml-auto">
+      <ul class="navbar-nav ml-auto">
         {% if user.is_authenticated %}
-        <li class="nav-item"><a class="nav-link" href="{% url 'accounts:logout' %}">LOGOUT</a></li>
+        <li class="nav-item active"><a class="nav-link" href="{% url 'accounts:logout' %}">LOGOUT</a></li>
         {% else %}
-        <li class="nav-item"><a class="nav-link" href="{% url 'accounts:login' %}">Login</a></li>
+        <li class="nav-item active"><a class="nav-link" href="{% url 'accounts:login' %}">Login</a></li>
         {% endif %}
     </div>
-      </ul> -->
+      </ul> 
 
     </div>
   </div>

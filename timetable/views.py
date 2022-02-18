@@ -9,6 +9,8 @@ from django.contrib.auth.models import User
 from django.contrib.auth import authenticate
 from django.contrib import auth
 from django.contrib import messages
+from django.views.generic import TemplateView
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 days=['mon','tue','wed','thur','fri']
 slots=['8_9','9_10','10_11','11_12','12_1','2_3','3_4','4_5']
@@ -45,29 +47,32 @@ def showtable(request):
         # return HttpResponseRedirect('/')
 
 
-def adminpanel(request):
-    if (request.user.is_authenticated):
-        return render(request,'timetable/admin.html')
-    else:
-        return redirect('timetable/login')
+class TimetableAdminView(TemplateView,LoginRequiredMixin):
+    template_name = "timetable/admin.html"
 
-def logout(request):
-    auth.logout(request)
-    return redirect('/timetable')
+# def adminpanel(request):
+#     if (request.user.is_authenticated):
+#         return render(request,'timetable/admin.html')
+#     else:
+#         return redirect('timetable/login')
 
-def login(request):
-    if (request.method == "POST"):
-        username = request.POST['username']
-        password = request.POST['password']
+# def logout(request):
+#     auth.logout(request)
+#     return redirect('/timetable')
 
-        user = authenticate(username = username, password = password)
-        if user is not None:
-            auth.login(request, user)
-            return redirect('adminpanel')
-        else:
-            return render(request,'timetable/login.html',{"invalid":True})
-    else:
-        return render(request, 'timetable/login.html')
+# def login(request):
+#     if (request.method == "POST"):
+#         username = request.POST['username']
+#         password = request.POST['password']
+
+#         user = authenticate(username = username, password = password)
+#         if user is not None:
+#             auth.login(request, user)
+#             return redirect('adminpanel')
+#         else:
+#             return render(request,'timetable/login.html',{"invalid":True})
+#     else:
+#         return render(request, 'timetable/login.html')
 
 def submit(request):
     lower=int(request.POST['lower'])
@@ -118,4 +123,4 @@ def submit(request):
             fri_3_4 = getslots[ 38 ],
             fri_4_5 = getslots[ 39 ],
         )
-    return redirect('adminpanel')
+    return redirect('timetable:adminpanel')
