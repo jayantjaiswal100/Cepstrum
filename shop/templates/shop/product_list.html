@@ -1,0 +1,55 @@
+{% extends 'base.html' %} {% block css %}
+<style>
+    .card {
+        color: black;
+    }
+</style>
+{% endblock %} {% block content %} {% load static %}
+<div class="container">
+    <br><br><br><br>
+
+    <!--Slideshow starts here -->
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+        {% for i in product_list %}
+        <div class="col">
+            <div class="card">
+                <img src="{{i.pic.url}}" class="card-img-top" alt="..." height="50%">
+                <div class="card-body">
+                    <h5 class="card-title">{{i}}</h5>
+                    <h5 class="card-title">{{i.price}}</h5>
+                    <details>
+                        <summary>Description</summary>
+                        <p>{{i.desc|safe}}</p>
+                    </details>
+                    <a href="#" class="btn btn-primary cart">Add to cart</a>
+                </div>
+            </div>
+        </div>
+
+
+
+        {% endfor %}
+    </div>
+</div>
+{% endblock %} {% block js %}
+<script>
+    console.log('working');
+    if (localStorage.getItem('cart') == null) {
+        var cart = {};
+    } else {
+        cart = JSON.parse(localStorage.getItem('cart'));
+    }
+    $('.cart').click(function() {
+        console.log('clicked');
+        var idstr = this.id.toString();
+        console.log(idstr);
+        if (cart[idstr] != undefined) {
+            cart[idstr] = cart[idstr] + 1;
+        } else {
+            cart[idstr] = 1;
+        }
+        console.log(cart);
+        localStorage.setItem('cart', JSON.stringify(cart));
+    });
+</script>
+{% endblock %}

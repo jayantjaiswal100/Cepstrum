@@ -1,0 +1,215 @@
+{% extends 'base.html' %} {% block css %}
+<style>
+    #stripeBtnLabel {
+        font-family: "Helvetica Neue", Helvetica, sans-serif;
+        font-size: 16px;
+        font-variant: normal;
+        padding: 0;
+        margin: 0;
+        -webkit-font-smoothing: antialiased;
+        font-weight: 500;
+        display: block;
+    }
+    
+    #stripeBtn {
+        border: none;
+        border-radius: 4px;
+        outline: none;
+        text-decoration: none;
+        color: #fff;
+        background: #32325d;
+        white-space: nowrap;
+        display: inline-block;
+        height: 40px;
+        line-height: 40px;
+        box-shadow: 0 4px 6px rgba(50, 50, 93, .11), 0 1px 3px rgba(0, 0, 0, .08);
+        border-radius: 4px;
+        font-size: 15px;
+        font-weight: 600;
+        letter-spacing: 0.025em;
+        text-decoration: none;
+        -webkit-transition: all 150ms ease;
+        transition: all 150ms ease;
+        float: left;
+        width: 100%
+    }
+    
+    button:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 7px 14px rgba(50, 50, 93, .10), 0 3px 6px rgba(0, 0, 0, .08);
+        background-color: #43458b;
+    }
+    
+    .stripe-form {
+        padding: 5px 30px;
+    }
+    
+    #card-errors {
+        height: 20px;
+        padding: 4px 0;
+        color: #fa755a;
+    }
+    
+    .stripe-form-row {
+        width: 100%;
+        float: left;
+        margin-top: 5px;
+        margin-bottom: 5px;
+    }
+    /**
+ * The CSS shown here will not be introduced in the Quickstart guide, but shows
+ * how you can use CSS to style your Element's container.
+ */
+    
+    .StripeElement {
+        box-sizing: border-box;
+        height: 40px;
+        padding: 10px 12px;
+        border: 1px solid transparent;
+        border-radius: 4px;
+        background-color: white;
+        box-shadow: 0 1px 3px 0 #e6ebf1;
+        -webkit-transition: box-shadow 150ms ease;
+        transition: box-shadow 150ms ease;
+    }
+    
+    .StripeElement--focus {
+        box-shadow: 0 1px 3px 0 #cfd7df;
+    }
+    
+    .StripeElement--invalid {
+        border-color: #fa755a;
+    }
+    
+    .StripeElement--webkit-autofill {
+        background-color: #fefde5 !important;
+    }
+    
+    .current-card-form {
+        display: none;
+    }
+</style>
+{% endblock css %} {% block content %}
+
+<main>
+    <div class="container wow fadeIn">
+
+        <h2 class="my-5 h2 text-center">Payment</h2>
+
+
+
+        <!--Grid column-->
+        <div class="col-md-12 mb-4">
+
+            <!-- Heading -->
+            <h4 class="d-flex justify-content-between align-items-center mb-3">
+                <span class="text-muted">Your cart</span>
+                <span class="badge badge-secondary badge-pill">{{ order.items.count }}</span>
+            </h4>
+
+            <!-- Cart -->
+            <ul class="list-group mb-3 z-depth-1">
+
+                {% for order_item in order.items.all %}
+                <li class="list-group-item d-flex justify-content-between lh-condensed">
+                    <div>
+                        <h6 class="my-0">{{ order_item.quantity }} x {{ order_item.item.item_name }}</h6>
+                        <small class="text-muted">{{ order_item.item.description }}</small>
+                    </div>
+                    <span class="text-muted">{{ order_item.get_final_price }}</span>
+                </li>
+                {% endfor %} {% comment %}
+                <li class="list-group-item d-flex justify-content-between bg-light">
+                    <div class="text-success">
+                        <h6 class="my-0">Promo code</h6>
+                        <small>EXAMPLECODE</small>
+                    </div>
+                    <span class="text-success">-$0</span>
+                </li> {% endcomment %}
+                <li class="list-group-item d-flex justify-content-between">
+                    <span>Total (USD)</span>
+                    <strong>{{ order.get_total_price }}</strong>
+                </li>
+            </ul>
+            <!-- Cart -->
+
+        </div>
+        <div class="row">
+
+            <div class="col-md-12 mb-4">
+                <div class="card">
+                    <button id="rzp-button1">Pay</button>
+                    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+                    <script>
+                        var options = {
+                            "key": "rzp_test_5yvtSG4kkzANL2", // Enter the Key ID generated from the Dashboard    
+                            "amount": "{{ order.get_total_price }}", // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise    
+                            "currency": "INR",
+                            "name": "Acme Corp",
+                            "description": "Test Transaction",
+                            "image": "https://example.com/your_logo",
+                            "order_id": "{{order.order_id}}", //This is a sample Order ID. Pass the `id` obtained in the response of Step 2    
+                            "handler": function(response) {
+                                alert(response.razorpay_payment_id);
+                                fetch(`/shop/payment/razorpay/`, {
+                                        method: "POST",
+                                        body: JSON.stringify({
+                                            stripe_id: response.razorpay_payment_id
+                                        }),
+                                        headers: {
+                                            "Content-Type": "application/json",
+                                        },
+                                        credentials: "include"
+                                    }).then(res => res.json()).then(data => {
+                                        alert(data.message)
+                                    }).catch(err => {
+                                        if (err.message) {
+                                            alert(err.message);
+                                            return;
+                                        }
+                                        alert(err.response.data || err.message)
+                                    })
+                                    // alert(response.razorpay_order_id);
+                                    // alert(response.razorpay_signature)
+                            },
+                            "prefill": {
+                                "name": "Gaurav Kumar",
+                                "email": "gaurav.kumar@example.com",
+                                "contact": "9999999999"
+                            },
+                            "notes": {
+                                "address": "Razorpay Corporate Office"
+                            },
+                            "theme": {
+                                "color": "#3399cc"
+                            }
+                        };
+                        var rzp1 = new Razorpay(options);
+                        rzp1.on('payment.failed',
+                            function(response) {
+                                alert(response.error.code);
+                                alert(response.error.description);
+                                alert(response.error.source);
+                                alert(response.error.step);
+                                alert(response.error.reason);
+                                alert(response.error.metadata.order_id);
+                                alert(response.error.metadata.payment_id);
+                            });
+                        document.getElementById('rzp-button1').onclick = function(e) {
+                            rzp1.open();
+                            e.preventDefault();
+                        }
+                    </script>
+
+
+
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</main>
+
+{% endblock content %} {% block js %} {% endblock js %}
