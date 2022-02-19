@@ -1,0 +1,10 @@
+{% extends 'base.html' %} {% block content %} {% for i in order_list %} {% for j in payment_list %} {% if i.user == user and j.user == user %}
+<br><br><br><br><br>
+<h1>order</h1>
+<p>{{i}}</p>
+<p>{{i.user}}</p>
+<p>{{i.order_id}}</p>
+<p>{{i.ordered}}</p>
+<h1>payment</h1>
+<p>{{j.stripe_id}}</p>
+{% endif %} {% endfor %} {% endfor %} {% endblock content %}

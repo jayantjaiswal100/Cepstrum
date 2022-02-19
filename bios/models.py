@@ -75,7 +75,7 @@ class Bio(models.Model):
     facebook = models.URLField(name='facebook',default=None,null=True)
     linkedin = models.URLField(name='linkedin',default=None,null=True)
     instagram = models.URLField(name='instagram',default=None,null=True)
-    picture = models.CharField(name='picture',max_length=500)
+    picture = models.ImageField(upload_to='bio', height_field=None, width_field=None, max_length=None)
     published_date = models.DateTimeField(default=timezone.now)
     updated_date = models.DateTimeField(blank=True, null=True)
 

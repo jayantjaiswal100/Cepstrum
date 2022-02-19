@@ -26,6 +26,11 @@
                         {% csrf_token %}
                         <!--address-->
                         <div class="md-form mb-5">
+                            {{ form.name }}
+                            <label for="address-2" class="">Name You want on the Item</label>
+                        </div>
+
+                        <div class="md-form mb-5">
                             {{ form.street_address }}
                             <label for="address" class="">Address</label>
                         </div>

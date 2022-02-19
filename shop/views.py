@@ -28,6 +28,16 @@ class HomeView(ListView):
     template_name = "shop/home.html"
 
 
+class AccountListView(ListView,LoginRequiredMixin):
+    model = Order
+    template_name = "shop/cartdetail.html"
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["payment_list"] = Payment.objects.all()
+        return context
+    
+
+
 class ProductView(DetailView):
     model = Item
     template_name = "shop/product.html"
@@ -64,6 +74,7 @@ class CheckoutView(View):
                 street_address = form.cleaned_data.get('street_address')
                 apartment_address = form.cleaned_data.get('apartment_address')
                 country = form.cleaned_data.get('country')
+                name = form.cleaned_data.get('name')
                 zip = form.cleaned_data.get('zip')
                 data = { "amount": int(order.get_total_price() * 100), "currency": "INR"}
                 
@@ -77,7 +88,8 @@ class CheckoutView(View):
                     street_address=street_address,
                     apartment_address=apartment_address,
                     country=country,
-                    zip=zip
+                    zip=zip,
+                    name=name
                 )
                 
                 checkout_address.save()

@@ -12,6 +12,11 @@ class CheckoutForm(forms.Form):
         'placeholder': '1234 Main St'
     }))
 
+    name = forms.CharField(widget=forms.TextInput(attrs={
+        'class': 'form-control',
+        'placeholder': 'Name you want on the Item'
+    }))
+
     apartment_address = forms.CharField(required=False, widget=forms.TextInput(attrs={
         'class': 'form-control',
         'placeholder': 'Apartment or suite'
