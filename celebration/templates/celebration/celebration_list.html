@@ -1,6 +1,4 @@
-{% extends "base.html" %}
-{% load static %}
-{% block css %}
+{% extends "base.html" %} {% load static %} {% block css %}
 <style>
     .carousel-item {
         height: 100vh;
@@ -9,25 +7,23 @@
         -moz-background-size: cover;
         -o-background-size: cover;
         background-size: cover;
-
     }
-
+    
     .content {
         text-align: center;
         padding-top: 5%;
         padding-right: 4%;
         padding-left: 60%;
         color: white;
-
     }
-
+    
     .carousel-item-content {
         /* margin-top: 20%;
     margin-left: 15%;
     margin-right: 30%; */
         font-size: 24px;
     }
-
+    
     .carousel-item-screen {
         color: white;
         background-color: rgba(0, 0, 0, 0.6);
@@ -35,7 +31,7 @@
         height: 100%;
         padding: 15% 20% 0 15%;
     }
-
+    
     .tabs-secondary {
         float: right;
         padding-top: 7%;
@@ -44,38 +40,19 @@
         color: white;
         line-height: 200%;
     }
-
+    
     .link-tab {
         color: #CCCCCC;
         text-decoration: none;
     }
-
+    
     .link-active {
         color: white;
         font-weight: bold;
     }
-
-#pics {
-    color: white;
-    background-color: transparent;
-    border-radius: 15px;
-    font-size: 30px;
-    font-family: monospace;
-    box-shadow: 5px 5px 10px 10px rgba(0,0,0,0.5);
-    transition: 0.2s all;
-    padding: 0px 10px;
-}
-
-#pics:hover {
-    background-color: blueviolet;
-    color: white;
-    transform: scale(0.98);
-}
-
 </style>
 
-{% endblock %}
-{% block carousel %}
+{% endblock %} {% block carousel %}
 <div id="carouselExampleIndicators" class="carousel slide my-carousel
     my-carousel" data-ride="carousel">
     <ol class="carousel-indicators">
@@ -94,79 +71,17 @@
         <div class="carousel-item {% if i.id == 3 %}active{% else %}{% endif %}" style="background-image:
         url('{{i.pic.url}}'); opacity: 0.8;">
 
-                <div class="tabs-secondary">
-                    <a class="link-tab link-active" href="{% url 'celebration:all' %}">Celebrations</a><br>
-                    <a class="link-tab" href="">Lectures</a>
-                </div>
             <div class="carousel-item-screen">
 
-                
+
 
                 <div class="carousel-item-content">
-                {% if i.id == 1 %}
-                <h1><b>Fresher's <br> Party </b> </h1>
-                <br>
-                <p>
-                    Cepstrum hosts a welcoming Fresher's Party for the EEE department freshers, which provides the perfect 
-                    opportunity to the First Yearites to bond with the Seniors, as well as with each other and also show 
-                    their talents. This event is the one-stop for delicious food, dance, music, hilarious games and loads 
-                    of fun. Exciting party themes, like 'Juxtapose' in 2016, and 'Mr and Miss Fresher' competition are the 
-                    most enthusiastic parts of the party.
-                </p>
-
-                {% elif i.id == 2 %}
-                <h1><b>Teacher's <br> Day </b> </h1>
-                <br>
-                <p>
-                    A teacher can inspire hope, ignite the imagination and instill a love for learning. While teachers play a 
-                    crucial role in every student's life, a student's words of appreciation kindles joy in their hearts. To 
-                    honour the contributions of the teachers in taking a student from the darkness of ignorance to the light 
-                    of knowledge, Cepstrum celebrates Teacher's day by decorating the department and letting our teachers 
-                    know how much they mean to us.
-                </p>
-
-                {% elif i.id == 3 %}
-                <h1><b>Farewell <br> Party </b> </h1>
-                <br>
-                <p>
-                    The four years of Engineering College are filled with thrilling experiences that can never be forgotten, 
-                    memories that will always be cherished and secrets that will always be kept. Cepstrum adds to this 
-                    special journey by hosting a fun-filled farewell party for the nostalgic fourth yearites who are set 
-                    to explore further endeavors in life.
-                </p>
-
-                {% elif i.id == 4 %}
-                <h1><b>Professor's <br> Farewell </b> </h1>
-                <br>
-                <p>
-                    The professors of EEE Department are the most unforgettable not only because of their incomparable wit, 
-                    insights and achievements, but also for the unique experiences they share with the students. The 
-                    student-professor bond is truly unique and is always admired by both and Cepstrum honours the 
-                    contributions of the leaving Professor by hosting a farewell which enhances this admiration. With 
-                    the culmination of academic year 2016-17, Cepstrum bade farewell to among the most prolific and 
-                    unforgettable professor, Prof. Amit Sethi that IIT Guwahati has ever witnessed.
-                </p>
-
-                {% elif i.id == 5 %}
-                <h1><b>Remembering the <br> Pioneers </b> </h1>
-                <br>
-                <p>
-                    Certain ideas, inventions and discoveries have been the most remarkable contributions and can never be 
-                    forgotten for its revolutionary impact on mankind. To commemorate these legends, Cepstrum celebrates the 
-                    birthdays of great scientists who shaped our world. Thomas A. Edison is one such legend. To venerate his 
-                    170th Birthday, Cepstrum had put up decorations around the department on 11th February. (The bulb used in 
-                    the decorations was a real one lit up from behind by LEDs and a Lipo Battery)
-                </p>
-                {% else %}
-                {% endif %}
+                    {{i.desc}}
                 </div>
                 <br>
-                <br>
 
-                <a href="{% url 'celebration:celebration_detail' i.id %}">
-                    <button id="pics">
-                        See Pics
-                    </button>
+                <a href="{% url 'celebration:celebration_detail' i.id %}" class="btn btn-outline-info">
+                   See Pics
                 </a>
 
 

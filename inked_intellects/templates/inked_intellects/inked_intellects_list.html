@@ -1,21 +1,115 @@
-{% extends 'base.html' %}
+{% extends 'base.html' %} {% load static %} {% block css %}
+<style>
+    .carousel-item {
+        height: 100vh;
+        background: no-repeat center center scroll;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+    }
+    
+    .content {
+        text-align: center;
+        padding-top: 5%;
+        padding-right: 4%;
+        padding-left: 60%;
+        color: white;
+    }
+    
+    .carousel-item-content {
+        /* margin-top: 20%;
+  margin-left: 15%;
+  margin-right: 30%; */
+        font-size: 24px;
+    }
+    
+    .carousel-item-screen {
+        color: white;
+        background-color: rgba(0, 0, 0, 0.6);
+        width: 100%;
+        height: 100%;
+        padding: 15% 20% 0 15%;
+    }
+    
+    .link-button {
+        color: white;
+        background-color: #555555;
+        display: inline-block;
+        text-decoration: none;
+        padding: 5px 10px;
+        border-radius: 5px;
+    }
+    
+    .link-button:hover {
+        text-decoration: none;
+        color: white;
+        background-color: #222222;
+        display: inline-block;
+        text-decoration: none;
+        padding: 5px 10px;
+        border-radius: 5px;
+    }
+</style>
 
-{% block content %}
+{% endblock %} {% block carousel %}
+<div id="carouselExampleIndicators" class="carousel slide my-carousel
+    my-carousel" data-ride="carousel">
+    <ol class="carousel-indicators">
+        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+    </ol>
+    <div class="carousel-inner" role="listbox">
+        <div class="carousel-item active" style="background-image:
+        url('https://static.theprint.in/wp-content/uploads/2020/03/IITG.jpg');">
+            <div class="carousel-item-screen">
+                <div class="carousel-item-content">
+                    <h1><b>About <br> Inked Intellect </b> </h1>
+                    <br>
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat corporis, natus quos praesentium rerum aspernatur laudantium at nobis cupiditate velit fuga quo repellendus, consequuntur officiis. Repudiandae animi cupiditate cum ea?
+                    </p>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+
+
+
+
+
+        <!-- <div class="carousel-item" data-interval="9000">
+      <video autoplay muted loop width="100%" height="130%" id="myVideo">
+        <source src="https://drive.google.com/uc?export=download&id=1EZyLXoTGOUd2YLC11fzvXRCZ-vTVzta9" type="video/mp4">
+      </video>
+
+    </div> -->
+
+    </div>
+
+
+</div>
+
+{% endblock %} {% block content %}
 <br><br><br><br>
 
 <div class="container" style="align-items: center;">
-{% for i in inked_list %}
-    
-<div class="col">
-<div class="card mb-3" style="max-width: 90%;">
-    <img src="{{i.pic.url}}" class="card-img-top" alt="...">
-    <div class="card-body">
-        <a href="{% url 'inked_intellects:detail' i.id %}"><h5 class="card-title" style="color: black;">{{i.title}}</h5></a>
-        <p class="card-text"><small class="text-muted">Last updated on {{i.created_at}}</small></p>
+    {% for i in inked_list %}
+
+    <div class="col">
+        <div class="card mb-3" style="max-width: 90%;">
+            <img src="{{i.pic.url}}" class="card-img-top" alt="...">
+            <div class="card-body">
+                <a href="{% url 'inked_intellects:detail' i.id %}">
+                    <h5 class="card-title" style="color: black;">{{i.title}}</h5>
+                </a>
+                <p class="card-text"><small class="text-muted">Last updated on {{i.created_at}}</small></p>
+            </div>
+        </div>
     </div>
-</div>
-</div>
-{% endfor %}
+    {% endfor %}
 </div>
 {% endblock content %}
-    
