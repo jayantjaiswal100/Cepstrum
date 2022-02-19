@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body{
+            background-color:#022E57;
+        }
+        .card{
+            text-align: center;
+            display:block;
+            margin-top:10%;
+            
+        }
+        .card .content
+        {
+            font-size: 20px;
+            font-family: sans-serif;
+
+            margin: 0 auto;
+            padding:20px;
+            width:200px;
+           
+            background-color:#FFF5FD;
+            border-radius:12px ;
+            
+            box-shadow:  0px 0px 10px 3px #022E57;
+        }
+        .buttons
+        {
+            margin-top:20px;
+        }
+        .buttons button{
+            width: 80px;
+            height: 30px;
+            margin:8px;
+            border: none;
+            border-radius: 12px;
+        }
+        .yes
+        {
+            background-image: linear-gradient(to bottom,rgb(185, 173, 255),rgb(38, 0, 255));
+            color:#fff;
+        }
+        .no{
+            background-image: linear-gradient(to bottom,rgb(185, 173, 255),rgb(38, 0, 255));
+            color: #fff;
+        }
+        button:hover{
+            cursor: pointer;
+        }
+    </style>
+    <title></title>
+</head>
+<body>
+    <div class="card">
+        <div class="content">
+        Do you comfirm that you wish to pay <br><b>&#8377<span class="amount"></span></b><br>for <b><span class="event"></span></b><br> to Cepstrum?
+        <div class="buttons">
+        <button id="pay-btn" class="yes">Yes</button>
+        <a href="../"><button class="no">No</button></a>
+    </div>
+    </div>
+    </div>
+
+     <!-- Razorpay's Javascript code. -->
+  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+  <script>
+    document.getElementsByClassName("amount")[0].innerHTML=localStorage.getItem("amount");
+    document.getElementsByClassName("event")[0].innerHTML=localStorage.getItem("event");
+    var options = {
+       
+      // Enter the Key ID generated from the Dashboard
+      key: "rzp_test_f181UKm4iVSHUy",
+       
+      // Amount is in currency subunits.
+      // Default currency is INR. Hence,
+      // 50000 refers to 50000 paise
+      amount: (localStorage.getItem("amount"))*100,
+      currency: "INR",
+       
+      // Your/store name.
+      name: "Dj Razorpay",
+       
+      // Pass the `id` obtained in the response of Step 1
+      order_id: "{{ razorpay_order_id }}",
+      callback_url: "{{ callback_url }}",
+    };
+     
+    // initialise razorpay with the options.
+    var rzp1 = new Razorpay(options);
+     
+    // add event listener to the payment button.
+    document.getElementById("pay-btn").onclick = function (e) {
+      rzp1.open();
+      e.preventDefault();
+    };
+    
+  </script>
+</body>
+</html>

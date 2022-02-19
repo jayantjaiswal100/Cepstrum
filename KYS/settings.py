@@ -55,6 +55,8 @@ INSTALLED_APPS = [
     'paperman',
     'celebration',
     'timetable',
+    'donation',
+    'payment',
     'shop',
     'inked_intellects',
     'django_filters',
@@ -191,3 +193,8 @@ EMAIL_HOST_PASSWORD = 'fayhkxjaetdxeyvc'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 DEFAULT_FROM_EMAIL = 'Cepstrum Team <jayantjaiswal2908@gmail.com>'
+
+# Razorpay key for Donation Portal
+RAZOR_KEY_ID = 'rzp_test_f181UKm4iVSHUy'
+
+RAZOR_KEY_SECRET = 'lNmG9wx8LPbDNqIKIPCDcZ6B'

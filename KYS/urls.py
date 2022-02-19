@@ -20,6 +20,7 @@ from django.conf.urls import include,url
 from django.conf import settings
 from django.conf.urls.static import static
 from . import views
+from payment.views import homepage,paymenthandler
 
 urlpatterns = [
     url(r'^$',views.HomePage.as_view(),name='home'),
@@ -38,6 +39,9 @@ urlpatterns = [
     url('celebration/', include('celebration.urls')),
     url('paperman/', include('paperman.urls')),
     url('timetable/', include('timetable.urls')),
+    url('donation/',include('donation.urls')),
+    path('payment/', homepage, name = 'payment'),
+    path('paymenthandler/', paymenthandler, name = 'paymenthandler'),
     url('shop/', include('shop.urls')),
     url(r'^test/',views.TestPage.as_view(),name='test'),
     url(r'^thanks/',views.ThanksPage.as_view(),name='thanks'),
