@@ -66,14 +66,13 @@
     </ol>
     <div class="carousel-inner" role="listbox">
         <div class="carousel-item active" style="background-image:
-        url('https://live.staticflickr.com/7415/11546057593_1f49a71617_b.jpg'); opacity: 0.8;">
+        url('{% block navimg %}https://live.staticflickr.com/7415/11546057593_1f49a71617_b.jpg{% endblock navimg %}'); opacity: 0.8;">
             <div class="carousel-item-screen">
                 <div class="carousel-item-content">
-                    <h1><b>Know Ur Seniors</b> </h1>
-                    <br>
-                    <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem alias neque distinctio sapiente magni beatae pariatur. Placeat veritatis consequuntur ab odit ullam ut nobis repellat eius omnis aut! Aperiam, placeat!
-                    </p>
+
+                    {% block navcontent %} {% endblock navcontent %}
+
+
                 </div>
 
 

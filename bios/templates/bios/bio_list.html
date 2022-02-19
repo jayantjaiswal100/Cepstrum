@@ -1,10 +1,20 @@
-{% extends "bios/bio_base.html" %} {% load static %} {% load humanize %} {% load bootstrap %} {% block prepost %} {% if user.is_authenticated %} {% if bio_list %}
+{% extends "bios/bio_base.html" %} {% load static %} {% load humanize %} {% load bootstrap %} {% block navcontent %}
+<h1><b>Know Ur Seniors</b> </h1>
+<br>
+<p>
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem alias neque distinctio sapiente magni beatae pariatur. Placeat veritatis consequuntur ab odit ullam ut nobis repellat eius omnis aut! Aperiam, placeat!
+</p>
+<center>
+
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+        Filter
+      </button>
+</center>
+{% endblock navcontent %} {% block prepost %} {% if user.is_authenticated %} {% if bio_list %}
 
 
 <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-	Filter
-  </button>
+
 
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" style="color: black;">
