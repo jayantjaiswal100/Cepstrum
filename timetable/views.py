@@ -17,7 +17,7 @@ slots=['8_9','9_10','10_11','11_12','12_1','2_3','3_4','4_5']
 
 
 def index(request):
-    return render(request,'timetable/index.html')
+    return render(request,"timetable/index.html")
 
 def showtable(request):
     roll=request.GET['rollNumber']

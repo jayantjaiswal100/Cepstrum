@@ -19,8 +19,8 @@
     }
     
     body {
-        background-color: black;
-        color: white;
+        background-color: white;
+        color: black;
     }
     
     NavItem {
@@ -30,11 +30,13 @@
 
 {% block css %} {% endblock css %}
 
+
+
 <body>
     <!-- loader -->
 
     <!-- loaderend -->
-    <nav class="my-nav navbar navbar-expand-lg navbar-dark">
+    <nav class="my-nav navbar navbar-expand-lg {% block navbar %}navbar-dark{% endblock navbar %}">
         <div class="container-fluid">
             <a class="navbar-brand" href="{% url 'home' %}"> <img src="https://www.iitg.ac.in/cepstrum/common/logo.svg" width="40%" height="40%" alt=""></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -95,14 +97,18 @@
                         </div>
                     </li>
                     {% else %} {% endif %}
-                    <li class="nav-item active NavItem mx-3">
-                        <a class="nav-link" aria-current="page" href="{% url 'inphase:all' %}">Initiatives</a>
-                    </li>
-                    <li class="nav-item active NavItem mx-3">
-                        <a class="nav-link" aria-current="page" href="{% url 'timetable:index' %}">Timetable</a>
-                    </li>
-                    <li class="nav-item active NavItem mx-3">
-                        <a class="nav-link" aria-current="page" href="{% url 'core:home' %}">Merchendise</a>
+                    <li class="nav-item dropdown active" class="">
+                        <a class="nav-link dropdown-toggle" href="" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Initiatives
+          </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="{% url 'inphase:all' %}">Inphase</a>
+                            <a class="dropdown-item" href="{% url 'inplace:all' %}">Inplace</a>
+                            <a class="dropdown-item" href="{% url 'paperman:all' %}">PaperMan</a>
+                            <a class="dropdown-item" href="{% url 'inked_intellects:all' %}">Inked Intelect</a>
+                            <a class="dropdown-item" href="{% url 'timetable:index' %}">Timetable</a>
+                            <a class="dropdown-item" href="{% url 'core:home' %}">Mechendise</a>
+                        </div>
                     </li>
                     <li class="nav-item active NavItem mx-3">
                         <a class="nav-link" aria-current="page" href="{% url 'celebration:all' %}">Events</a>
