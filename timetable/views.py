@@ -21,10 +21,7 @@ def showtable(request):
     roll=request.GET['rollNumber']
     if(roll==''):
         return HttpResponseRedirect('/timetable')
-    r = roll
     roll=int(roll)
-    print(r[:2])
-    print(r[5])
     if Timetable.objects.filter(roll_number=roll).exists() :
         tt=Timetable.objects.filter(roll_number=roll)
         for i in tt:
@@ -63,8 +60,6 @@ def submit(request):
     lower=int(request.POST['lower'])
     upper=int(request.POST['upper'])
     getslots=request.POST.getlist('slot')
-    print(lower)
-    print(upper)
     for roll in range(lower,upper+1):
         Timetable.objects.filter(roll_number=roll).delete()
         Timetable.objects.update_or_create(
