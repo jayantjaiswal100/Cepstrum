@@ -14,6 +14,7 @@ class Donation(models.Model):
     phone = models.IntegerField()
     amount = models.IntegerField()
     event = models.ForeignKey(Event, on_delete=models.CASCADE)
+    payment_id = models.CharField(max_length=50,default="")
 
     def __str__(self):
         return self.owner.username
