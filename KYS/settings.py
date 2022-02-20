@@ -54,6 +54,10 @@ INSTALLED_APPS = [
     'inplace',
     'paperman',
     'celebration',
+    'timetable',
+    'donation',
+    'payment',
+    'shop',
     'inked_intellects',
     'django_filters',
     'allauth',
@@ -63,6 +67,7 @@ INSTALLED_APPS = [
     'bootstrap3',
     'crispy_forms',
     'bootstrapform',
+    'django_countries',
     'ckeditor',
     'ckeditor_uploader',
     'django_cleanup.apps.CleanupConfig',
@@ -168,7 +173,7 @@ USE_L10N = True
 USE_TZ = True
 
 LOGIN_REDIRECT_URL = 'home'
-LOGOUT_REDIRECT_URL = 'thanks'
+LOGOUT_REDIRECT_URL = 'home'
 LOGIN_URL = 'home'
 
 
@@ -188,3 +193,8 @@ EMAIL_HOST_PASSWORD = 'fayhkxjaetdxeyvc'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 DEFAULT_FROM_EMAIL = 'Cepstrum Team <jayantjaiswal2908@gmail.com>'
+
+# Razorpay key for Donation Portal
+RAZOR_KEY_ID = 'rzp_test_f181UKm4iVSHUy'
+
+RAZOR_KEY_SECRET = 'lNmG9wx8LPbDNqIKIPCDcZ6B'

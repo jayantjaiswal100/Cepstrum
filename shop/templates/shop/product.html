@@ -1,0 +1,82 @@
+{% extends 'shop/base.html' %} {% block navcontent %}
+
+<!--Main layout-->
+
+<div class="container">
+
+    <!--Grid row-->
+    <div class="row">
+
+        <!--Grid column-->
+        <div class="col-md-6 mb-4">
+
+            <img src="{{object.pic.url}}" class="img-fluid" alt="">
+            <div style="padding-top: 10%;">
+                {% if user.is_authenticated %}
+                <a href="{{ object.get_add_to_cart_url }}" class="btn btn-primary btn-md my-0 p">Add to cart
+                <i class="fas fa-shopping-cart ml-1"></i>
+            </a> {{ object.get_quantity_in_chart }}
+                <a href="{{ object.get_remove_from_cart_url }}" class="btn btn-danger btn-md my-0 p">Remove From cart
+                <i class="fas fa-trash ml-1"></i>
+            </a> {% else %}
+                <a href="{% url 'account_login' %}" class="btn btn-primary btn-md my-0 p">Login
+                <i class="fas fa-trash ml-1"></i>
+            </a> {% endif %}
+            </div>
+        </div>
+        <!--Grid column-->
+
+        <!--Grid column-->
+        <div class="col-md-6 mb-4">
+
+            <!--Content-->
+            <div class="p-4">
+                <p class="lead">
+
+                    {% if object.discount_price %}
+                    <span class="mr-1">
+              <del>&#8377 {{ object.price }}</del>
+              </span>
+                    <span>&#8377 {{ object.discount_price }}</span> {% else %}
+                    <span>&#8377 {{ object.price }}</span> {% endif %}
+
+                </p>
+
+                <p class="lead font-weight-bold">{{ object.item_name }}</p>
+                <details>
+                    <summary>Item Description</summary>
+                    <h6>{{ object.description }}</h6>
+                </details>
+
+                <br> {% comment %}
+                <form class="d-flex justify-content-left">
+                    <!-- Default input -->
+                    <input type="number" value="1" aria-label="Search" class="form-control" style="width: 100px">
+                    <button class="btn btn-primary btn-md my-0 p" type="submit">Add to cart
+                <i class="fas fa-shopping-cart ml-1"></i>
+              </button>
+
+                </form> {% endcomment %}
+
+            </div>
+            <!--Content-->
+
+        </div>
+        <!--Grid column-->
+
+    </div>
+    <!--Grid row-->
+
+
+    <!--Grid row-->
+
+    <!--Grid row-->
+
+    <!--Grid row-->
+    <!--Grid row-->
+
+</div>
+
+<!--Main layout-->
+
+{% endblock navcontent %}

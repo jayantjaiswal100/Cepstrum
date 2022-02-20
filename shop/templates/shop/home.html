@@ -1,0 +1,93 @@
+{% extends 'shop/base.html' %} {% load cart_template_tags %} {% block navcontent %}
+<h1>Cepstrum's Mechendise</h1>
+<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque eaque sunt saepe quod veniam, earum numquam omnis optio maiores esse blanditiis deserunt, labore voluptatum necessitatibus recusandae aspernatur, nemo quas excepturi?</p>
+
+{% if user.is_authenticated %}
+<a href="{% url 'core:order-summary' %}" class="btn btn-primary">
+    {% if request.user|cart_item_count != 0 %}
+      <span class="badge red z-depth-1 mr-1"> {{ request.user|cart_item_count }} </span>
+    {% else %}
+    <span class="badge red z-depth-1 mr-1"> 0 </span>
+    {% endif %}
+    <i class="fas fa-shopping-cart"></i>
+    <span class="clearfix d-none d-sm-inline-block"> Cart </span>
+    </a>
+<a href="{% url 'core:my_cart' %}" class="btn btn-primary">
+    <i class="fas fa-shopping-cart"></i>
+    <span class="clearfix d-none d-sm-inline-block"> My orders </span>
+</a>{% endif %} {% endblock navcontent %} {% block content %}
+<br><br>
+<main>
+    <div class="container">
+
+        <br><br>
+
+        <!--Section: Products v.3-->
+        <section class="text-center mb-4">
+
+            <!--Grid row-->
+            <div class="row wow fadeIn">
+                {% for item in object_list %}
+                <!--Grid column-->
+                <div class="col-lg-3 col-md-6 mb-4">
+
+                    <!--Card-->
+                    <div class="card">
+
+                        <!--Card image-->
+                        <div class="view overlay">
+                            <img src="{{item.pic.url}}" class="card-img-top" alt="">
+                            <a href="{{ item.get_absolute_url }}">
+                                <div class="mask rgba-white-slight"></div>
+                            </a>
+                        </div>
+                        <!--Card image-->
+                        <!--Card content-->
+                        <div class="card-body text-center">
+                            <!--Category & Title-->
+
+                            <h5>
+                                <strong>
+                    <a href="{{ item.get_absolute_url }}" class="dark-grey-text">{{ item.item_name }}
+                      <span class="badge badge-pill {% if item.get_label_display == 'New' %} danger-color {% else %} primary-color {% endif %}">{{ item.get_label_display }}</span>
+                    </a>
+                  </strong>
+                            </h5>
+
+                            <h4 class="font-weight-bold blue-text" style="color: black;">
+                                <strong>&#8377
+                  {% if item.discount_price %}
+                  {{ item.discount_price }}
+                  {% else %}
+                  {{ item.price }}
+                  {% endif %}
+                  </strong>
+                            </h4>
+
+                        </div>
+                        <!--Card content-->
+
+                    </div>
+                    <!--Card-->
+
+                </div>
+                <!--Grid column-->
+
+                {% endfor %}
+
+
+            </div>
+            <!--Grid row-->
+
+        </section>
+        <!--Section: Products v.3-->
+
+        <!--Pagination-->
+
+        <!--Pagination-->
+
+    </div>
+</main>
+<!--Main layout-->
+
+{% endblock %}
