@@ -1,96 +1,64 @@
+import json
+from django.http.response import Http404, HttpResponse, JsonResponse
+from dataclasses import field
 from django.shortcuts import render
 import razorpay
+from django.utils.decorators import method_decorator
+from django.views.decorators.csrf import csrf_exempt
 from django.conf import settings
 from django.views.decorators.csrf import csrf_exempt
 from django.http import HttpResponseBadRequest
- 
-def home(request):
-    return render(request, 'donation/donation.html')
+from .models import Donation
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.views.generic import TemplateView,ListView, DetailView, CreateView, UpdateView,DeleteView
+from django.urls import reverse_lazy,reverse
+import razorpay
+client = razorpay.Client(auth=("rzp_test_5yvtSG4kkzANL2", "DmdWo45YVkEIfxTObkiw28hx"))
 
+class DonationList(ListView,LoginRequiredMixin):
+    model = Donation
+    context_object_name = 'dp_list'
+    template_name='donation/list.html'
 
-    
-    
+class DonationCreateView(CreateView,LoginRequiredMixin):
+    model = Donation
+    template_name = "donation/index.html"
+    fields = ('phone','event','amount',)
 
-# authorize razorpay client with API Keys.
-razorpay_client = razorpay.Client(
-    auth=(settings.RAZOR_KEY_ID, settings.RAZOR_KEY_SECRET))
- 
- 
-def homepage(request):
-    
-    currency = 'INR'
-    amount = 200
-    # Create a Razorpay Order
-    razorpay_order = razorpay_client.order.create(dict(amount=amount,
-                                                       currency=currency,))
-    # order id of newly created order.
-    razorpay_order_id = razorpay_order['id']
-    callback_url = 'paymenthandler/'
- 
-    # we need to pass these details to frontend.
-    context = {}
-    context['razorpay_order_id'] = razorpay_order_id
-    context['razorpay_merchant_key'] = settings.RAZOR_KEY_ID
-    context['razorpay_amount'] = amount
-    context['currency'] = currency
-    context['callback_url'] = callback_url
+    def get_success_url(self):
+        return reverse('dp:pay', kwargs={'pk' : self.object.pk})
 
-    return render(request, 'donation/confirmation.html')
- 
-    
- 
- 
-# we need to csrf_exempt this url as
-# POST request will be made by Razorpay
-# and it won't have the csrf token.
-@csrf_exempt
-def paymenthandler(request):
- 
-    # only accept POST request.
-    if request.method == "POST":
-        try:
-           
-            # get the required parameters from post request.
-            payment_id = request.POST.get('razorpay_payment_id', '')
-            razorpay_order_id = request.POST.get('razorpay_order_id', '')
-            signature = request.POST.get('razorpay_signature', '')
-            params_dict = {
-                'razorpay_order_id': razorpay_order_id,
-                'razorpay_payment_id': payment_id,
-                'razorpay_signature': signature
-            }
- 
-            # verify the payment signature.
-            result = razorpay_client.utility.verify_payment_signature(
-                params_dict)
-            if result is None:
-                amount = 20000  # Rs. 200
-                try:
- 
-                    # capture the payemt
-                    razorpay_client.payment.capture(payment_id, amount)
- 
-                    # render success page on successful caputre of payment
-                    return render(request, 'paymentsuccess.html')
-                except:
- 
-                    # if there is an error while capturing payment.
-                    return render(request, 'paymentfail.html')
-            else:
- 
-                # if signature verification fails.
-                return render(request, 'paymentfail.html')
-        except:
- 
-            # if we don't find the required parameters in POST data
-            return HttpResponseBadRequest()
-    else:
-       # if other than POST request is made.
-        return HttpResponseBadRequest()
-    
-    
+    def form_valid(self, form):
+        form.instance.owner = self.request.user
+        data = { "amount": int(form.instance.amount*100), "currency": "INR" }
+        payment = client.order.create(data=data)
+        form.instance.order_id = payment['id']
+        return super().form_valid(form)
+
+@method_decorator(csrf_exempt,name='dispatch')
+class DonationDetailView(DetailView,LoginRequiredMixin):
+    model = Donation
+    template_name = "donation/confirmation.html"
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["paisa"] = self.object.amount*100
+        return context
+
+    def post(self,request,*args,**kwargs):
+        a = json.loads(request.body.decode('utf-8'))
+        print(a['payment_id'])
+        print(type(self.get_object()))
+        self.get_object().setpaymentid(a['payment_id'])  
+        # self.get_object().save()
+        print(self.get_object().payment_id)
+        return JsonResponse({
+              "message":"Worked fine"
+            })
 
     
+
+
+
 
     
 

@@ -1,0 +1,124 @@
+{% extends 'shop/base.html' %} {% load crispy_forms_tags %} {% block padding %}
+<style>
+    .carousel-item-screen {
+        color: rgb(255, 255, 255);
+        background-color: rgba(0, 0, 0, 0.6);
+        width: 100%;
+        height: 100%;
+        padding: 10% 10% 10% 1%;
+    }
+</style>
+{% endblock padding %} {% block navcontent %} {% if user.is_authenticated and object.owner == user %}
+
+<main style="color: wheat;">
+    <div class="container">
+        <div class="table-responsive text-nowrap">
+            <h3>
+                <strong>Summary
+                </strong>
+            </h3>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Name of Donor</th>
+                        <th scope="col">{{user.first_name}}</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><b>Contact Number of Donor</b></td>
+                        <td>{{ object.phone }}</td>
+                    </tr>
+                    <tr>
+                        <td><b>Amount Donated</b></td>
+                        <td>&#8377 {{ object.amount }}</td>
+                    </tr>
+                    <tr>
+                        <td><b>Amount Donated for</b></td>
+                        <td> {{ object.event }}</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Payment Id
+                        </td>
+
+                        {% if object.payment_id %}
+                        <td>{{object.payment_id}}</td> {% else %}
+                        <td><button id="rzp-button1">Pay</button></td>
+                        {% endif %}
+
+                    </tr>
+
+
+
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+
+</main>
+{% endif %}
+
+
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+<script>
+    let object_id = "{{ object.id }}";
+    var options = {
+        "key": "rzp_test_5yvtSG4kkzANL2", // Enter the Key ID generated from the Dashboard
+        "amount": "{{paisa}}", // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
+        "currency": "INR",
+        "name": "Acme Corp",
+        "description": "Test Transaction",
+        "image": "https://example.com/your_logo",
+        "order_id": "{{object.order_id}}", //This is a sample Order ID. Pass the `id` obtained in the response of Step 2
+        "handler": function(response) {
+            alert("Please Copy This Transaction ID : " + response.razorpay_payment_id);
+            fetch(`/donation/confirmation/${object_id}`, {
+                    method: "POST",
+                    body: JSON.stringify({
+                        payment_id: response.razorpay_payment_id
+                    }),
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    credentials: "include"
+                }).then(res => res.json()).then(data => {
+                    alert(data.message)
+                }).catch(err => {
+                    if (err.message) {
+                        alert(err.message);
+                        return;
+                    }
+                    alert(err.response.data || err.message)
+                })
+                // alert(response.razorpay_order_id);
+                // alert(response.razorpay_signature)
+        },
+        "prefill": {
+            "name": "{{user.first_name}}",
+            "email": "{{user.email}}",
+            "contact": "{{object.phone}}"
+        },
+        "notes": {
+            "address": "Razorpay Corporate Office"
+        },
+        "theme": {
+            "color": "#3399cc"
+        }
+    };
+    var rzp1 = new Razorpay(options);
+    rzp1.on('payment.failed', function(response) {
+        alert(response.error.code);
+        alert(response.error.description);
+        alert(response.error.source);
+        alert(response.error.step);
+        alert(response.error.reason);
+        alert(response.error.metadata.order_id);
+        alert(response.error.metadata.payment_id);
+    });
+    document.getElementById('rzp-button1').onclick = function(e) {
+        rzp1.open();
+        e.preventDefault();
+    }
+</script> {% endblock navcontent %}

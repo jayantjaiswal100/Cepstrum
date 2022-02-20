@@ -14,6 +14,7 @@ class Donation(models.Model):
     phone = models.IntegerField()
     amount = models.IntegerField()
     event = models.ForeignKey(Event, on_delete=models.CASCADE)
+    order_id = models.CharField(max_length=50,default="")
     payment_id = models.CharField(max_length=50,default="")
 
     def __str__(self):
@@ -21,3 +22,9 @@ class Donation(models.Model):
 
     def __unicode__(self):
         return self.owner.username
+    
+    def setpaymentid(self,id):
+        print('test')
+        print(id)
+        self.payment_id = id
+        self.save()

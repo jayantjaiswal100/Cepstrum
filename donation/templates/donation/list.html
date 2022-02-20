@@ -1,0 +1,67 @@
+{% extends 'shop/base.html' %} {% block navcontent %}
+<main style="color: wheat;">
+    <div class="container">
+        <div class="table-responsive text-nowrap">
+            <h3>
+                <strong>My Donations</strong>
+            </h3>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Item Name</th>
+                        <th scope="col">Price</th>
+                        <th scope="col">Payment ID</th>
+                        <th scope="col">Order Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for i in dp_list %} {% if i.owner == request.user %}
+                    <tr>
+                        <th scope="row">
+
+                            {{i.event}}
+
+
+                        </th>
+                        <td>&#8377 {{ i.amount }}</td>
+                        <td>
+                            {{i.payment_id}}
+
+                        </td>
+                        <td>
+
+                            {% if i.payment_id %} Succesful {% else %} Unsuccesfull {% endif %}
+
+                        </td>
+
+
+                    </tr>
+
+
+
+
+
+
+                    {% endif %} {% endfor %} {% if object.get_total_price %}
+                    <tr>
+                        <td colspan="4"><b>Total Order Price</b></td>
+                        <td>&#8377 {{ object.get_total_price }}</td>
+                    </tr>
+                    <tr>
+                        <td colspan="5">
+                            <a href="{% url 'core:checkout' %}" class="btn btn-warning float-right ml-2">Checkout</a>
+                            <a href="{% url 'core:home' %}" class="btn btn-primary float-right">Continue Shopping</a>
+                        </td>
+                    </tr>
+
+                    {% endif %}
+
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+
+</main>
+
+{% endblock navcontent %}
