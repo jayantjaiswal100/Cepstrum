@@ -15,7 +15,9 @@
 <a href="{% url 'core:my_cart' %}" class="btn btn-primary">
     <i class="fas fa-shopping-cart"></i>
     <span class="clearfix d-none d-sm-inline-block"> My orders </span>
-</a>{% endif %} {% endblock navcontent %} {% block content %}
+</a>
+{% else %}
+<a href="{% url 'account_login' %}" class="btn btn-primary">Login</a>{% endif %} {% endblock navcontent %} {% block content %}
 <br><br>
 <main>
     <div class="container">
