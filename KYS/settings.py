@@ -56,7 +56,6 @@ INSTALLED_APPS = [
     'celebration',
     'timetable',
     'donation',
-    'payment',
     'shop',
     'inked_intellects',
     'django_filters',

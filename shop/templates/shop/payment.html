@@ -149,8 +149,10 @@
                 <div class="card">
 
                     {% if not order.ordered %}{% endif %}
+                    <form action="/">
 
-                    <button id="rzp-button1">Pay</button>
+                        <button id="rzp-button1">Pay</button>
+                    </form>
                     <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
                     <script>
                         var options = {
