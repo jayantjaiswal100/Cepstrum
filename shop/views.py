@@ -33,7 +33,7 @@ class AccountListView(ListView,LoginRequiredMixin):
     template_name = "shop/cartdetail.html"
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context["payment_list"] = Payment.objects.all()
+        context["list"] = zip(Payment.objects.all(),Order.objects.all())
         return context
     
 
@@ -53,7 +53,7 @@ class OrderSummaryView(LoginRequiredMixin, View):
             return render(self.request, 'shop/order_summary.html', context)
         except ObjectDoesNotExist:
             messages.error(self.request, "You do not have an order")
-            return redirect("/")
+            return redirect("core:home")
 
 class CheckoutView(View):
     def get(self, *args, **kwargs):

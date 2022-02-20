@@ -1,16 +1,5 @@
-{% extends 'base.html' %} {% block css %}
-<style>
-    .body {
-        color: white;
-    }
-    
-    .table {
-        color: wheat;
-    }
-</style>
-{% endblock css %} {% block content %}
-<br><br><br>
-<main style="color: white;">
+{% extends 'shop/base.html' %} {% block navcontent %}
+<main style="color: wheat;">
     <div class="container">
         <div class="table-responsive text-nowrap">
             <h3>
@@ -33,7 +22,7 @@
                         <td>{{ order_item.item.item_name }}</td>
                         <td>
                             {% if order_item.item.discount_price %}
-                            <del>${{ order_item.item.price}}</del> ${{ order_item.item.discount_price }} {% else %} ${{ order_item.item.price}} {% endif %}
+                            <del>&#8377 {{ order_item.item.price}}</del> &#8377 {{ order_item.item.discount_price }} {% else %} &#8377 {{ order_item.item.price}} {% endif %}
 
                         </td>
                         <td>
@@ -41,8 +30,8 @@
                             <a href="{% url 'core:add-to-cart' order_item.item.pk %}"><i class="fas fa-plus ml-2"></i></a>
                         </td>
                         <td>
-                            {% if order_item.item.discount_price %} ${{ order_item.get_discount_item_price }}
-                            <span class="badge badge-success">Saved ${{ order_item.get_amount_saved }}</span> {% else %} ${{ order_item.get_total_item_price}} {% endif %}
+                            {% if order_item.item.discount_price %} &#8377 {{ order_item.get_discount_item_price }}
+                            <span class="badge badge-success">Saved &#8377 {{ order_item.get_amount_saved }}</span> {% else %} &#8377 {{ order_item.get_total_item_price}} {% endif %}
                             <a href="{% url 'core:remove-from-cart' order_item.item.pk %}">
                                 <i class="fas fa-trash float-right text-danger"></i>
                             </a>
@@ -57,14 +46,14 @@
 
                     <tr>
                         <td colspan="5">
-                            <a href="/" class="btn btn-primary float-right">Continue Shopping</a>
+                            <a href="{% url 'core:home' %}" class="btn btn-primary float-right">Continue Shopping</a>
                         </td>
                     </tr>
 
                     {% endfor %} {% if object.get_total_price %}
                     <tr>
                         <td colspan="4"><b>Total Order Price</b></td>
-                        <td>${{ object.get_total_price }}</td>
+                        <td>&#8377 {{ object.get_total_price }}</td>
                     </tr>
                     <tr>
                         <td colspan="5">
@@ -82,4 +71,4 @@
     </div>
 </main>
 
-{% endblock content %}
+{% endblock navcontent %}

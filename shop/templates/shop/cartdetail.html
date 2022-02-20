@@ -1,10 +1,71 @@
-{% extends 'base.html' %} {% block content %} {% for i in order_list %} {% for j in payment_list %} {% if i.user == user and j.user == user %}
-<br><br><br><br><br>
-<h1>order</h1>
-<p>{{i}}</p>
-<p>{{i.user}}</p>
-<p>{{i.order_id}}</p>
-<p>{{i.ordered}}</p>
-<h1>payment</h1>
-<p>{{j.stripe_id}}</p>
-{% endif %} {% endfor %} {% endfor %} {% endblock content %}
+{% extends 'shop/base.html' %} {% block navcontent %}
+<main style="color: wheat;">
+    <div class="container">
+        <div class="table-responsive text-nowrap">
+            <h3>
+                <strong>Your Cart</strong>
+            </h3>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Item Name</th>
+                        <th scope="col">Price</th>
+                        <th scope="col">Payment ID</th>
+                        <th scope="col">Order Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for i,j in list %} {% if i.user == j.user and j.user == user %}
+                    <tr>
+                        <th scope="row">
+                            <details>
+                                <summary>{{j.order_id}}</summary>
+                                <p>
+                                    <ul>{% for k in j.items.all %}
+                                        <li>{{k}}</li>{% endfor %}
+                                    </ul>
+                                </p>
+                            </details>
+                        </th>
+                        <td>&#8377 {{ i.amount }}</td>
+                        <td>
+                            {{i.stripe_id}}
+
+                        </td>
+                        <td>
+
+                            {% if j.ordered %} Succesful {% else %} Unsuccesfull {% endif %}
+
+                        </td>
+
+
+                    </tr>
+
+
+
+
+
+
+                    {% endif %} {% endfor %} {% if object.get_total_price %}
+                    <tr>
+                        <td colspan="4"><b>Total Order Price</b></td>
+                        <td>&#8377 {{ object.get_total_price }}</td>
+                    </tr>
+                    <tr>
+                        <td colspan="5">
+                            <a href="{% url 'core:checkout' %}" class="btn btn-warning float-right ml-2">Checkout</a>
+                            <a href="{% url 'core:home' %}" class="btn btn-primary float-right">Continue Shopping</a>
+                        </td>
+                    </tr>
+
+                    {% endif %}
+
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+
+</main>
+
+{% endblock navcontent %}
