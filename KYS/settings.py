@@ -68,6 +68,7 @@ INSTALLED_APPS = [
     'bootstrapform',
     'django_countries',
     'ckeditor',
+    'inplex',
     'ckeditor_uploader',
     'django_cleanup.apps.CleanupConfig',
 ]
