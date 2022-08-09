@@ -31,6 +31,7 @@ urlpatterns = [
     path('ckeditor/', include('ckeditor_uploader.urls')),
     url(r'^accounts/',include('django.contrib.auth.urls')),
     url('bios/', include('bios.urls')),
+    url('inplex/', include('inplex.urls')),
     url('team/', include('team.urls')),
     url('inphase/', include('inphase.urls')),
     url('inplace/', include('inplace.urls')),

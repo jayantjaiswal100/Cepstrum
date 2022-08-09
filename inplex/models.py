@@ -34,6 +34,7 @@ class Company(models.Model):
     profile = models.ManyToManyField(Profile)
     cpi = models.DecimalField(max_digits=5, decimal_places=2)
     eligible_branch = models.ManyToManyField(Branch)
+    stipend = models.CharField(max_length=256,default=0)
 
 
     def __str__(self):
