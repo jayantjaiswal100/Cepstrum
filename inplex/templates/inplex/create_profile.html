@@ -1,9 +1,107 @@
-{% extends "base.html" %}{% load bootstrap %} {% block content %}
+{% extends "base.html" %}{% load bootstrap %}{% load crispy_forms_tags %} {% block css %}
+<style>
+    .carousel-item {
+        height: 100vh;
+        background: no-repeat center center scroll;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+    }
+    
+    .carousel-item-content {
+        /* margin-top: 20%;
+  margin-left: 15%;
+  margin-right: 30%; */
+        font-size: 24px;
+    }
+    
+    .carousel-item-screen {
+        color: white;
+        background-color: rgba(0, 0, 0, 0.6);
+        width: 100%;
+        height: 100%;
+        padding: 10% 7% 0 5%;
+    }
+</style>
 
-<div class="container">
-    <h3>Create a New Bio</h3>
+{% endblock %}{% block carousel %}
+<div id="carouselExampleIndicators" class="carousel slide my-carousel
+my-carousel" data-ride="carousel">
+    <div class="carousel-inner" role="listbox">
+        <div class="carousel-item active" style="background-image: url('/static/inphase/cover.png') ">
+            <!-- <div style="padding-top: 40%; padding-left: 10%;">
+        <button type="button" class="btn btn-secondary btn-lg" data-toggle="modal" data-target=".bd-example-modal-xl">Know more</button>
+
+      </div> -->
+
+            <div class="carousel-item-screen">
+                <div class="carousel-item-content">
+                    <h1>Inplex | Create Your Profile</b>
+                    </h1>
+                    <br>
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo sequi eveniet officia, asperiores deserunt vero numquam dolores assumenda exercitationem a ullam blanditiis at sint nihil suscipit nostrum illo, tempore quaerat.
+                        <br>
+                    </p>
+                </div>
+
+
+            </div>
+        </div>
+
+
+    </div>
+
+</div>
+{% endblock carousel %} {% block content %}
+
+<div class="container"><br><br>
+    <h3>Create Your Inplex Profile </h3>
+    <br><br>
     <form method="POST">
-        {% csrf_token %} {{form.as_p}}
+        {% csrf_token %} {{ form.media }}
+        <div class="form-row">
+            <div class="form-group col-md-6 mb-0">
+                {{ form.name|as_crispy_field }}
+            </div>
+            <div class="form-group col-md-6 mb-0">
+                {{ form.program|as_crispy_field }}
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6 mb-0">
+                {{ form.branch|as_crispy_field }}
+            </div>
+            <div class="form-group col-md-6 mb-0">
+                {{ form.year|as_crispy_field }}
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6 mb-0">
+                {{ form.selected_company|as_crispy_field }}
+            </div>
+            <div class="form-group col-md-6 mb-0">
+                {{ form.profile|as_crispy_field }}
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6 mb-0">
+                {{ form.linkedin|as_crispy_field }}
+            </div>
+            <div class="form-group col-md-6 mb-0">
+                {{ form.number|as_crispy_field }}
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6 mb-0">
+                {{ form.resume|as_crispy_field }}
+            </div>
+        </div>
+
+        {{ form.resource|as_crispy_field }}
+
+
 
         <input type="submit" value="Submit" class="btn btn-large btn-primary">
     </form>

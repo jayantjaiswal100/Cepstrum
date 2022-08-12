@@ -27,15 +27,33 @@ class StudentForm(forms.ModelForm):
             # 'sport_club' : forms.SelectMultiple(attrs={'class':'form-control'}),
 
         }
-        # labels = {
-        #     "name": "Name *",
-        #     "branch": "Branch *",
-        #     "program": "Program *",
-        #     "year_of_graduation": "Year of Graduation *",
-        #     "present_work": "Current area of work *",
-        #     "present_work_org": "Current University/Company/Post *",
-        #     "junior_intraction":"Are you interested in interacting or helping your juniors *",
-        #     "picture":"Please enter the link of the image *",
-        # }
+        labels = {
+            "selected_company": "Interned at",
+            "resource":"Resources"
+        }
     # Validate the size of the picture
 
+
+
+class ExperienceForm(forms.ModelForm):
+    
+    class Meta:
+        model = Experience
+        fields = ["company" ,"profile" ,"roundtype1","experince1" ,"difficulty1" ,"roundtype2","experince2" ,"difficulty2" ,"roundtype3" ,"difficulty3","experince3","roundtype4","experince4","difficulty4","roundtype5","experince5","difficulty5","roundtype6","experince6","difficulty6","roundtype7","experince7" ,"difficulty7",'year','selected']
+        widgets = {
+            # 'name' : forms.TextInput(attrs={'class':'form-control'}),
+            # 'branch' : forms.Select(attrs={'class':'form-control'}),
+            # 'program' : forms.Select(attrs={'class':'form-control'}),
+            # 'branch' : forms.Select(attrs={'class':'form-control'}),
+            # 'intrest' : SearchableSelect(model='bios.Intrest',search_field='name'),
+            # 'project' : forms.SelectMultiple(attrs={'class':'form-control'}),
+            # 'tech_club' : forms.SelectMultiple(attrs={'class':'form-control'}),
+            # 'cult_club' : forms.SelectMultiple(attrs={'class':'form-control'}),
+            # 'sport_club' : forms.SelectMultiple(attrs={'class':'form-control'}),
+
+        }
+        labels = {
+            # "selected_company": "Interned at",
+            # "resource":"Resources"
+        }
+    # Validate the size of the picture

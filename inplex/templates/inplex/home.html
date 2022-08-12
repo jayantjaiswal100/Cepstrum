@@ -1,0 +1,60 @@
+{% extends "base.html" %} {% block css %}
+<style>
+    .carousel-item {
+        height: 100vh;
+        background: no-repeat center center scroll;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+    }
+    
+    .carousel-item-content {
+        /* margin-top: 20%;
+  margin-left: 15%;
+  margin-right: 30%; */
+        font-size: 24px;
+    }
+    
+    .carousel-item-screen {
+        color: white;
+        background-color: rgba(0, 0, 0, 0.6);
+        width: 100%;
+        height: 100%;
+        padding: 10% 7% 0 5%;
+    }
+</style>
+
+{% endblock %}{% block carousel %}
+<div id="carouselExampleIndicators" class="carousel slide my-carousel
+my-carousel" data-ride="carousel">
+    <div class="carousel-inner" role="listbox">
+        <div class="carousel-item active" style="background-image: url('/static/inphase/cover.png') ">
+            <!-- <div style="padding-top: 40%; padding-left: 10%;">
+        <button type="button" class="btn btn-secondary btn-lg" data-toggle="modal" data-target=".bd-example-modal-xl">Know more</button>
+
+      </div> -->
+
+            <div class="carousel-item-screen">
+                <div class="carousel-item-content">
+                    <h1>Inplex</b>
+                    </h1>
+                    <br>
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo sequi eveniet officia, asperiores deserunt vero numquam dolores assumenda exercitationem a ullam blanditiis at sint nihil suscipit nostrum illo, tempore quaerat.
+                        <br>
+                        <a class="btn-primary" href="{% url 'inplex:student_create' %}">Create</a>
+                    </p>
+                </div>
+
+
+            </div>
+        </div>
+
+
+    </div>
+
+</div>
+{% endblock carousel %} {% block content %} {% for i in student_list %}
+<h1>{{i}}</h1>
+{% endfor %} {% endblock content %}

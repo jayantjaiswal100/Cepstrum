@@ -72,6 +72,7 @@ class Experience(models.Model):
         return self.owner.name
 
 class Student(models.Model):
+    owner = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE,default='')
     name = models.CharField(max_length = 255)
     program = models.ForeignKey(Program, on_delete=models.CASCADE)
     branch = models.ForeignKey(Branch, on_delete=models.CASCADE)
@@ -84,5 +85,5 @@ class Student(models.Model):
     number = models.CharField(max_length=11,default=None,null=True)
 
     def __str__(self):
-        return self.owner.name
+        return self.name
 
