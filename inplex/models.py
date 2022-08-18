@@ -80,9 +80,9 @@ class Student(models.Model):
     selected_company = models.ForeignKey(Company, on_delete=models.CASCADE)
     profile = models.ForeignKey(Profile, on_delete=models.CASCADE)
     linked_profile = models.URLField()
-    resource = RichTextField(null = True, blank = True)
+    resource = RichTextField(null = True)
     resume = models.URLField(null=True, blank = True)
-    number = models.CharField(max_length=11,default=None,null=True)
+    number = models.CharField(max_length=11,default=None,null=True,blank=True)
 
     def __str__(self):
         return str(self.owner)
