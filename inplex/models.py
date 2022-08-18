@@ -69,7 +69,7 @@ class Experience(models.Model):
     selected = models.BooleanField(default=False)
 
     def __str__(self):
-        return self.owner.name
+        return str(self.owner)
 
 class Student(models.Model):
     owner = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE,default='')
@@ -85,5 +85,5 @@ class Student(models.Model):
     number = models.CharField(max_length=11,default=None,null=True)
 
     def __str__(self):
-        return self.name
+        return str(self.owner)
 

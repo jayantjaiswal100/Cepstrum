@@ -167,6 +167,7 @@ my-carousel" data-ride="carousel">
 {% endblock carousel %} {% block content %}
 <section class="container">
     <h1>Add Experince</h1>
+    <form method="POST" enctype="multipart/form-data">
     {% csrf_token %} {{ form.media }}
     <div class="form-row">
         <div class="form-group col-md-6 mb-0">
@@ -349,6 +350,7 @@ my-carousel" data-ride="carousel">
     <br><br>
 
     <br><br>
+</form>
 </section>
 
 

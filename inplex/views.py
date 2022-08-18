@@ -1,3 +1,4 @@
+from urllib import request
 from django.shortcuts import render
 from django.views.generic import TemplateView,ListView, DetailView, CreateView, UpdateView,DeleteView
 from .models import *
@@ -8,6 +9,14 @@ from django.urls import reverse_lazy,reverse
 
 class HomeView(LoginRequiredMixin,ListView):
     model = Student
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        for i in context['student_list']:
+            if str(i) == str(self.request.user):
+                context['created'] = True
+                break
+        print(context)
+        return context
     template_name = "inplex/home.html"
 
 class StudentCreateView(LoginRequiredMixin,CreateView):

@@ -59,7 +59,7 @@ my-carousel" data-ride="carousel">
 <div class="container"><br><br>
     <h3>Create Your Inplex Profile </h3>
     <br><br>
-    <form method="POST">
+    <form method="POST" enctype="multipart/form-data">
         {% csrf_token %} {{ form.media }}
         <div class="form-row">
             <div class="form-group col-md-6 mb-0">
@@ -87,7 +87,7 @@ my-carousel" data-ride="carousel">
         </div>
         <div class="form-row">
             <div class="form-group col-md-6 mb-0">
-                {{ form.linkedin|as_crispy_field }}
+                {{ form.linked_profile|as_crispy_field }}
             </div>
             <div class="form-group col-md-6 mb-0">
                 {{ form.number|as_crispy_field }}
@@ -100,7 +100,7 @@ my-carousel" data-ride="carousel">
         </div>
 
         {{ form.resource|as_crispy_field }}
-
+<!-- {{form.as_p}} -->
 
 
         <input type="submit" value="Submit" class="btn btn-large btn-primary">

@@ -43,7 +43,11 @@ my-carousel" data-ride="carousel">
                     <p>
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo sequi eveniet officia, asperiores deserunt vero numquam dolores assumenda exercitationem a ullam blanditiis at sint nihil suscipit nostrum illo, tempore quaerat.
                         <br>
-                        <a class="btn-primary" href="{% url 'inplex:student_create' %}">Create</a>
+                        {% if created %}
+                        <a class="btn-primary" href="{% url 'inplex:experience_create' %}">Add experience</a>
+                        {% else %}
+                        <a class="btn-primary" href="{% url 'inplex:student_create' %}">Create profile</a>
+                        {% endif %}
                     </p>
                 </div>
 
@@ -55,6 +59,10 @@ my-carousel" data-ride="carousel">
     </div>
 
 </div>
-{% endblock carousel %} {% block content %} {% for i in student_list %}
+{% endblock carousel %} 
+{% comment %} {% block content %} 
+{% for i in student_list %}
 <h1>{{i}}</h1>
-{% endfor %} {% endblock content %}
+<h1>{{user}}</h1>
+{% endfor %} 
+{% endblock content %} {% endcomment %}
