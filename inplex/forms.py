@@ -9,7 +9,7 @@ from django.core.files.uploadedfile import InMemoryUploadedFile
 # Create the form class.
 class StudentForm(forms.ModelForm):
 
-    number = forms.CharField(min_length=10, max_length=10,label="Please enter Your Mobile Mumber")
+    number = forms.CharField(min_length=10, max_length=10,label="Please enter Your Mobile Mumber",required=False)
     # linkedin = forms.URLField(label="Link to your Linkedin handle")
     
     class Meta:
@@ -23,7 +23,7 @@ class StudentForm(forms.ModelForm):
 
         }
         labels = {
-            "selected_company": "Interned at",
+            "selected_company": "Upcoming Intern/Interned at",
             "resource":"Resources"
         }
     # Validate the size of the picture
