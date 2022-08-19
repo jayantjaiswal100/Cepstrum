@@ -1,7 +1,8 @@
 {% extends "base.html" %}{% load bootstrap %}{% load crispy_forms_tags %} {% block css %}
 <style>
+    @import url('https://fonts.googleapis.com/css2?family=Acme&family=Lobster&family=Montserrat:wght@400;600;700;900&family=Nunito:wght@500&family=Pacifico&family=Poppins&display=swap');
     .carousel-item {
-        height: 100vh;
+        height: 50vh;
         background: no-repeat center center scroll;
         -webkit-background-size: cover;
         -moz-background-size: cover;
@@ -29,7 +30,8 @@
 <div id="carouselExampleIndicators" class="carousel slide my-carousel
 my-carousel" data-ride="carousel">
     <div class="carousel-inner" role="listbox">
-        <div class="carousel-item active" style="background-image: url('/static/inphase/cover.png') ">
+        <div class="carousel-item active" style="background: rgb(16,6,35);
+        background: linear-gradient(326deg, rgba(16,6,35,1) 0%, rgba(61,11,26,1) 100%);">
             <!-- <div style="padding-top: 40%; padding-left: 10%;">
         <button type="button" class="btn btn-secondary btn-lg" data-toggle="modal" data-target=".bd-example-modal-xl">Know more</button>
 
@@ -37,13 +39,10 @@ my-carousel" data-ride="carousel">
 
             <div class="carousel-item-screen">
                 <div class="carousel-item-content">
-                    <h1>Inplex | Create Your Profile</b>
+                    <h1><b style="font-family: 'Nunito', serif;">Inplex </b>| 
+                        <span style="font-size: 1.4rem;">Create Your Profile</span>
                     </h1>
                     <br>
-                    <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo sequi eveniet officia, asperiores deserunt vero numquam dolores assumenda exercitationem a ullam blanditiis at sint nihil suscipit nostrum illo, tempore quaerat.
-                        <br>
-                    </p>
                 </div>
 
 
