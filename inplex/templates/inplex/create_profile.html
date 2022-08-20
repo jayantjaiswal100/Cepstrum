@@ -39,7 +39,7 @@ my-carousel" data-ride="carousel">
 
             <div class="carousel-item-screen">
                 <div class="carousel-item-content">
-                    <h1><b style="font-family: 'Nunito', serif;">Inplex </b>| 
+                    <h1><b style="font-family: 'Nunito', serif;">Inplex </b>|
                         <span style="font-size: 1.4rem;">Create Your Profile</span>
                     </h1>
                     <br>
@@ -60,7 +60,7 @@ my-carousel" data-ride="carousel">
     <br><br>
     <form method="POST" enctype="multipart/form-data">
         {% csrf_token %} {{ form.media }}
-        <div class="form-row">
+        <div class="row">
             <div class="form-group col-md-6 mb-0">
                 {{ form.name|as_crispy_field }}
             </div>
@@ -68,7 +68,7 @@ my-carousel" data-ride="carousel">
                 {{ form.program|as_crispy_field }}
             </div>
         </div>
-        <div class="form-row">
+        <div class="row">
             <div class="form-group col-md-6 mb-0">
                 {{ form.branch|as_crispy_field }}
             </div>
@@ -76,7 +76,7 @@ my-carousel" data-ride="carousel">
                 {{ form.year|as_crispy_field }}
             </div>
         </div>
-        <div class="form-row">
+        <div class="row">
             <div class="form-group col-md-6 mb-0">
                 {{ form.selected_company|as_crispy_field }}
             </div>
@@ -84,7 +84,7 @@ my-carousel" data-ride="carousel">
                 {{ form.profile|as_crispy_field }}
             </div>
         </div>
-        <div class="form-row">
+        <div class="row">
             <div class="form-group col-md-6 mb-0">
                 {{ form.linked_profile|as_crispy_field }}
             </div>
@@ -92,14 +92,14 @@ my-carousel" data-ride="carousel">
                 {{ form.number|as_crispy_field }}
             </div>
         </div>
-        <div class="form-row">
+        <div class="row">
             <div class="form-group col-md-6 mb-0">
                 {{ form.resume|as_crispy_field }}
             </div>
         </div>
 
         {{ form.resource|as_crispy_field }}
-<!-- {{form.as_p}} -->
+        <!-- {{form.as_p}} -->
 
 
         <input type="submit" value="Submit" class="btn btn-large btn-primary">

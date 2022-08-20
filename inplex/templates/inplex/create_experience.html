@@ -32,7 +32,8 @@
         background: none;
         outline: none;
     }
-    .accordion-button{
+    
+    .accordion-button {
         padding: 0 20px;
     }
     
@@ -153,7 +154,7 @@ my-carousel" data-ride="carousel">
 
             <div class="carousel-item-screen">
                 <div class="carousel-item-content">
-                    <h1><b style="font-family: 'Nunito', serif;">Inplex </b>| 
+                    <h1><b style="font-family: 'Nunito', serif;">Inplex </b>|
                         <span style="font-size: 1.4rem;">Add Your Experiences</span>
                     </h1>
                     <br>
@@ -171,157 +172,162 @@ my-carousel" data-ride="carousel">
 <section class="container mt-5">
     <!-- <h1>Add Experince</h1> -->
     <form method="POST" enctype="multipart/form-data">
-    {% csrf_token %} {{ form.media }}
-    <div class="form-row">
-        <div class="form-group col-md-6 mb-0">
-            {{ form.company|as_crispy_field }}
+        {% csrf_token %} {{ form.media }}
+        <div class="row">
+            <div class="form-group col-md-6 mb-0">
+                {{ form.company|as_crispy_field }}
+            </div>
+            <div class="form-group col-md-6 mb-0">
+                {{ form.profile|as_crispy_field }}
+            </div>
+            <br>
+            <div class="form-group col-md-6 mb-0">
+                {{ form.selected|as_crispy_field }}
+            </div>
         </div>
-        <div class="form-group col-md-6 mb-0">
-            {{ form.profile|as_crispy_field }}
-        </div>
-    </div>
-    <br>
-    <div class="accordion" id="accordionPanelsStayOpenExample">
-        <div class="accordion-item">
-            <h2 class="accordion-header" id="panelsStayOpen-headingOne">
-                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
+        <br>
+        <div class="accordion" id="accordionPanelsStayOpenExample">
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="panelsStayOpen-headingOne">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
               Add Round 1
             </button>
-            </h2>
-            <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingOne">
-                <div class="accordion-body">
-                    <div class="form-row">
-                        <div class="form-group col-md-6 mb-0">
-                            {{ form.roundtype1|as_crispy_field }}
+                </h2>
+                <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingOne">
+                    <div class="accordion-body">
+                        <div class="row">
+                            <div class="form-group col-md-6 mb-0">
+                                {{ form.roundtype1|as_crispy_field }}
+                            </div>
+                            <div class="form-group col-md-6 mb-0">
+                                {{ form.difficulty1|as_crispy_field }}
+                            </div>
+                            <div class="form-group col-md-6 mb-0">
+                                {{ form.experince1|as_crispy_field }}
+                            </div>
                         </div>
-                        <div class="form-group col-md-6 mb-0">
-                            {{ form.difficulty1|as_crispy_field }}
-                        </div>
-                        <div class="form-group col-md-6 mb-0">
-                            {{ form.experince1|as_crispy_field }}
-                        </div>
-                    </div>
-                    <br>
-                    <div class="accordion-item">
-                        <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false" aria-controls="panelsStayOpen-collapseTwo">
+                        <br>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false" aria-controls="panelsStayOpen-collapseTwo">
                           Add Round 2
                         </button>
-                        </h2>
-                        <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingTwo">
-                            <div class="accordion-body">
-                                <div class="form-row">
-                                    <div class="form-group col-md-6 mb-0">
-                                        {{ form.roundtype2|as_crispy_field }}
-                                    </div>
-                                    <div class="form-group col-md-6 mb-0">
-                                        {{ form.difficulty2|as_crispy_field }}
-                                    </div>
-                                    <div class="form-group col-md-6 mb-0">
-                                        {{ form.experince2|as_crispy_field }}
-                                    </div>
-                                </div>
-                            </div>
-                            <br>
-                            <div class="accordion-item">
-                                <h2 class="accordion-header" id="panelsStayOpen-headingThree">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false" aria-controls="panelsStayOpen-collapseThree">
-                                  Add Round 3
-                                </button>
-                                </h2>
-                                <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingThree">
-                                    <div class="accordion-body">
-                                        <div class="form-row">
-                                            <div class="form-group col-md-6 mb-0">
-                                                {{ form.roundtype3|as_crispy_field }}
-                                            </div>
-                                            <div class="form-group col-md-6 mb-0">
-                                                {{ form.difficulty3|as_crispy_field }}
-                                            </div>
-                                            <div class="form-group col-md-6 mb-0">
-                                                {{ form.experince3|as_crispy_field }}
-                                            </div>
+                            </h2>
+                            <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingTwo">
+                                <div class="accordion-body">
+                                    <div class="row">
+                                        <div class="form-group col-md-6 mb-0">
+                                            {{ form.roundtype2|as_crispy_field }}
+                                        </div>
+                                        <div class="form-group col-md-6 mb-0">
+                                            {{ form.difficulty2|as_crispy_field }}
+                                        </div>
+                                        <div class="form-group col-md-6 mb-0">
+                                            {{ form.experince2|as_crispy_field }}
                                         </div>
                                     </div>
-                                    <br>
-                                    <div class="accordion-item">
-                                        <h2 class="accordion-header" id="panelsStayOpen-headingFour">
-                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseFour" aria-expanded="false" aria-controls="panelsStayOpen-collapseFour">
-                                          Add Round 4
-                                        </button>
-                                        </h2>
-                                        <div id="panelsStayOpen-collapseFour" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingFour">
-                                            <div class="accordion-body">
-                                                <div class="form-row">
-                                                    <div class="form-group col-md-6 mb-0">
-                                                        {{ form.roundtype4|as_crispy_field }}
-                                                    </div>
-                                                    <div class="form-group col-md-6 mb-0">
-                                                        {{ form.difficulty4|as_crispy_field }}
-                                                    </div>
-                                                    <div class="form-group col-md-6 mb-0">
-                                                        {{ form.experince4|as_crispy_field }}
-                                                    </div>
+                                </div>
+                                <br>
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="panelsStayOpen-headingThree">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false" aria-controls="panelsStayOpen-collapseThree">
+                                  Add Round 3
+                                </button>
+                                    </h2>
+                                    <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingThree">
+                                        <div class="accordion-body">
+                                            <div class="row">
+                                                <div class="form-group col-md-6 mb-0">
+                                                    {{ form.roundtype3|as_crispy_field }}
+                                                </div>
+                                                <div class="form-group col-md-6 mb-0">
+                                                    {{ form.difficulty3|as_crispy_field }}
+                                                </div>
+                                                <div class="form-group col-md-6 mb-0">
+                                                    {{ form.experince3|as_crispy_field }}
                                                 </div>
                                             </div>
-                                            <br>
-                                            <div class="accordion-item">
-                                                <h2 class="accordion-header" id="panelsStayOpen-headingFive">
-                                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseFive" aria-expanded="false" aria-controls="panelsStayOpen-collapseFive">
+                                        </div>
+                                        <br>
+                                        <div class="accordion-item">
+                                            <h2 class="accordion-header" id="panelsStayOpen-headingFour">
+                                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseFour" aria-expanded="false" aria-controls="panelsStayOpen-collapseFour">
+                                          Add Round 4
+                                        </button>
+                                            </h2>
+                                            <div id="panelsStayOpen-collapseFour" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingFour">
+                                                <div class="accordion-body">
+                                                    <div class="row">
+                                                        <div class="form-group col-md-6 mb-0">
+                                                            {{ form.roundtype4|as_crispy_field }}
+                                                        </div>
+                                                        <div class="form-group col-md-6 mb-0">
+                                                            {{ form.difficulty4|as_crispy_field }}
+                                                        </div>
+                                                        <div class="form-group col-md-6 mb-0">
+                                                            {{ form.experince4|as_crispy_field }}
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <br>
+                                                <div class="accordion-item">
+                                                    <h2 class="accordion-header" id="panelsStayOpen-headingFive">
+                                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseFive" aria-expanded="false" aria-controls="panelsStayOpen-collapseFive">
                                                   Add Round 5
                                                 </button>
-                                                </h2>
-                                                <div id="panelsStayOpen-collapseFive" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingFive">
-                                                    <div class="accordion-body">
-                                                        <div class="form-row">
-                                                            <div class="form-group col-md-6 mb-0">
-                                                                {{ form.roundtype5|as_crispy_field }}
+                                                    </h2>
+                                                    <div id="panelsStayOpen-collapseFive" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingFive">
+                                                        <div class="accordion-body">
+                                                            <div class="row">
+                                                                <div class="form-group col-md-6 mb-0">
+                                                                    {{ form.roundtype5|as_crispy_field }}
+                                                                </div>
+                                                                <div class="form-group col-md-6 mb-0">
+                                                                    {{ form.difficulty5|as_crispy_field }}
+                                                                </div>
+                                                                <div class="form-group col-md-6 mb-0">
+                                                                    {{ form.experince5|as_crispy_field }}
+                                                                </div>
                                                             </div>
-                                                            <div class="form-group col-md-6 mb-0">
-                                                                {{ form.difficulty5|as_crispy_field }}
-                                                            </div>
-                                                            <div class="form-group col-md-6 mb-0">
-                                                                {{ form.experince5|as_crispy_field }}
-                                                            </div>
-                                                        </div>
-                                                        <br>
-                                                        <div class="accordion-item">
-                                                            <h2 class="accordion-header" id="panelsStayOpen-headingSix">
-                                                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseSix" aria-expanded="false" aria-controls="panelsStayOpen-collapseSix">
+                                                            <br>
+                                                            <div class="accordion-item">
+                                                                <h2 class="accordion-header" id="panelsStayOpen-headingSix">
+                                                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseSix" aria-expanded="false" aria-controls="panelsStayOpen-collapseSix">
                                                              Add Round 6
                                                             </button>
-                                                            </h2>
-                                                            <div id="panelsStayOpen-collapseSix" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingSix">
-                                                                <div class="accordion-body">
-                                                                    <div class="form-row">
-                                                                        <div class="form-group col-md-6 mb-0">
-                                                                            {{ form.roundtype6|as_crispy_field }}
+                                                                </h2>
+                                                                <div id="panelsStayOpen-collapseSix" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingSix">
+                                                                    <div class="accordion-body">
+                                                                        <div class="row">
+                                                                            <div class="form-group col-md-6 mb-0">
+                                                                                {{ form.roundtype6|as_crispy_field }}
+                                                                            </div>
+                                                                            <div class="form-group col-md-6 mb-0">
+                                                                                {{ form.difficulty6|as_crispy_field }}
+                                                                            </div>
+                                                                            <div class="form-group col-md-6 mb-0">
+                                                                                {{ form.experince6|as_crispy_field }}
+                                                                            </div>
                                                                         </div>
-                                                                        <div class="form-group col-md-6 mb-0">
-                                                                            {{ form.difficulty6|as_crispy_field }}
-                                                                        </div>
-                                                                        <div class="form-group col-md-6 mb-0">
-                                                                            {{ form.experince6|as_crispy_field }}
-                                                                        </div>
-                                                                    </div>
-                                                                    <br>
-                                                                    <div class="accordion-item">
-                                                                        <h2 class="accordion-header" id="panelsStayOpen-headingSeven">
-                                                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseSeven" aria-expanded="false" aria-controls="panelsStayOpen-collapseSeven">
+                                                                        <br>
+                                                                        <div class="accordion-item">
+                                                                            <h2 class="accordion-header" id="panelsStayOpen-headingSeven">
+                                                                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseSeven" aria-expanded="false" aria-controls="panelsStayOpen-collapseSeven">
                                                              Add Round 7
                                                             </button>
-                                                                        </h2>
-                                                                        <div id="panelsStayOpen-collapseSeven" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingSeven">
-                                                                            <div class="accordion-body">
-                                                                                <div class="form-row">
-                                                                                    <div class="form-group col-md-6 mb-0">
-                                                                                        {{ form.roundtype7|as_crispy_field }}
-                                                                                    </div>
-                                                                                    <div class="form-group col-md-6 mb-0">
-                                                                                        {{ form.difficulty7|as_crispy_field }}
-                                                                                    </div>
-                                                                                    <div class="form-group col-md-6 mb-0">
-                                                                                        {{ form.experince7|as_crispy_field }}
+                                                                            </h2>
+                                                                            <div id="panelsStayOpen-collapseSeven" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingSeven">
+                                                                                <div class="accordion-body">
+                                                                                    <div class="row">
+                                                                                        <div class="form-group col-md-6 mb-0">
+                                                                                            {{ form.roundtype7|as_crispy_field }}
+                                                                                        </div>
+                                                                                        <div class="form-group col-md-6 mb-0">
+                                                                                            {{ form.difficulty7|as_crispy_field }}
+                                                                                        </div>
+                                                                                        <div class="form-group col-md-6 mb-0">
+                                                                                            {{ form.experince7|as_crispy_field }}
+                                                                                        </div>
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
@@ -342,18 +348,17 @@ my-carousel" data-ride="carousel">
                 </div>
             </div>
         </div>
-    </div>
 
 
 
-    <br>
+        <br>
 
-    <input type="submit" value="Submit" class="btn btn-large btn-primary">
+        <input type="submit" value="Submit" class="btn btn-large btn-primary">
 
-    <br><br>
+        <br><br>
 
-    <br><br>
-</form>
+        <br><br>
+    </form>
 </section>
 
 

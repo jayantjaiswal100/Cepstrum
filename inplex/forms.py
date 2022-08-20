@@ -32,7 +32,7 @@ class StudentForm(forms.ModelForm):
 
 class ExperienceForm(forms.ModelForm):
 
-    
+    # difficulty1 = forms.ModelChoiceField(queryset=Difficulty.objects.all())
     class Meta:
         model = Experience
         fields = ["company" ,"profile" ,"roundtype1","experince1" ,"difficulty1" ,"roundtype2","experince2" ,"difficulty2" ,"roundtype3" ,"difficulty3","experince3","roundtype4","experince4","difficulty4","roundtype5","experince5","difficulty5","roundtype6","experince6","difficulty6","roundtype7","experince7" ,"difficulty7",'year','selected']
