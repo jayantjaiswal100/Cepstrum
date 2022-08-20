@@ -168,16 +168,20 @@
 
 {% endblock %} {% block content %}
 <div id="carousel">
+
+    {% for i in pictures_list %} {% if i.id == object.id %}
     <figure id="spinner">
-        <img src="https://source.unsplash.com/random" alt>
-        <img src="https://source.unsplash.com/user/erondu/1600x900" alt>
-        <img src="https://source.unsplash.com/weekly?code" alt>
-        <img src="https://source.unsplash.com/collection/190727/1600x900" alt>
-        <img src="https://source.unsplash.com/daily" alt>
-        <img src="https://source.unsplash.com/user/erondu/daily" alt>
-        <img src="https://source.unsplash.com/weekly?water" alt>
-        <img src="https://source.unsplash.com/WLUHO9A_xik/1600x900" alt>
+        <img src="{{i.pic1}}" alt>
+        <img src="{{i.pic2}}" alt>
+        <img src="{{i.pic3}}" alt>
+        <img src="{{i.pic4}}" alt>
+        <img src="{{i.pic5}}" alt>
+        <img src="{{i.pic6}}" alt>
+        <img src="{{i.pic7}}" alt>
+        <img src="{{i.pic8}}" alt>
     </figure>
+    {% endif %} {% endfor %}
+
     <br><br>
 </div>
 <span style="float:left" class="ss-icon" onclick="galleryspin('-')">&lt;</span>

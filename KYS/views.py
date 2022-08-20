@@ -1,5 +1,6 @@
 from django.views.generic import TemplateView, ListView
 from django.shortcuts import render
+from inphase.models import *
 
 class TestPage(TemplateView):
     """docstring for TestPage."""
@@ -23,11 +24,10 @@ class ThanksPage(TemplateView):
     #     super(ThanksPage, self).__init__()
     #     self.arg = arg
 
-class HomePage(TemplateView):
+class HomePage(ListView):
     """docstring for ThanksPage."""
+    model = Inphase
     template_name = 'index.html'
-    # def __init__(self, arg):
-    #     super(ThanksPage, self).__init__()
-    #     self.arg = arg
+    ordering = ['-created_at']
 
 

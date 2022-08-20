@@ -18,7 +18,14 @@ class Year(models.Model):
 class Pictures(models.Model):
     celebration = models.OneToOneField(Celebration, on_delete=models.CASCADE)
     year = models.OneToOneField(Year, on_delete=models.CASCADE)
-    picture = models.ImageField(upload_to='celebration')
+    pic1 = models.URLField(default=None)
+    pic2 = models.URLField(default=None)
+    pic3 = models.URLField(default=None)
+    pic4 = models.URLField(default=None)
+    pic5 = models.URLField(default=None)
+    pic6 = models.URLField(default=None)
+    pic7 = models.URLField(default=None)
+    pic8 = models.URLField(default=None)
 
     def __str__(self):
-        return self.celebration
+        return self.celebration.name
