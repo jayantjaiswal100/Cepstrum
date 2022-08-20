@@ -46,7 +46,7 @@ class Experience(models.Model):
     profile = models.ForeignKey(Profile, on_delete=models.CASCADE)
     roundtype1 = models.ForeignKey(RoundType, related_name='one', on_delete=models.CASCADE,null=True,blank=True)
     experince1 = RichTextField(null=True,blank=True)
-    difficulty1 = models.IntegerField()
+    difficulty1 = models.ForeignKey(Difficulty, related_name='one', on_delete=models.CASCADE,null=True)
     roundtype2 = models.ForeignKey(RoundType, related_name='two', on_delete=models.CASCADE,null=True,blank=True)
     experince2 = RichTextField(null=True,blank=True)
     difficulty2 = models.ForeignKey(Difficulty, related_name='two', on_delete=models.CASCADE,null=True,blank=True)
