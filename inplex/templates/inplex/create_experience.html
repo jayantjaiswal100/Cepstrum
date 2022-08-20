@@ -170,7 +170,7 @@ my-carousel" data-ride="carousel">
 </div>
 {% endblock carousel %} {% block content %}
 <section class="container mt-5">
-    <!-- <h1>Add Experince</h1> -->
+    <h1>Add Experince</h1>
     <form method="POST" enctype="multipart/form-data">
         {% csrf_token %} {{ form.media }}
         <div class="row">
@@ -180,7 +180,6 @@ my-carousel" data-ride="carousel">
             <div class="form-group col-md-6 mb-0">
                 {{ form.profile|as_crispy_field }}
             </div>
-            <br>
             <div class="form-group col-md-6 mb-0">
                 {{ form.selected|as_crispy_field }}
             </div>

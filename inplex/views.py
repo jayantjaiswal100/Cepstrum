@@ -48,5 +48,8 @@ class ExperienceCreateView(LoginRequiredMixin,CreateView):
             return True
 
     def form_valid(self, form):
+        rating = request.POST.get('difficulty1')
+        print(rating)
+        form.instance.difficulty1=rating
         form.instance.owner = self.request.user
         return super().form_valid(form)
