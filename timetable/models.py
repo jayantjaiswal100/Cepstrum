@@ -1,4 +1,4 @@
-from turtle import mode
+# from turtle import mode
 from django.db import models
 
 # Create your models here.
