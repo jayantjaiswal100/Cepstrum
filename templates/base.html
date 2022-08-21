@@ -7,7 +7,8 @@
     <link rel="stylesheet" href="css/stylewise.css">
     <meta name="viewport" content="width=device-width, initial-scale=1,
       shrink-to-fit=no">
-    <title>Home | Cepstrum</title>
+
+    <title>{% block title %} {% endblock title %}</title>
 
     {% block head %} {% endblock head %}
 
@@ -44,7 +45,7 @@
     <!-- loaderend -->
     <nav class="my-nav navbar navbar-expand-lg {% block navbar %}navbar-dark{% endblock navbar %}">
         <div class="container-fluid">
-            <a class="navbar-brand" href="{% url 'home' %}"> <img src="https://www.iitg.ac.in/cepstrum/common/logo.svg" width="40%" height="40%" alt=""></a>
+            <a class="navbar-brand" href="{% url 'home' %}"> <img src="https://www.iitg.ac.in/cepstrum/common/logo.svg" style="opacity: 1;" width="40%" height="40%" alt=""></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>

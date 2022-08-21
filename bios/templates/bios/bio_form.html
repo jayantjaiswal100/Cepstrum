@@ -1,74 +1,64 @@
-{% extends "bios/bio_base.html" %}
-{% load crispy_forms_tags %}
-{% load bootstrap %}
-{% block post_content %}
+{% extends "bios/bio_base.html" %} {% load crispy_forms_tags %} {% load bootstrap %} {% block title %} Know Your Seniors | Cepstrum {% endblock title %} {% block post_content %}
 
 <div class="container">
- <h3>Create a New Bio</h3>
-  <form method="POST" enctype="multipart/form-data">
-    {% csrf_token %}
-    <br>
-    <div class="form-row">
-      <div class="form-group col-md-6 mb-0">
-        {{ form.name|as_crispy_field }}
-      </div>
-      <div class="form-group col-md-6 mb-0">
-        {{ form.program|as_crispy_field }}
-      </div>
-    </div>
-    <br>
-    <br>
-    <div class="form-row">
-      <div class="form-group col-md-6 mb-0">
-        {{ form.branch|as_crispy_field }}
-      </div>
-      <div class="form-group col-md-6 mb-0">
-        {{ form.year|as_crispy_field }}
-      </div>
-    </div>
-    <br>
-    <br>
-    <div class="form-row">
-      <div class="form-group col-md-6 mb-0">
-        <h5> Check the Intrest You have * (if you didn't find your intrest then <a href="{% url 'bios:intrest_create' %}">create the one</a> </h5>
-        {{ form.intrest|bootstrap }}
-      </div>
-      <div class="form-group col-md-6 mb-0">
-        <h5> Check the Projects You have done * (if you didn't find your project then <a href="{% url 'bios:project_create' %}">create the one</a> </h5>
-        {{ form.project|bootstrap }}
-      </div>
-    </div>
-    <br>
-    <br>
-    <div class="form-row">
-      <div class="form-group col-md-6 mb-0">
-        {{ form.tech_club|bootstrap }}
-      </div>
-      <div class="form-group col-md-6 mb-0">
-        {{ form.cult_club|bootstrap }}
-      </div>
-    </div>
-    <br>
-    <br>
-    <div class="form-row">
-      <div class="form-group col-md-6 mb-0">
-        {{ form.sport_club|bootstrap }}
-      </div>
-      <div class="form-group col-md-6 mb-0">
-        {{ form.number|bootstrap }}
-        {{ form.facebook|bootstrap }}
-        {{ form.instagram|bootstrap }}
-        {{ form.linkedin|bootstrap }}
-        {{ form.picture|bootstrap }}
-      </div>
-    </div>
-    <br>
-    <br>
-    {{ form.text|bootstrap }}
-    <input type="submit" value="Submit" class="btn btn-large btn-primary">
-  </form>
-<!--  <script>var editor = new MediumEditor('.editable');</script>-->
+    <h3>Create a New Bio</h3>
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <br>
+        <div class="form-row">
+            <div class="form-group col-md-6 mb-0">
+                {{ form.name|as_crispy_field }}
+            </div>
+            <div class="form-group col-md-6 mb-0">
+                {{ form.program|as_crispy_field }}
+            </div>
+        </div>
+        <br>
+        <br>
+        <div class="form-row">
+            <div class="form-group col-md-6 mb-0">
+                {{ form.branch|as_crispy_field }}
+            </div>
+            <div class="form-group col-md-6 mb-0">
+                {{ form.year|as_crispy_field }}
+            </div>
+        </div>
+        <br>
+        <br>
+        <div class="form-row">
+            <div class="form-group col-md-6 mb-0">
+                <h5> Check the Intrest You have * (if you didn't find your intrest then <a href="{% url 'bios:intrest_create' %}">create the one</a> </h5>
+                {{ form.intrest|bootstrap }}
+            </div>
+            <div class="form-group col-md-6 mb-0">
+                <h5> Check the Projects You have done * (if you didn't find your project then <a href="{% url 'bios:project_create' %}">create the one</a> </h5>
+                {{ form.project|bootstrap }}
+            </div>
+        </div>
+        <br>
+        <br>
+        <div class="form-row">
+            <div class="form-group col-md-6 mb-0">
+                {{ form.tech_club|bootstrap }}
+            </div>
+            <div class="form-group col-md-6 mb-0">
+                {{ form.cult_club|bootstrap }}
+            </div>
+        </div>
+        <br>
+        <br>
+        <div class="form-row">
+            <div class="form-group col-md-6 mb-0">
+                {{ form.sport_club|bootstrap }}
+            </div>
+            <div class="form-group col-md-6 mb-0">
+                {{ form.number|bootstrap }} {{ form.facebook|bootstrap }} {{ form.instagram|bootstrap }} {{ form.linkedin|bootstrap }} {{ form.picture|bootstrap }}
+            </div>
+        </div>
+        <br>
+        <br> {{ form.text|bootstrap }}
+        <input type="submit" value="Submit" class="btn btn-large btn-primary">
+    </form>
+    <!--  <script>var editor = new MediumEditor('.editable');</script>-->
 </div>
-<br>
-
-{% endblock %}
+<br> {% endblock %}

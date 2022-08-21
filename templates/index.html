@@ -1,4 +1,4 @@
-{% extends "base.html" %} {% load static %} {% block css %}
+{% extends "base.html" %} {% load static %} {% block title %} Home | Cepstrum {% endblock title %} {% block css %}
 <style>
     .carousel-item {
         height: 100vh;
@@ -53,15 +53,8 @@
 </style>
 
 {% endblock %} {% block carousel %}
-<div id="carouselExampleIndicators" class="carousel slide my-carousel
-    my-carousel" data-ride="carousel">
-    <ol class="carousel-indicators">
-        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-        <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
-    </ol>
-    <div class="carousel-inner" role="listbox">
+<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
         <div class="carousel-item active" style="background-image:
         url('https://live.staticflickr.com/7415/11546057593_1f49a71617_b.jpg'); opacity: 0.8;">
             <div class="carousel-item-screen">
@@ -91,6 +84,8 @@
                         Electronics and Electrical Engineering (EEE) deals with the learning of everything ranging from differebt electrical machines to how our elevtrical system work and sustain. It includes the engineering problems, opportunities and needs of electrical, electronics,
                         computer, telecommunication systems and related industries.
                     </p>
+                    <br><br>
+                    <a href="https://iitg.ac.in/eee/" class="link-button">Know More</a>
                 </div>
 
 
@@ -150,14 +145,14 @@
         </div>
 
     </div>
-    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+    <button class="carousel-control-prev" data-bs-target="#carouselExampleIndicators" type="button" data-bs-slide="prev">
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="sr-only">Previous</span>
-    </a>
-    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" data-bs-target="#carouselExampleIndicators" type="button" data-bs-slide="next">
         <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="sr-only">Next</span>
-    </a>
+        <span class="visually-hidden">Next</span>
+    </button>
 </div>
 
 {% endblock %}
