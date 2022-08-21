@@ -1,8 +1,4 @@
-{% extends 'base.html' %}
-{% load bootstrap %} 
-{% load crispy_forms_tags %} 
-{% load static %}
-{% block css %}
+{% extends 'base.html' %} {% load bootstrap %} {% load crispy_forms_tags %} {% load static %} {% block css %}
 <style>
     @import url('https://fonts.googleapis.com/css?family=Hind:300,400&family=Nunito:wght@500&display=swap');
     @import url('https://fonts.googleapis.com/css2?family=Acme&family=Lobster&family=Montserrat:wght@400;600;700;900&family=Nunito:wght@500&family=Pacifico&family=Poppins&display=swap');
@@ -174,7 +170,7 @@ my-carousel" data-ride="carousel">
 </div>
 {% endblock carousel %} {% block content %}
 <section class="container mt-5">
-    <h1>Add Experince</h1>
+    <h1>Add Experience</h1>
     <form method="POST" enctype="multipart/form-data">
         {% csrf_token %} {{ form.media }}
         <div class="row">
@@ -182,10 +178,11 @@ my-carousel" data-ride="carousel">
                 {{ form.company|as_crispy_field }}
             </div>
             <div class="form-group col-md-6 mb-0">
-                {{ form.profile|as_crispy_field }}
+                {{ form.profile|as_crispy_field }} 
             </div>
+
             <div class="form-group col-md-6 mb-0">
-                {{ form.selected|as_crispy_field }}
+                <br><span style="display: flex">Selected :  &nbsp; {{ form.selected|as_crispy_field }}</span>  
             </div>
         </div>
         <br>

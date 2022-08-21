@@ -1,0 +1,11 @@
+{% load socialaccount %} {% get_providers as socialaccount_providers %} {% for provider in socialaccount_providers %} {% if provider.id == "openid" %} {% for brand in provider.get_brands %}
+<li>
+    <a title="{{brand.name}}" class="socialaccount_provider {{provider.id}} {{brand.id}}" href="{% provider_login_url provider.id openid=brand.openid_url process=process %}">{{brand.name}}</a>
+</li>
+{% endfor %} {% endif %}
+<li>
+    <a class="btn btn-primary btn-lg" title="{{provider.name}}" class="socialaccount_provider {{provider.id}}" href="{% provider_login_url provider.id process=process scope=scope auth_params=auth_params %}"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-microsoft" viewBox="0 0 16 16">
+        <path d="M7.462 0H0v7.19h7.462V0zM16 0H8.538v7.19H16V0zM7.462 8.211H0V16h7.462V8.211zm8.538 0H8.538V16H16V8.211z"/>
+      </svg> {{provider.id}}</a>
+</li>
+{% endfor %}

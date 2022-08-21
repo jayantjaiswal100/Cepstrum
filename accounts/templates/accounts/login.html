@@ -1,5 +1,4 @@
-{% extends "base.html" %} {% load bootstrap %} {% load i18n %} {% load account socialaccount %} {% block head_title %}{% trans "Sign In" %}{% endblock %} 
-{% block css %}
+{% extends "base.html" %} {% load bootstrap %} {% load i18n %} {% load account socialaccount %} {% block head_title %}{% trans "Sign In" %}{% endblock %} {% block css %}
 <style>
     .carousel-item {
         height: 100vh;
@@ -64,31 +63,31 @@
         url('https://static.theprint.in/wp-content/uploads/2020/03/IITG.jpg');">
             <div class="carousel-item-screen">
                 <div class="carousel-item-content">
-                  <div class="container" style="color: white;">
+                    <div class="container" style="color: white;">
 
 
-                    <h1>{% trans "Sign In" %}</h1>
-                
-                    {% get_providers as socialaccount_providers %} {% if socialaccount_providers %}
-                    <p>{% blocktrans with site.name as site_name %}Please sign in with you IIT Guwahati Microsoft account {% endblocktrans %}</p>
-                
-                    <div class="socialaccount_ballot">
-                
-                        <ul class="socialaccount_providers">
-                            <div class="col-md-5 col-lg-5">
-                                <h5 class="btn btn-outline-danger alert-link" style="color:black;">{% include "socialaccount/snippets/provider_list.html" with process="login" %}</h5>
-                            </div>
-                        </ul>
-                
-                
+                        <h1>{% trans "Sign In" %}</h1>
+
+                        {% get_providers as socialaccount_providers %} {% if socialaccount_providers %}
+                        <p>{% blocktrans with site.name as site_name %}Please sign in with you IIT Guwahati Microsoft account {% endblocktrans %}</p>
+
+                        <div class="socialaccount_ballot">
+
+                            <ul class="socialaccount_providers">
+                                <div class="col-md-5 col-lg-5">
+                                    <h5 class="btn btn-primary alert-link" style="color:rgb(23, 23, 215);">{% include "socialaccount/snippets/provider_list.html" with process="login" %}</h5>
+                                </div>
+                            </ul>
+
+
+                        </div>
+
+                        {% include "socialaccount/snippets/login_extra.html" %} {% else %}
+                        <p>{% blocktrans %}If you have not created an account yet, then please
+                            <a href="#">sign up</a> first.{% endblocktrans %}</p>
+                        {% endif %}
+
                     </div>
-                
-                    {% include "socialaccount/snippets/login_extra.html" %} {% else %}
-                    <p>{% blocktrans %}If you have not created an account yet, then please
-                        <a href="#">sign up</a> first.{% endblocktrans %}</p>
-                    {% endif %}
-                    
-                </div>
 
                 </div>
 

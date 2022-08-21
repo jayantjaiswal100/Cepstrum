@@ -42,5 +42,6 @@ class ExperienceForm(forms.ModelForm):
         labels = {
             'roundtype1': 'Type',
             'difficulty1': 'Difficulty',
+            'selected': 'Yes',
         }
     # Validate the size of the picture
