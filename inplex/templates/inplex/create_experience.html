@@ -1,3 +1,4 @@
+
 {% extends 'base.html' %} {% load bootstrap %} {% load crispy_forms_tags %} {% load static %} {% block title %} Inplex | Cepstrum {% endblock title %} {% block css %}
 <style>
     @import url('https://fonts.googleapis.com/css?family=Hind:300,400&family=Nunito:wght@500&display=swap');
@@ -178,11 +179,11 @@ my-carousel" data-ride="carousel">
                 {{ form.company|as_crispy_field }}
             </div>
             <div class="form-group col-md-6 mb-0">
-                {{ form.profile|as_crispy_field }}
+                {{ form.profile|as_crispy_field }} 
             </div>
 
             <div class="form-group col-md-6 mb-0">
-                <br> {{ form.selected|as_crispy_field }}
+                <br><span style="display: flex">Selected :  &nbsp; {{ form.selected|as_crispy_field }}</span>  
             </div>
         </div>
         <br>
@@ -203,7 +204,7 @@ my-carousel" data-ride="carousel">
                                 {{ form.difficulty1|as_crispy_field }}
                             </div>
                             <div class="form-group col-md-6 mb-0">
-                                {{ form.experince1|as_crispy_field }}
+                                {{ form.experience1|as_crispy_field }}
                             </div>
                         </div>
                         <br>
@@ -223,7 +224,7 @@ my-carousel" data-ride="carousel">
                                             {{ form.difficulty2|as_crispy_field }}
                                         </div>
                                         <div class="form-group col-md-6 mb-0">
-                                            {{ form.experince2|as_crispy_field }}
+                                            {{ form.experience2|as_crispy_field }}
                                         </div>
                                     </div>
                                 </div>
@@ -244,7 +245,7 @@ my-carousel" data-ride="carousel">
                                                     {{ form.difficulty3|as_crispy_field }}
                                                 </div>
                                                 <div class="form-group col-md-6 mb-0">
-                                                    {{ form.experince3|as_crispy_field }}
+                                                    {{ form.experience3|as_crispy_field }}
                                                 </div>
                                             </div>
                                         </div>
@@ -265,7 +266,7 @@ my-carousel" data-ride="carousel">
                                                             {{ form.difficulty4|as_crispy_field }}
                                                         </div>
                                                         <div class="form-group col-md-6 mb-0">
-                                                            {{ form.experince4|as_crispy_field }}
+                                                            {{ form.experience4|as_crispy_field }}
                                                         </div>
                                                     </div>
                                                 </div>
@@ -286,7 +287,7 @@ my-carousel" data-ride="carousel">
                                                                     {{ form.difficulty5|as_crispy_field }}
                                                                 </div>
                                                                 <div class="form-group col-md-6 mb-0">
-                                                                    {{ form.experince5|as_crispy_field }}
+                                                                    {{ form.experience5|as_crispy_field }}
                                                                 </div>
                                                             </div>
                                                             <br>
@@ -306,7 +307,7 @@ my-carousel" data-ride="carousel">
                                                                                 {{ form.difficulty6|as_crispy_field }}
                                                                             </div>
                                                                             <div class="form-group col-md-6 mb-0">
-                                                                                {{ form.experince6|as_crispy_field }}
+                                                                                {{ form.experience6|as_crispy_field }}
                                                                             </div>
                                                                         </div>
                                                                         <br>
@@ -326,7 +327,7 @@ my-carousel" data-ride="carousel">
                                                                                             {{ form.difficulty7|as_crispy_field }}
                                                                                         </div>
                                                                                         <div class="form-group col-md-6 mb-0">
-                                                                                            {{ form.experince7|as_crispy_field }}
+                                                                                            {{ form.experience7|as_crispy_field }}
                                                                                         </div>
                                                                                     </div>
                                                                                 </div>
