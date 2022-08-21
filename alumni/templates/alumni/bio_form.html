@@ -1,100 +1,94 @@
-{% extends "bios/bio_base.html" %}
-{% load crispy_forms_tags %}
-{% load bootstrap %}
-{% block post_content %}
+{% extends "bios/bio_base.html" %} {% load crispy_forms_tags %} {% load bootstrap %} {% block title %} Know Your Alumni | Cepstrum {% endblock title %} {% block post_content %}
 
 <div class="container">
-  <h3>Create a New Bio</h3>
-  <form method="POST" enctype="multipart/form-data">
-    {% csrf_token %}
-    {{form.media}}
-    <br>
-    <div class="form-row">
-      <div class="form-group col-md-6 mb-0">
-        {{ form.name|as_crispy_field }}
-      </div>
-      <div class="form-group col-md-6 mb-0">
-        {{ form.program|as_crispy_field }}
-      </div>
-    </div>
-    <br>
-    <br>
-    <div class="form-row">
-      <div class="form-group col-md-6 mb-0">
-        {{ form.branch|as_crispy_field }}
-      </div>
-      <div class="form-group col-md-6 mb-0">
-        {{ form.year_of_graduation|as_crispy_field }}
-      </div>
-    </div>
-    <br>
-    <br>
-    <div class="form-row">
-      <div class="form-group col-md-6 mb-0">
-        {{ form.number|bootstrap }}
-      </div>
-      <div class="form-group col-md-6 mb-0">
-        {{ form.junior_intraction|bootstrap }}
-      </div>
-    </div>
-    <br>
-    <br>
-    <div class="form-row">
-      <div class="form-group col-md-6 mb-0">
-        {{ form.present_work|bootstrap }}
-      </div>
-      <div class="form-group col-md-6 mb-0">
-        {{ form.present_work_org|bootstrap }}
-      </div>
-    </div>
-    <br>
-    <br>
-    <div class="form-row">
-      <div class="form-group col-md-6 mb-0">
-        {{ form.facebook|bootstrap }}
-      </div>
-      <div class="form-group col-md-6 mb-0">
-        {{ form.linkedin|bootstrap }}
-      </div>
-    </div>
-    <br>
-    <br>
-    <div class="form-row">
-      <div class="form-group col-md-6 mb-0">
-        {{ form.picture|bootstrap }}
-      </div>
-      <div class="form-group col-md-6 mb-0">
-        {{ form.profile_of_intrest|bootstrap }}
-      </div>
-    </div>
-    <div class="form-row">
-      <div class="form-group col-md-6 mb-0">
-        {{ form.intern_experience|bootstrap }}
-      </div>
-    </div>
-    <div class="form-row">
-      <div class="form-group col-md-6 mb-0">
-        {{ form.club_memories|bootstrap }}
-      </div>
-    </div>
-    <div class="form-row">
-      <div class="form-group col-md-6 mb-0">
-        {{ form.project_memories|bootstrap }}
-      </div>
-    </div>
-    <div class="form-row">
-      <div class="form-group col-md-6 mb-0">
-        {{ form.por_experience|bootstrap }}
-      </div>
-    </div>
-    <div class="form-row">
-      <div class="form-group col-md-6 mb-0">
-        {{ form.placement_experince|bootstrap }}
-      </div>
-    </div>
-    <input type="submit" value="Submit" class="btn btn-large btn-primary">
-  </form>
+    <h3>Create a New Bio</h3>
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %} {{form.media}}
+        <br>
+        <div class="form-row">
+            <div class="form-group col-md-6 mb-0">
+                {{ form.name|as_crispy_field }}
+            </div>
+            <div class="form-group col-md-6 mb-0">
+                {{ form.program|as_crispy_field }}
+            </div>
+        </div>
+        <br>
+        <br>
+        <div class="form-row">
+            <div class="form-group col-md-6 mb-0">
+                {{ form.branch|as_crispy_field }}
+            </div>
+            <div class="form-group col-md-6 mb-0">
+                {{ form.year_of_graduation|as_crispy_field }}
+            </div>
+        </div>
+        <br>
+        <br>
+        <div class="form-row">
+            <div class="form-group col-md-6 mb-0">
+                {{ form.number|bootstrap }}
+            </div>
+            <div class="form-group col-md-6 mb-0">
+                {{ form.junior_intraction|bootstrap }}
+            </div>
+        </div>
+        <br>
+        <br>
+        <div class="form-row">
+            <div class="form-group col-md-6 mb-0">
+                {{ form.present_work|bootstrap }}
+            </div>
+            <div class="form-group col-md-6 mb-0">
+                {{ form.present_work_org|bootstrap }}
+            </div>
+        </div>
+        <br>
+        <br>
+        <div class="form-row">
+            <div class="form-group col-md-6 mb-0">
+                {{ form.facebook|bootstrap }}
+            </div>
+            <div class="form-group col-md-6 mb-0">
+                {{ form.linkedin|bootstrap }}
+            </div>
+        </div>
+        <br>
+        <br>
+        <div class="form-row">
+            <div class="form-group col-md-6 mb-0">
+                {{ form.picture|bootstrap }}
+            </div>
+            <div class="form-group col-md-6 mb-0">
+                {{ form.profile_of_intrest|bootstrap }}
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6 mb-0">
+                {{ form.intern_experience|bootstrap }}
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6 mb-0">
+                {{ form.club_memories|bootstrap }}
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6 mb-0">
+                {{ form.project_memories|bootstrap }}
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6 mb-0">
+                {{ form.por_experience|bootstrap }}
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6 mb-0">
+                {{ form.placement_experince|bootstrap }}
+            </div>
+        </div>
+        <input type="submit" value="Submit" class="btn btn-large btn-primary">
+    </form>
 </div>
-<br><br><br><br><br>
-
-{% endblock %}
+<br><br><br><br><br> {% endblock %}

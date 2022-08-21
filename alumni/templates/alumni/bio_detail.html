@@ -1,176 +1,165 @@
-{% extends "bios/bio_base.html" %}
-{% load static %}
-{% block css %}
-<link rel="stylesheet" href="{% static 'KYS/css/alumni_detail.css' %}">
-{% endblock %}
-{% block post_content %}
+{% extends "bios/bio_base.html" %} {% load static %} {% block title %} {{object.name}} | Cepstrum {% endblock title %} {% block css %}
+<link rel="stylesheet" href="{% static 'KYS/css/alumni_detail.css' %}"> {% endblock %} {% block post_content %}
 <br>
 <div class="container emp-profile">
-  <form method="post">
-    <div class="row">
-      <div class="col-md-4">
-        <div class="profile-img">
-          <img width="250px" height="250px" alt="{{object.name}}" src="{{object.picture.url}}">
-        </div>
-      </div>
-      <div class="col-md-8">
-        <div class="profile-head">
-          <h5>
-            {{object.name}}
-            {% if object.owner == user %}
-              <a href="{% url 'alumni:alumni_update' object.id %}" class="btn btn-outline-danger"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-pencil-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+    <form method="post">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="profile-img">
+                    <img width="250px" height="250px" alt="{{object.name}}" src="{{object.picture.url}}">
+                </div>
+            </div>
+            <div class="col-md-8">
+                <div class="profile-head">
+                    <h5>
+                        {{object.name}} {% if object.owner == user %}
+                        <a href="{% url 'alumni:alumni_update' object.id %}" class="btn btn-outline-danger"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-pencil-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                   <path fill-rule="evenodd"
                     d="M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708l-3-3zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.207l6.5-6.5zm-7.468 7.468A.5.5 0 0 1 6 13.5V13h-.5a.5.5 0 0 1-.5-.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.5-.5V10h-.5a.499.499 0 0 1-.175-.032l-.179.178a.5.5 0 0 0-.11.168l-2 5a.5.5 0 0 0 .65.65l5-2a.5.5 0 0 0 .168-.11l.178-.178z" />
-                </svg></a>
-              {% endif %}
-          </h5>
-          <h6>
-            {{object.present_work}}
-          </h6>
-          <h6>
-            {{object.present_work_org}}
-          </h6>
-          <br>
-          <ul class="nav nav-tabs" id="myTab" role="tablist">
-            <li class="nav-item">
-              <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">About</a>
-            </li>
-            {% if object.junior_intraction %}
-            <li class="nav-item">
-              <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Social Media</a>
-            </li>
-            {% else %}{% endif %}
-            <li class="nav-item">
-              <a class="nav-link" id="home-tab" data-toggle="tab" href="#intern" role="tab" aria-controls="home" aria-selected="true">Their Internship</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" id="home-tab" data-toggle="tab" href="#club_memories" role="tab" aria-controls="home" aria-selected="true">Their Club Memories</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" id="home-tab" data-toggle="tab" href="#project_memories" role="tab" aria-controls="home" aria-selected="true">Their Project Experience</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" id="home-tab" data-toggle="tab" href="#por_experience" role="tab" aria-controls="home" aria-selected="true">Their POR Experience</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" id="home-tab" data-toggle="tab" href="#placement_experince" role="tab" aria-controls="home" aria-selected="true">Their Placement Experience</a>
-            </li>
-          </ul>
+                </svg></a> {% endif %}
+                    </h5>
+                    <h6>
+                        {{object.present_work}}
+                    </h6>
+                    <h6>
+                        {{object.present_work_org}}
+                    </h6>
+                    <br>
+                    <ul class="nav nav-tabs" id="myTab" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">About</a>
+                        </li>
+                        {% if object.junior_intraction %}
+                        <li class="nav-item">
+                            <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Social Media</a>
+                        </li>
+                        {% else %}{% endif %}
+                        <li class="nav-item">
+                            <a class="nav-link" id="home-tab" data-toggle="tab" href="#intern" role="tab" aria-controls="home" aria-selected="true">Their Internship</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="home-tab" data-toggle="tab" href="#club_memories" role="tab" aria-controls="home" aria-selected="true">Their Club Memories</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="home-tab" data-toggle="tab" href="#project_memories" role="tab" aria-controls="home" aria-selected="true">Their Project Experience</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="home-tab" data-toggle="tab" href="#por_experience" role="tab" aria-controls="home" aria-selected="true">Their POR Experience</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="home-tab" data-toggle="tab" href="#placement_experince" role="tab" aria-controls="home" aria-selected="true">Their Placement Experience</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-md-4">
-        <div class="profile-work">
-          <p></p>
-          <a href=""></a><br />
-          <a href=""></a><br />
-          <a href=""></a>
-          <p></p>
-          <a href=""></a><br />
-          <a href=""></a><br />
-          <a href=""></a><br />
-          <a href=""></a><br />
-          <a href=""></a><br />
+        <div class="row">
+            <div class="col-md-4">
+                <div class="profile-work">
+                    <p></p>
+                    <a href=""></a><br />
+                    <a href=""></a><br />
+                    <a href=""></a>
+                    <p></p>
+                    <a href=""></a><br />
+                    <a href=""></a><br />
+                    <a href=""></a><br />
+                    <a href=""></a><br />
+                    <a href=""></a><br />
+                </div>
+            </div>
+            <div class="col-md-8">
+                <div class="tab-content profile-tab" id="myTabContent">
+                    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <p>Branch</p>
+                            </div>
+                            <div class="col-md-6">
+                                <p>{{object.branch}}</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <p>Program</p>
+                            </div>
+                            <div class="col-md-6">
+                                <p>{{object.program}}</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <p>Year Of Graduation</p>
+                            </div>
+                            <div class="col-md-6">
+                                <p>{{object.year_of_graduation}}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <p>Facebook</p>
+                            </div>
+                            <div class="col-md-6">
+                                {% if object.junior_intraction %}
+                                <a href="{{object.facebook}}" class="btn btn-outline-primary"><span class="fa fa-lg fa-facebook"></span></a> {% else %}
+                                <a href="" class="btn btn-outline-primary"><span class="fa fa-lg fa-facebook"></span></a> {% endif %}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <p>Linkedin</p>
+                            </div>
+                            <div class="col-md-6">
+                                {% if object.junior_intraction %}
+                                <a href="{{object.linkedin}}" class="btn btn-outline-primary"><span class="fa fa-lg fa-linkedin"></span></a> {% else %}
+                                <a href="" class="btn btn-outline-primary"><span class="fa fa-lg fa-linkedin"></span></a> {% endif %}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <p>Phone Number</p>
+                            </div>
+                            <div class="col-md-6">
+                                {% if object.junior_intraction %}
+                                <p>{{object.number}}</p>
+                                {% else %}
+                                <p>No number</p>
+                                {% endif %}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <p>Gmail</p>
+                            </div>
+                            <div class="col-md-6">
+                                {% if object.junior_intraction %}
+                                <p>{{object.owner.email}}</p>
+                                {% else %}
+                                <p>No email</p>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="intern" role="tabpanel" aria-labelledby="profile-tab">
+                        <p>{{object.intern_experience|safe}}</p>
+                    </div>
+                    <div class="tab-pane fade" id="club_memories" role="tabpanel" aria-labelledby="profile-tab">
+                        <p>{{object.club_memories|safe}}</p>
+                    </div>
+                    <div class="tab-pane fade" id="project_memories" role="tabpanel" aria-labelledby="profile-tab">
+                        <p>{{object.project_memories|safe}}</p>
+                    </div>
+                    <div class="tab-pane fade" id="por_experience" role="tabpanel" aria-labelledby="profile-tab">
+                        <p>{{object.por_experience|safe}}</p>
+                    </div>
+                    <div class="tab-pane fade" id="placement_experince" role="tabpanel" aria-labelledby="profile-tab">
+                        <p>{{object.placement_experince|safe}}</p>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-      <div class="col-md-8">
-        <div class="tab-content profile-tab" id="myTabContent">
-          <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-            <div class="row">
-              <div class="col-md-6">
-                <p>Branch</p>
-              </div>
-              <div class="col-md-6">
-                <p>{{object.branch}}</p>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-md-6">
-                <p>Program</p>
-              </div>
-              <div class="col-md-6">
-                <p>{{object.program}}</p>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-md-6">
-                <p>Year Of Graduation</p>
-              </div>
-              <div class="col-md-6">
-                <p>{{object.year_of_graduation}}</p>
-              </div>
-            </div>
-          </div>
-          <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-            <div class="row">
-              <div class="col-md-6">
-                <p>Facebook</p>
-              </div>
-              <div class="col-md-6">
-                {% if object.junior_intraction %}
-                <a href="{{object.facebook}}" class="btn btn-outline-primary"><span class="fa fa-lg fa-facebook"></span></a>
-                {% else %}
-                <a href="" class="btn btn-outline-primary"><span class="fa fa-lg fa-facebook"></span></a>
-                {% endif %}
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-md-6">
-                <p>Linkedin</p>
-              </div>
-              <div class="col-md-6">
-                {% if object.junior_intraction %}
-                <a href="{{object.linkedin}}" class="btn btn-outline-primary"><span class="fa fa-lg fa-linkedin"></span></a>
-                {% else %}
-                <a href="" class="btn btn-outline-primary"><span class="fa fa-lg fa-linkedin"></span></a>
-                {% endif %}
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-md-6">
-                <p>Phone Number</p>
-              </div>
-              <div class="col-md-6">
-                {% if object.junior_intraction %}
-                <p>{{object.number}}</p>
-                {% else %}
-                <p>No number</p>
-                {% endif %}
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-md-6">
-                <p>Gmail</p>
-              </div>
-              <div class="col-md-6">
-                {% if object.junior_intraction %}
-                <p>{{object.owner.email}}</p>
-                {% else %}
-                <p>No email</p>
-                {% endif %}
-              </div>
-            </div>
-          </div>
-          <div class="tab-pane fade" id="intern" role="tabpanel" aria-labelledby="profile-tab">
-            <p>{{object.intern_experience|safe}}</p>
-          </div>
-          <div class="tab-pane fade" id="club_memories" role="tabpanel" aria-labelledby="profile-tab">
-            <p>{{object.club_memories|safe}}</p>
-          </div>
-          <div class="tab-pane fade" id="project_memories" role="tabpanel" aria-labelledby="profile-tab">
-            <p>{{object.project_memories|safe}}</p>
-          </div>
-          <div class="tab-pane fade" id="por_experience" role="tabpanel" aria-labelledby="profile-tab">
-            <p>{{object.por_experience|safe}}</p>
-          </div>
-          <div class="tab-pane fade" id="placement_experince" role="tabpanel" aria-labelledby="profile-tab">
-            <p>{{object.placement_experince|safe}}</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </form>
+    </form>
 </div>
-<br><br><br>
-{% endblock %}
+<br><br><br> {% endblock %}

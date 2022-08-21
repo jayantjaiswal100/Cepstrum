@@ -1,7 +1,6 @@
-{% extends "base.html" %} {% block css %}
+{% extends "base.html" %} {% block title %} Inplex | Cepstrum {% endblock title %} {% block css %}
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Acme&family=Lobster&family=Montserrat:wght@400;600;700;900&family=Nunito:wght@500&family=Pacifico&family=Poppins&display=swap');
-
     .carousel-item {
         height: 100vh;
         background: no-repeat center center scroll;
@@ -44,14 +43,12 @@ my-carousel" data-ride="carousel">
                     </h1>
                     <br>
                     <p>
-                        Internships and placements are some of the most important milestones of one's college life. Hence, we at Cepstrum, IIT Guwahati have come up with yet another initiative, Inplex. It aims to provide a platform for seniors to share their valuable placement and intern season experiences for the upcoming batches to learn from. 
+                        Internships and placements are some of the most important milestones of one's college life. Hence, we at Cepstrum, IIT Guwahati have come up with yet another initiative, Inplex. It aims to provide a platform for seniors to share their valuable placement
+                        and intern season experiences for the upcoming batches to learn from.
                     </p>
-                        <br>
-                        {% if created %}
-                            <a class='btn btn-primary' href="{% url 'inplex:experience_create' %}">Add your experience</a>
-                        {% else %}
-                            <a class='btn btn-primary' href="{% url 'inplex:student_create' %}">Create profile</a>
-                        {% endif %}
+                    <br> {% if created %}
+                    <a class='btn btn-primary' href="{% url 'inplex:experience_create' %}">Add your experience</a> {% else %}
+                    <a class='btn btn-primary' href="{% url 'inplex:student_create' %}">Create profile</a> {% endif %}
                 </div>
 
 
@@ -62,10 +59,7 @@ my-carousel" data-ride="carousel">
     </div>
 
 </div>
-{% endblock carousel %} 
-{% comment %} {% block content %} 
-{% for i in student_list %}
+{% endblock carousel %} {% comment %} {% block content %} {% for i in student_list %}
 <h1>{{i}}</h1>
 <h1>{{user}}</h1>
-{% endfor %} 
-{% endblock content %} {% endcomment %}
+{% endfor %} {% endblock content %} {% endcomment %}
