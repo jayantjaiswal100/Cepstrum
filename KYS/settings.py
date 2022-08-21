@@ -188,11 +188,11 @@ MEDIA_ROOT = BASE_DIR/'media'
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'jayantjaiswal2908@gmail.com'
-EMAIL_HOST_PASSWORD = 'fayhkxjaetdxeyvc'
+EMAIL_HOST_USER = 'cepstrum.iitghy@gmail.com'
+EMAIL_HOST_PASSWORD = 'yhgzwmbowmdtkqwx'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-DEFAULT_FROM_EMAIL = 'Cepstrum Team <jayantjaiswal2908@gmail.com>'
+DEFAULT_FROM_EMAIL = 'Cepstrum Team <cepstrum.iitghy@gmail.com>'
 
 # Razorpay key for Donation Portal
 RAZOR_KEY_ID = 'rzp_test_f181UKm4iVSHUy'
