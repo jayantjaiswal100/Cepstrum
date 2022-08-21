@@ -69,9 +69,33 @@
                         Not only the hero you need, but also the one you deserve! Paperman is one of its kind initiative by Cepstrum with the sole aim of creating a repository of past question papers and study resources to aid your academic needs. We have all the courses of
                         first year and B.tech courses taught by Department of EEE covered.
                     </p>
-                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-						Filter out your course
-					  </button>
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        Filter out your Course
+                      </button>
+
+                    <!-- Modal -->
+                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" style="color: black;">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Filter out your Course</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <form method="GET" class="">
+                                        {{filter.form|bootstrap}}
+
+
+
+                                    </form>
+                                </div>
+                                <div class="modal-footer">
+                                    <a href="{% url 'paperman:all' %}" class="btn btn-secondary">Clear</a>
+                                    <button type="submit" class="btn btn-primary">Search</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
 
@@ -99,28 +123,7 @@
 {% endblock %} {% block content %}
 
 
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" style="color: black;">
-    <div class="modal-dialog modal-dialog-scrollable">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Filters</h5>
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            </div>
-            <div class="modal-body">
-                <form method="GET" class="">
-                    {{filter.form|bootstrap}}
-                    <button type="submit" class="btn btn-primary">Search</button>
-                    <a href="{% url 'paperman:all' %}" class="btn btn-secondary">Clear</a>
 
-                </form>
-            </div>
-            <div class="modal-footer">
-
-            </div>
-        </div>
-    </div>
-</div>
 <br><br>
 <div id="main">
     {% if paperman_list %}

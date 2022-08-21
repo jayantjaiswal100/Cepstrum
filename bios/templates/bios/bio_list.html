@@ -1,23 +1,125 @@
-{% extends "bios/bio_base.html" %} {% load static %} {% load humanize %} {% load bootstrap %}{% block title %} Know Your Seniors | Cepstrum {% endblock title %} {% block navcontent %}
-<h1><b>Know Ur Seniors</b> </h1>
-<br>
-<p>
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem alias neque distinctio sapiente magni beatae pariatur. Placeat veritatis consequuntur ab odit ullam ut nobis repellat eius omnis aut! Aperiam, placeat!
-</p>
-<center>
+{% extends "base.html" %} {% load static %}{% load bootstrap %} {% block title %} Home | Cepstrum {% endblock title %} {% block css %}
+<style>
+    .carousel-item {
+        height: 100vh;
+        background: no-repeat center center scroll;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+    }
+    
+    .content {
+        text-align: center;
+        padding-top: 5%;
+        padding-right: 4%;
+        padding-left: 60%;
+        color: white;
+    }
+    
+    .carousel-item-content {
+        /* margin-top: 20%;
+  margin-left: 15%;
+  margin-right: 30%; */
+        font-size: 24px;
+    }
+    
+    .carousel-item-screen {
+        color: white;
+        background-color: rgba(0, 0, 0, 0.6);
+        width: 100%;
+        height: 100%;
+        padding: 15% 20% 0 15%;
+    }
+    
+    .link-button {
+        color: white;
+        background-color: #555555;
+        display: inline-block;
+        text-decoration: none;
+        padding: 5px 10px;
+        border-radius: 5px;
+    }
+    
+    .link-button:hover {
+        text-decoration: none;
+        color: white;
+        background-color: #222222;
+        display: inline-block;
+        text-decoration: none;
+        padding: 5px 10px;
+        border-radius: 5px;
+    }
+</style>
 
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-        Filter
-      </button>
-</center>
-{% endblock navcontent %} {% block prepost %} {% if user.is_authenticated %} {% if bio_list %}
+{% endblock %} {% block carousel %}
+<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+        <div class="carousel-item active" style="background-image:
+          url('https://static.theprint.in/wp-content/uploads/2020/03/IITG.jpg')">
+
+            <div class="carousel-item-screen">
+                <div class="carousel-item-content">
+                    <h1><b>Know Your Seniors </b> </h1>
+                    <br>
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium quae ab unde consectetur distinctio ad magnam provident quas. Nobis ea molestias blanditiis saepe eius aut at unde error culpa ratione?
+                    </p>
+                    <br><br>
+                    <!-- Button trigger modal -->
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    Filter
+  </button>
+
+                    <!-- Modal -->
+                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" style="color: black;">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Filter</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <form method="GET" class="">
+                                        {{filter.form|bootstrap}}
+
+
+
+                                    </form>
+                                </div>
+                                <div class="modal-footer">
+                                    <a href="{% url 'bios:all' %}" class="btn btn-secondary">Clear</a>
+                                    <button type="submit" class="btn btn-primary">Search</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+
+
+
+
+
+
+    </div>
+</div>
+
+{% endblock %} {% block content %} {% if user.is_authenticated %} {% if bio_list %}
 
 
 <!-- Button trigger modal -->
 
 
 <!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" style="color: black;">
+<!-- <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" style="color: black;">
     <div class="modal-dialog modal-dialog-scrollable">
         <div class="modal-content">
             <div class="modal-header">
@@ -25,19 +127,14 @@
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
             </div>
             <div class="modal-body">
-                <form method="GET" class="">
-                    {{filter.form|bootstrap}}
-                    <button type="submit" class="btn btn-primary">Search</button>
-                    <a href="{% url 'bios:all' %}" class="btn btn-secondary">Clear</a>
-
-                </form>
+                
             </div>
             <div class="modal-footer">
 
             </div>
         </div>
     </div>
-</div>
+</div> -->
 <br><br>
 <div class="row">
     {% for i in filter.qs %}
@@ -68,8 +165,4 @@
 
 {% else %}
 <p>There are no bio in the database.</p>
-{% endif %} {% endif %} {% endblock %} {% block postpost %}
-<div class="row-md-8">
-    {% for bio in bio_list %} {% include "bios/_bio.html" %} {% endfor %}
-</div>
-{% endblock %}
+{% endif %} {% endif %} {% endblock %}
