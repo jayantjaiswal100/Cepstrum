@@ -69,6 +69,7 @@ INSTALLED_APPS = [
     'django_countries',
     'ckeditor',
     'inplex',
+    'talk',
     'ckeditor_uploader',
     'django_cleanup.apps.CleanupConfig',
 ]

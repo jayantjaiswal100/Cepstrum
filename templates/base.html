@@ -91,6 +91,16 @@
                             <li><a class="dropdown-item" href="{% url 'inplex:all' %}">Inplex | Intern</a></li>
                         </ul>
                     </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Events
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="{% url 'celebration:all' %}">Celebrations</a></li>
+                            <li><a class="dropdown-item" href="{% url 'talk:all' %}">Lectures/Workshop</a></li>
+
+                        </ul>
+                    </li>
                     <!-- {% if user.is_authenticated %}
                     <li class="nav-item dropdown active" class="">
                         <a class="nav-link dropdown-toggle" href="" id="dropdownMenuButton" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -122,9 +132,6 @@
                     </li>
                     {% else %} 
                     {% endif %} -->
-                    <li class="nav-item active NavItem mx-3">
-                        <a class="nav-link" aria-current="page" href="{% url 'celebration:all' %}">Events</a>
-                    </li>
                     <li class="nav-item active NavItem mx-3">
                         <a class="nav-link" aria-current="page" href="{% url 'team:all' %}">Team</a>
                     </li>

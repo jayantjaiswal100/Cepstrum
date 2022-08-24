@@ -1,6 +1,7 @@
 from django.views.generic import TemplateView, ListView
 from django.shortcuts import render
 from inphase.models import *
+from talk.models import *
 
 class TestPage(TemplateView):
     """docstring for TestPage."""
@@ -29,5 +30,10 @@ class HomePage(ListView):
     model = Inphase
     template_name = 'index.html'
     ordering = ['-created_at']
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['hc'] = HomeCarousel.objects.all()
+        return context
+
 
 

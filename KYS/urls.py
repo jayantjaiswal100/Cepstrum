@@ -36,6 +36,7 @@ urlpatterns = [
     url('inphase/', include('inphase.urls')),
     url('inplace/', include('inplace.urls')),
     url('alumni/', include('alumni.urls')),
+    url('talk/', include('talk.urls')),
     url('celebration/', include('celebration.urls')),
     url('paperman/', include('paperman.urls')),
     url('timetable/', include('timetable.urls')),

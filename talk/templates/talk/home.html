@@ -1,4 +1,4 @@
-{% extends "base.html" %} {% load static %} {% block title %} Home | Cepstrum {% endblock title %} {% block css %}
+{% extends "base.html" %} {% load static %} {% block title %} Talk | Cepstrum {% endblock title %} {% block css %}
 <style>
     .carousel-item {
         height: 100vh;
@@ -14,31 +14,17 @@
 <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-inner">
 
-        {% for i in hc %}
-        <a href="{{i.name}}">
-            <div class="carousel-item {% if i.id == 1 %} active {% endif %}" style="background-image:
-            url('{{i.pic}}');">
-                <div class="carousel-item-screen">
+        {% for i in talk_list %}
 
-                </div>
+        <div class="carousel-item {% if i.id == 1 %} active {% endif %}" style="background-image:
+            url('{{i.pic}}');">
+            <div class="carousel-item-screen">
+
 
             </div>
-        </a>
-        {% endfor %}
-
-
-
-
-
-
-
-
-        <div class="carousel-item" data-interval="9000">
-            <video autoplay muted loop width="100%" height="121%" id="myVideo">
-        <source src="https://drive.google.com/uc?export=download&id=1EZyLXoTGOUd2YLC11fzvXRCZ-vTVzta9" type="video/mp4">
-      </video>
 
         </div>
+        {% endfor %}
 
     </div>
     <button class="carousel-control-prev" data-bs-target="#carouselExampleIndicators" type="button" data-bs-slide="prev">
