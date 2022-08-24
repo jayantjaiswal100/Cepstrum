@@ -9,6 +9,12 @@ class Position(models.Model):
     def __str__(self):
         return self.name
 
+class Year(models.Model):
+    name = models.CharField(max_length=50)
+  
+
+    def __str__(self):
+        return self.name
 
 class Category(models.Model):
     name = models.CharField(max_length=50)
@@ -29,5 +35,14 @@ class Team(models.Model):
     pic = models.ImageField(upload_to='team', height_field=None, width_field=None, max_length=None,default="")
 
 
+    def __str__(self):
+        return self.name
+
+class PrevTeam(models.Model):
+    name = name = models.CharField(max_length=50)
+    position = models.ForeignKey(Position, on_delete=models.CASCADE)
+    category = models.ForeignKey(Category, on_delete=models.CASCADE)
+    linkedin = models.URLField(max_length=200,null=True,blank=True)
+    year = models.ForeignKey(Year, on_delete=models.CASCADE)
     def __str__(self):
         return self.name

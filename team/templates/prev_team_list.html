@@ -1,0 +1,56 @@
+{% extends 'base.html' %}{% load bootstrap %}{% load crispy_forms_tags %} {% block title %} Inplex | Cepstrum {% endblock title %} {% block css %}
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Acme&family=Lobster&family=Montserrat:wght@400;600;700;900&family=Nunito:wght@500&family=Pacifico&family=Poppins&display=swap');
+    .carousel-item {
+        height: 50vh;
+        background: no-repeat center center scroll;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+    }
+    
+    .carousel-item-content {
+        /* margin-top: 20%;
+  margin-left: 15%;
+  margin-right: 30%; */
+        font-size: 24px;
+    }
+    
+    .carousel-item-screen {
+        color: white;
+        background-color: rgba(0, 0, 0, 0.6);
+        width: 100%;
+        height: 100%;
+        padding: 10% 7% 0 5%;
+    }
+</style>
+
+{% endblock %}{% block carousel %}
+<div id="carouselExampleIndicators" class="carousel slide my-carousel
+my-carousel" data-ride="carousel">
+    <div class="carousel-inner" role="listbox">
+        <div class="carousel-item active" style="background: rgb(16,6,35);
+        background: linear-gradient(326deg, rgba(16,6,35,1) 0%, rgba(61,11,26,1) 100%);">
+            <!-- <div style="padding-top: 40%; padding-left: 10%;">
+        <button type="button" class="btn btn-secondary btn-lg" data-toggle="modal" data-target=".bd-example-modal-xl">Know more</button>
+
+      </div> -->
+
+            <div class="carousel-item-screen">
+                <div class="carousel-item-content">
+                    <h1><b style="font-family: 'Nunito', serif;"> Cepstrum </b>|
+                        <span style="font-size: 1.4rem;">Prev Team</span>
+                    </h1>
+                    <br>
+                </div>
+
+
+            </div>
+        </div>
+
+
+    </div>
+
+</div>
+<br> {% endblock carousel %}
