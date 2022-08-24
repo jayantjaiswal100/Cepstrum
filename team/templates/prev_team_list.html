@@ -39,8 +39,7 @@ my-carousel" data-ride="carousel">
 
             <div class="carousel-item-screen">
                 <div class="carousel-item-content">
-                    <h1><b style="font-family: 'Nunito', serif;"> Cepstrum </b>|
-                        <span style="font-size: 1.4rem;">Prev Team</span>
+                    <h1><b style="font-family: 'Nunito', serif;"> Team Cepstrum {{object}} </b>
                     </h1>
                     <br>
                 </div>
@@ -53,4 +52,28 @@ my-carousel" data-ride="carousel">
     </div>
 
 </div>
-<br> {% endblock carousel %}
+<br> {% endblock carousel %} {% block content %}
+<div class="container">
+    <table class="table lgx-table">
+        <thead>
+            <tr>
+                <th><b>Designation</b></th>
+                <th><b>Name</b></th>
+                <th><b>Team</b></th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for i in team %}
+            <tr>
+
+                <td><b>{{i.position}}</b></td>
+                <td><b>{{i.name}}</b></td>
+                <td><b>{{i.category}}</b></td>
+            </tr>
+            {% endfor %}
+
+
+        </tbody>
+    </table>
+</div>
+{% endblock content %}

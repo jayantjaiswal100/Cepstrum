@@ -39,10 +39,10 @@ class Team(models.Model):
         return self.name
 
 class PrevTeam(models.Model):
-    name = name = models.CharField(max_length=50)
+    name = models.CharField(max_length=50)
     position = models.ForeignKey(Position, on_delete=models.CASCADE)
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
     linkedin = models.URLField(max_length=200,null=True,blank=True)
-    year = models.ForeignKey(Year, on_delete=models.CASCADE)
+    year = models.ForeignKey(Year, on_delete=models.CASCADE,related_name='year')
     def __str__(self):
         return self.name

@@ -3,20 +3,26 @@ from rest_framework.generics import GenericAPIView
 from rest_framework import mixins
 from .serializers import TeamSerializers
 # Create your views here.
-from django.views.generic import ListView
+from django.views.generic import ListView, DetailView
 
 
 class TeamListView(ListView):
     model = Team
     template_name = "team_list.html"
-
-class PrevTeamListView(ListView):
-    model = PrevTeam
-    template_name = "prev_team_list.html"
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['year'] = Year.objects.all()
-        context['mylist'] = zip(PrevTeam.objects.all(), Year.objects.all())
+        return context
+
+
+class PrevTeamListView(DetailView):
+    model = Year
+    template_name = "prev_team_list.html"
+    def get_context_data(self, **kwargs):
+        context = super(PrevTeamListView, self).get_context_data(**kwargs)
+        print(self.object.year.all())
+        context['team'] = self.object.year.all()
+
         return context
 
 
