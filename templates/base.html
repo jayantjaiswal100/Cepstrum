@@ -28,10 +28,6 @@
         background-color: white;
         color: black;
     }
-    
-    NavItem {
-        float: right;
-    }
 </style>
 
 {% block css %} {% endblock css %}
@@ -46,8 +42,8 @@
         <div class="container-fluid">
             <a class="navbar-brand" href="{% url 'home' %}"> <img src="https://www.iitg.ac.in/cepstrum/common/logo.svg" style="opacity: 1;" width="40%" height="40%" alt=""></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+                <span class="navbar-toggler-icon"></span>
+            </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ml-auto mb-2 mb-lg-0">
 
@@ -81,7 +77,8 @@
                             <li><a class="dropdown-item" href="{% url 'inphase:all' %}">Inphase</a></li>
                             <!-- <li><a class="dropdown-item" href="https://medium.com/inplace/">Inplace</a></li> -->
                             <li><a class="dropdown-item" href="{% url 'inplace:all' %}">Inplace</a></li>
-                            <li><a class="dropdown-item" href="https://iitg.ac.in/cepstrum/paperman.html">PaperMan</a></li>
+                            <li><a class="dropdown-item" href="https://iitg.ac.in/cepstrum/paperman.html">PaperMan</a>
+                            </li>
                             <!-- <li><a class="dropdown-item" href="{% url 'paperman:all' %}">PaperMan</a></li> -->
                             <li><a class="dropdown-item" href="{% url 'inked_intellects:all' %}">Inked Intelect</a></li>
                             <!-- <li><a class="dropdown-item" href="https://medium.com/inked-intellects">Inked Intelect</a></li> -->
@@ -137,18 +134,31 @@
                     </li>
                     {% if 'AR' in user.groups.all.0.name %}
                     <li class="nav-item active NavItem mx-3">
-                        <a class="nav-link" aria-current="page" href="{% url 'timetable:adminpanel' %}">Timetable Admin</a>
+                        <a class="nav-link" aria-current="page" href="{% url 'timetable:adminpanel' %}">Timetable
+                            Admin</a>
                     </li>
                     {% endif %}
                 </ul>
-                <ul class="navbar-nav ml-auto">
+                <ul class="navbar-nav ml-auto mb-2 mb-lg-0">
                     {% if user.is_authenticated %}
-                    <li class="nav-item active"><a class="nav-link" href="{% url 'accounts:logout' %}">LOGOUT</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            My Account
+                        </a>
+                        <ul class="dropdown-menu">
+                            <center>
+                                <li><a class="list-group-item disabled">{{user.first_name}}</a></li>
+                                <li><a class="dropdown-item" href="{% url 'accounts:logout' %}">Logout</a></li>
+                            </center>
+                        </ul>
+                    </li>
                     {% else %}
-                    <li class="nav-item active"><a class="nav-link" href="{% url 'accounts:login' %}">Login</a></li>
+                    <li class="nav-item active NavItem mx-3">
+                        <a class="nav-link" aria-current="page" href="{% url 'accounts:login' %}">Login</a>
+                    </li>
                     {% endif %}
+                </ul>
             </div>
-            </ul>
 
         </div>
         </div>
