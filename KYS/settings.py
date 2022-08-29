@@ -180,9 +180,10 @@ LOGOUT_REDIRECT_URL = 'home'
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
-MEDIA_URL = '/media/'
-STATIC_URL = '/static/'
+MEDIA_URL = '/cepstrum/mediia/'
+STATIC_URL = '/cepstrum/static/'
 STATIC_DIR = BASE_DIR/'static'
+STATIC_ROOT = BASE_DIR/"assets"
 STATICFILES_DIRS = [STATIC_DIR,]
 MEDIA_ROOT = BASE_DIR/'media'
 
