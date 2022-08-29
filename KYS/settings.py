@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/3.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.1/ref/settings/
 """
-
+import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -23,10 +23,10 @@ TEMPLATES_DIR = BASE_DIR/'templates'
 SECRET_KEY = 'k37l65ayz^p*0!l6*ir(mww*v@(@jy==mw=n7e@km59$%cm%co'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
-
+#ACCOUNT_DEFAULT_HTTP_PROTOCOL = 'https'
 #EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 #EMAIL_HOST = 'smtp.gmail.com'
 # EMAIL_PORT = 587
@@ -140,6 +140,18 @@ DATABASES = {
     }
 }
 
+if not DEBUG:
+    print("Connecting to db....")
+    DATABASES["default"]:{
+            "ENGINE":"django.db.backends.postgresql_psycopg2",
+            "NAME":os.environ.get("DB_NAME"),
+            "USER":os.environ.get("DB_USER"),
+            "HOST":os.environ.get("DB_HOST"),
+            "PORT":5432,
+            "PASSWORD":os.environ.get("DB_PASS")
+    }
+
+
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
@@ -180,7 +192,7 @@ LOGOUT_REDIRECT_URL = 'home'
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
-MEDIA_URL = '/cepstrum/mediia/'
+MEDIA_URL = '/cepstrum/media/'
 STATIC_URL = '/cepstrum/static/'
 STATIC_DIR = BASE_DIR/'static'
 STATIC_ROOT = BASE_DIR/"assets"
