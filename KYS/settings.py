@@ -26,7 +26,7 @@ SECRET_KEY = 'k37l65ayz^p*0!l6*ir(mww*v@(@jy==mw=n7e@km59$%cm%co'
 DEBUG = False
 
 ALLOWED_HOSTS = ['*']
-#ACCOUNT_DEFAULT_HTTP_PROTOCOL = 'https'
+ACCOUNT_DEFAULT_HTTP_PROTOCOL = 'https'
 #EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 #EMAIL_HOST = 'smtp.gmail.com'
 # EMAIL_PORT = 587
@@ -161,7 +161,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-SECURE_SSL_REDIRECT = True
+#SECURE_SSL_REDIRECT = True
 # Internationalization
 # https://docs.djangoproject.com/en/3.1/topics/i18n/
 
