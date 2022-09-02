@@ -84,7 +84,13 @@
                             <!-- <li> <a class="dropdown-item" href="{% url 'timetable:index' %}">Timetable</a></li> -->
                             <!-- <li><a class="dropdown-item" href="{% url 'core:home' %}">Mechendise</a> </li> -->
                             <!-- <li><a class="dropdown-item" href="{% url 'dp:all' %}">Donation</a></li> -->
+
+                            {% if user.is_authenticated %}
                             <li><a class="dropdown-item" href="{% url 'inplex:all' %}">Inplex | Intern</a></li>
+                            {% else %}
+                            <li><a class="dropdown-item" href="{% url 'accounts:login' %}">Inplex | Intern</a></li>
+                            {% endif %}
+
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
