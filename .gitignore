@@ -1,3 +1,4 @@
 .env
 assets/*
 media/*
+db.sqlite3
