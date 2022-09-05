@@ -202,3 +202,4 @@ DEFAULT_FROM_EMAIL = 'Cepstrum Team <cepstrum.iitghy@gmail.com>'
 RAZOR_KEY_ID = 'rzp_test_f181UKm4iVSHUy'
 
 RAZOR_KEY_SECRET = 'lNmG9wx8LPbDNqIKIPCDcZ6B'
+USE_X_FORWARDED_HOST=True
