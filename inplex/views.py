@@ -18,10 +18,12 @@ class HomeView(LoginRequiredMixin,ListView):
         context['student_list'] = Student.objects.all()
         context['filter'] = ExpFilter(self.request.GET, queryset=self.get_queryset())
         for i in context['student_list']:
-            if str(i) == str(self.request.user):
+            print(self.request.user.first_name)
+            print(i)
+            if str(i) == str(self.request.user.first_name):
                 context['created'] = True
                 break
-        print(context)
+        # print("created", created)
         return context
     template_name = "inplex/home.html"
 
