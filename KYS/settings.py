@@ -80,6 +80,7 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 SOCIALACCOUNT_PROVIDERS = {
     'microsoft': {
         'tenant': 'organizations',
+        'redirect_uri': 'https://iitg.ac.in/cepstrum/accounts/microsoft/login/callback/',
     }
 }
 
