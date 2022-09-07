@@ -1,0 +1,21 @@
+version: '3.3'
+
+services:
+  web:
+    build:
+        context: .
+    ports:
+      - 8021:8000
+    command: sh -c /code/entrypoint.prod
+    restart: always
+    extra_hosts:
+            - "host.docker.internal:host-gateway"
+
+    volumes:
+            - "./media:/code/media"
+            - "./assets:/code/assets"
+            - "./db.sqlite3:/code/db.sqlite3"
+    env_file:
+        - .env
+
+
