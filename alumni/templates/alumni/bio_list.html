@@ -22,11 +22,12 @@
             <div class="modal-body">
                 <form method="GET" class="">
                     {{filter.form|bootstrap}}
+                    <a href="{% url 'bios:all' %}" class="btn btn-secondary">Clear</a>
+                    <button type="submit" class="btn btn-primary">Search</button>
                 </form>
             </div>
             <div class="modal-footer">
-                <a href="{% url 'bios:all' %}" class="btn btn-secondary">Clear</a>
-                <button type="submit" class="btn btn-primary">Search</button>
+
             </div>
         </div>
     </div>

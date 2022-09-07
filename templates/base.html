@@ -76,15 +76,19 @@
                             <li><a class="dropdown-item" href="{% url 'inphase:all' %}">Inphase</a></li>
                             <!-- <li><a class="dropdown-item" href="https://medium.com/inplace/">Inplace</a></li> -->
                             <li><a class="dropdown-item" href="{% url 'inplace:all' %}">Inplace</a></li>
-                            <li><a class="dropdown-item" href="https://iitg.ac.in/cepstrum/paperman.html">Paperman</a>
-                            </li>
-                            <!-- <li><a class="dropdown-item" href="{% url 'paperman:all' %}">PaperMan</a></li> -->
+                            <li><a class="dropdown-item" href="{% url 'paperman:all' %}">PaperMan</a></li>
                             <li><a class="dropdown-item" href="{% url 'inked_intellects:all' %}">Inked Intelect</a></li>
-                            <!-- <li><a class="dropdown-item" href="https://medium.com/inked-intellects">Inked Intelect</a></li> -->
+                            {% if user.is_authenticated %}
+                            <li><a class="dropdown-item" href="{% url 'inplex:all' %}">Inplex | Intern</a></li>
+                            {% else %}
+                            <li><a class="dropdown-item" href="{% url 'accounts:login' %}">Inplex | Intern</a></li>
+                            {% endif %}
                             <!-- <li> <a class="dropdown-item" href="{% url 'timetable:index' %}">Timetable</a></li> -->
                             <!-- <li><a class="dropdown-item" href="{% url 'core:home' %}">Mechendise</a> </li> -->
                             <!-- <li><a class="dropdown-item" href="{% url 'dp:all' %}">Donation</a></li> -->
-                            <li><a class="dropdown-item" href="{% url 'inplex:all' %}">Inplex | Intern</a></li>
+
+
+
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
