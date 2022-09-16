@@ -58,6 +58,12 @@
         padding: 5px 10px;
         border-radius: 5px;
     }
+    ul{
+        list-style: none;
+    }
+    li{
+        list-style-type: none;
+    }
 </style>
 
 {% endblock %} {% block carousel %}
@@ -81,11 +87,9 @@
 
                         <div class="socialaccount_ballot">
 
-                            <ul class="socialaccount_providers">
-                                <div class="col-md-5 col-lg-5">
-                                    <h5 class="btn btn-primary alert-link" style="color:rgb(23, 23, 215);">{% include "socialaccount/snippets/provider_list.html" with process="login" %}</h5>
-                                </div>
-                            </ul>
+                            <div class="socialaccount_providers">
+                                <h5 class="btn btn-primary alert-link" style="color:rgb(23, 23, 215);">{% include "socialaccount/snippets/provider_list.html" with process="login" %}</h5>
+                            </div>
 
 
                         </div>
