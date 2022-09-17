@@ -59,14 +59,16 @@
         <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
     </ol>
     <div class="carousel-inner" role="listbox">
-        <div class="carousel-item active" style="background-image:
-        url('https://static.theprint.in/wp-content/uploads/2020/03/IITG.jpg');">
+        <!-- <div class="carousel-item active" style="background-image:
+        url('https://static.theprint.in/wp-content/uploads/2020/03/IITG.jpg');"> -->
+        <div class="carousel-item active" style="background: rgb(17,6,35);
+        background: linear-gradient(326deg, rgba(17,6,35,1) 0%, rgba(71,7,20,1) 96%);">
             <div class="carousel-item-screen">
                 <div class="carousel-item-content">
-                    <h1><b>About <br> Inplace </b> </h1>
-                    <br>
+                    <h1><b>About <font color="yellow">Inplace</font> </h1>
+                    <br></b>
                     <p>
-                        InPlace is the flagship publication of Cepstrum, IITG. This series features articles by junior and senior year students from the EEE department about their internship and placement experiences. The articles cover test preparation, work experience and everything in between.
+                        Inplace is the flagship publication of Cepstrum, IITG. This series features articles by junior and senior year students from the EEE department about their internship and placement experiences. The articles cover test preparation, work experience and everything in between.
                     </p>
                 </div>
 
@@ -94,11 +96,11 @@
 {% endblock %} {% block content %}
 <br><br><br><br>
 
-<div class="container row" style="align-items: center;">
+<div class="container" style="align-items: center;">
     {% for i in post_list %}
 
     <div class="col">
-        <div class="card col-sm-6" style="max-width: 90%;">
+        <div class="card mb-3" style="max-width: 90%;">
             <img src="{{i.pic.url}}" class="card-img-top" alt="...">
             <div class="card-body">
                 <a href="{% url 'inplace:detail' i.id %}">
