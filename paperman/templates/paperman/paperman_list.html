@@ -58,6 +58,7 @@
     a:hover{
         color: yellow;
     }
+
     .headers{
         display: flex;
         flex-wrap: wrap;
@@ -88,9 +89,9 @@
         background: linear-gradient(326deg, rgba(16,6,35,1) 0%, rgba(26,2,105,1) 100%);">
             <div class="carousel-item-screen">
                 <div class="carousel-item-content">
-                    <h1><b>About <font color="yellow">Paperman</font> </b> </h1>
+                    <h1 class="text-2xl mt-5 md:text-5xl md:mt-2"><b>About <font color="yellow">Paperman</font> </b> </h1>
                     <br>
-                    <p>
+                    <p class="text-lg md:text-2xl">
                         Not only the hero you need, but also the one you deserve! Paperman is one of its kind initiative by Cepstrum with the sole aim of creating a repository of past question papers and study resources to aid your academic needs. We have all the courses of
                         first year and B.tech courses taught by Department of EEE covered.
                     </p>
@@ -98,23 +99,9 @@
                     <!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
                         Filter out your Course
                       </button> -->
-                      <div class="headers">
-                        <a target=”_blank” href="https://iitgoffice-my.sharepoint.com/:f:/g/personal/cepstrum_iitg_ac_in/EuQ5luYjd-JNsnD7V_VNmN0BQb55lewXQlSAQ2Q9aZFdOA" >
-                            <div class="btn btn-primary px-4 p-2">Freshmen Year</div>
-                        </a>
-                        <a target=”_blank” href="https://iitgoffice-my.sharepoint.com/:f:/g/personal/cepstrum_iitg_ac_in/EokGx0Y6uEBNgpMSR1vdYHYBaBH2PGmHbr50kV6vWWC-Cw" >
-                            <div class="btn btn-primary px-4 p-2">Sophomore Year</div>
-                        </a>
-                        <a target=”_blank” href="https://iitgoffice-my.sharepoint.com/:f:/g/personal/cepstrum_iitg_ac_in/EhyI3mgdL0dHoINTwFbnhIcBTA21DE-2v_UasUyfj8Ii7A" >
-                            <div class="btn btn-primary px-4 p-2">Pre-final Year</div>
-                        </a>
-                        <a target=”_blank” href="https://iitgoffice-my.sharepoint.com/:f:/g/personal/cepstrum_iitg_ac_in/EuxljiN2e55DhlZLwYZl3JgBD2V6HWr_HHL9oQnUNHthxQ" >
-                            <div class="btn btn-primary px-4 p-2">Final Year</div>
-                        </a>
-                        </div>
-
-
-                    <!-- Modal -->
+                      
+                      
+                      <!-- Modal -->
                     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" style="color: black;">
                         <div class="modal-dialog">
                             <div class="modal-content">
@@ -128,11 +115,11 @@
 
                                         <a href="{% url 'paperman:all' %}" class="btn btn-secondary">Clear</a>
                                         <button type="submit" class="btn btn-primary">Search</button>
-
+                                        
                                     </form>
                                 </div>
                                 <div class="modal-footer">
-
+                                    
                                 </div>
                             </div>
                         </div>
@@ -141,27 +128,86 @@
 
 
             </div>
-
+            
         </div>
-
-
-
-
-
-
+        
+        
+        
+        
+        
+        
         <!-- <div class="carousel-item" data-interval="9000">
-      <video autoplay muted loop width="100%" height="130%" id="myVideo">
-        <source src="https://drive.google.com/uc?export=download&id=1EZyLXoTGOUd2YLC11fzvXRCZ-vTVzta9" type="video/mp4">
-      </video>
-
-    </div> -->
-
+            <video autoplay muted loop width="100%" height="130%" id="myVideo">
+                <source src="https://drive.google.com/uc?export=download&id=1EZyLXoTGOUd2YLC11fzvXRCZ-vTVzta9" type="video/mp4">
+            </video>
+            
+        </div> -->
+        
     </div>
-
-
+    
+    
 </div>
 
 {% endblock %} {% block content %}
+<style>
+    @import url('https://fonts.googleapis.com/css?family=Montserrat');
+    .year-card{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        background: linear-gradient(326deg, rgba(16,6,35,1) 0%, rgba(26,2,105,1) 100%);
+        font-weight: 700;
+        font-size: 1.4rem;
+        color: #fff;
+        overflow: hidden;
+        position: relative;
+    }
+    .year-card:hover{
+        transform: scale(1.01);
+    }
+    .year-card::before{
+        color: rgba(216, 211, 161, 0.2);
+        position: absolute;
+        width: 50%;
+        height: 50%;
+        font-size: 24vw;
+        top: -70%; 
+        left: -2%;
+        font-weight: 900;
+        transition: all 0.5s linear;
+    }
+    
+    .year-card:hover::before{
+        top: -50%;
+    }
+    .first::before{
+        content: "1";
+    }
+    .second::before{
+        content: "2";
+    }
+    .third::before{
+        content: "3";
+    }
+    .forth::before{
+        content: "4";
+    }
+</style>
+<div class="container h-screen grid grid-cols-1 gap-5 md:grid-cols-2  w-3/4 text-center mt-4 p-2 py-5 md:gap-5">
+  <a class = "year-card first" target=”_blank” href="https://iitgoffice-my.sharepoint.com/:f:/g/personal/cepstrum_iitg_ac_in/EuQ5luYjd-JNsnD7V_VNmN0BQb55lewXQlSAQ2Q9aZFdOA" >
+      Freshmen Year
+  </a>
+  <a class = "year-card second" target=”_blank” href="https://iitgoffice-my.sharepoint.com/:f:/g/personal/cepstrum_iitg_ac_in/EokGx0Y6uEBNgpMSR1vdYHYBaBH2PGmHbr50kV6vWWC-Cw" >
+      Sophomore Year
+  </a>
+  <a class = "year-card third" target=”_blank” href="https://iitgoffice-my.sharepoint.com/:f:/g/personal/cepstrum_iitg_ac_in/EhyI3mgdL0dHoINTwFbnhIcBTA21DE-2v_UasUyfj8Ii7A" >
+      Pre-final Year
+  </a>
+  <a class = "year-card forth" target=”_blank” href="https://iitgoffice-my.sharepoint.com/:f:/g/personal/cepstrum_iitg_ac_in/EuxljiN2e55DhlZLwYZl3JgBD2V6HWr_HHL9oQnUNHthxQ" >
+      Final Year
+  </a>
+</div>
+
 
 
 

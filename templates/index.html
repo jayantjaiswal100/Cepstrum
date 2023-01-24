@@ -1,5 +1,9 @@
 {% extends "base.html" %} {% load static %} {% block title %} Home | Cepstrum {% endblock title %} {% block css %}
+<link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
 <style>
+
+    @import url('https://fonts.googleapis.com/css2?family=Acme&family=Lobster&family=Montserrat:wght@400;600;700;900&family=Nunito:wght@400;500&family=Orbitron&family=Pacifico&family=Poppins&display=swap');
+
     .carousel-item {
         height: 100vh;
         background: no-repeat center center scroll;
@@ -7,48 +11,154 @@
         -moz-background-size: cover;
         -o-background-size: cover;
         background-size: cover;
+        
     }
+    .wrapper{
+        font-family: 'Acme', sans-serif;
+        font-weight: 400;
+    }
+
+    span.cursor {
+        display: inline-block;
+        background-color: #ccc;
+        margin-left: 0.1rem;
+        width: 3px;
+        animation: blink 1s infinite;
+    }
+
+    span.cursor.typing {
+        animation: none;
+    }
+
+    @keyframes blink {
+        0%  { background-color: #ccc; }
+        49% { background-color: #ccc; }
+        50% { background-color: transparent; }
+        99% { background-color: transparent; }
+        100%  { background-color: #ccc; }
+    }
+
+
+
+
+    .container{
+        font-family: 'Nunito';
+        /* height: 40vh; */
+        color: #94FFF9;
+        text-align: justify;
+        padding: 40px 40px;
+        background-color: rgb(0, 0, 0, 0.6);
+        backdrop-filter: blur(4px);
+        border-style: solid ;
+        /* border-width: 0.5em; */
+        
+    }
+    .container::before, .container::after{
+        content: '';
+        display: block;
+        position: absolute;
+        background: transparent;
+        top: -0.3em;
+        bottom: -0.3em;
+        left: 1em;
+        right: 1em;
+    }
+
+    .initiative-card{
+        background-color: #94FFF9;
+        cursor: pointer;
+        color: unset;
+    }
+
+
+
+
 </style>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 
 {% endblock %} {% block carousel %}
-<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
-    <div class="carousel-inner">
-
-        {% for i in hc %}
-        <!-- <a href="{{i.name}}"> -->
-            <div class="carousel-item {% if i.id == 1 %} active {% endif %}" style="background-image:
-            url('{{i.pic}}');">
-                <div class="carousel-item-screen">
-
-                </div>
-
-            </div>
-        <!-- </a> -->
-        {% endfor %}
-
-
-
-
-
-
-
-
-        <div class="carousel-item" data-interval="9000">
-            <video autoplay muted loop width="100%" height="121%" id="myVideo">
-        <source src="https://drive.google.com/uc?export=download&id=1EZyLXoTGOUd2YLC11fzvXRCZ-vTVzta9" type="video/mp4">
-      </video>
-
+{% endblock %}
+{% block content %}
+<div class="wrapper" style=" height: 110vh; padding-top: 60px; background:linear-gradient(0deg, rgba(4, 32, 58, 0.4), rgba(24, 21, 49, 0.6)), url('/cepstrum/media/inplace/home_bg.png'); background-position: 0; background-size: cover; text-align: center; display: flex; flex-direction: column; justify-content: center; gap: 20px; align-items: center;">
+    <!-- <h1><span style="color: #fff;">about </span><span style="color: yellow;">cepstrum</span></h1>
+    <div class="container w-4/5 text-sm md:text-xl md:w-3/5 flex justify-center">
+        <div style="width: 95%; height: 95%; text-align: justify;">
+            Home of the prestigious paperman - the solution to all your academic woes, Inphase - the insightful annual magazine of EEE department, and loads of exciting events, Cepstrum is one of the most active student bodies present. Responsible for the optimum progress of the EEE department as a whole, Team Cepstrum manages to provide resources for just about anything you'll need by efficiently working as a group of allotted BR's, AR's, Content team, Design team, Events team, and Web-Ops.
         </div>
-
+    </div> -->
+    <div class="flex w-1/2 flex-column text-left">
+        <span class="text-3xl md:text-6xl text-white welcome">Welcome back</span>
+        <span class="text-xl md:text-4xl" style="font-family: 'Montserrat'; font-weight: 600; color: yellow">to the home of the 
+            <span class="typed-text" style="color: #fff;"></span>
+            <span class="cursor text-yellow" style="color: yellow">
+            &nbsp;
+        </span> 
+    </span>
     </div>
-    <button class="carousel-control-prev" data-bs-target="#carouselExampleIndicators" type="button" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-    </button>
-    <button class="carousel-control-next" data-bs-target="#carouselExampleIndicators" type="button" data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-    </button>
+    
 </div>
+<!-- <div style="height: 100vh; display: flex; flex-direction: column; align-items: center; margin-top: 40px;">
+    <h1 class="text-2xl">Our Initiatives</h1>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-5 w-1/2 text-center h-full mt-4 p-2">
+        <a class="initiative-card flex flex-col justify-center gap-3 text-lg">
+            <span class="material-symbols-outlined">
+                description
+            </span>
+            Paperman
+        </a>
+        <a>
+            Inplex
+        </a>
+        <a>
+            Paperman
+        </a>
+        <a>
+            Inplex
+        </a>
+      </div>
+</div> -->
 
+<script>
+    const typedTextSpan = document.querySelector(".typed-text");
+    const cursorSpan = document.querySelector(".cursor");
+
+    const textArray = ["Paperman", "Inplex", "Inphase", "Inplace"];
+    const typingDelay = 200;
+    const erasingDelay = 100;
+    const newTextDelay = 2000; // Delay between current and next text
+    let textArrayIndex = 0;
+    let charIndex = 0;
+
+    function type() {
+    if (charIndex < textArray[textArrayIndex].length) {
+        if(!cursorSpan.classList.contains("typing")) cursorSpan.classList.add("typing");
+        typedTextSpan.textContent += textArray[textArrayIndex].charAt(charIndex);
+        charIndex++;
+        setTimeout(type, typingDelay);
+    } 
+    else {
+        cursorSpan.classList.remove("typing");
+        setTimeout(erase, newTextDelay);
+    }
+    }
+
+    function erase() {
+        if (charIndex > 0) {
+        if(!cursorSpan.classList.contains("typing")) cursorSpan.classList.add("typing");
+        typedTextSpan.textContent = textArray[textArrayIndex].substring(0, charIndex-1);
+        charIndex--;
+        setTimeout(erase, erasingDelay);
+    } 
+    else {
+        cursorSpan.classList.remove("typing");
+        textArrayIndex++;
+        if(textArrayIndex>=textArray.length) textArrayIndex=0;
+        setTimeout(type, typingDelay + 1100);
+    }
+    }
+
+    document.addEventListener("DOMContentLoaded", function() { // On DOM Load initiate the effect
+    if(textArray.length) setTimeout(type, newTextDelay + 250);
+    });
+</script>
 {% endblock %}

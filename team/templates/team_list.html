@@ -57,7 +57,8 @@
 <div id="carouselExampleIndicators" class="carousel slide my-carousel
 my-carousel" data-ride="carousel">
     <div class="carousel-inner" role="listbox">
-        <div class="carousel-item active" style="background-image: {% for i in team_list %} {% if i.category.name == 'Cover' %}url('{{i.pic.url}}'){% endif %} {% endfor %} ">
+        <!-- <div class="carousel-item active" style="background-image: {% for i in team_list %} {% if i.category.name == 'Cover' %}url('{{i.pic.url}}'){% endif %} {% endfor %} "> -->
+        <div class="carousel-item active" style="background-image: url('/cepstrum/media/team/KP.jfif')">
             <!-- <div style="text-align: center; padding-top: 40%;"> -->
             <!-- <button type="button" class="btn btn-outline-primary btn-lg" data-toggle="modal" data-target=".bd-example-modal-xl">Team EXECUTIVES</button>
       <button type="button" class="btn btn-outline-primary btn-lg" data-toggle="modal" data-target=".bd-example-modal-xl1">4th Year</button>
@@ -74,29 +75,7 @@ my-carousel" data-ride="carousel">
                     </p>
                     <br>
                     <br>
-                    <div class="d-flex align-items-start">
-                        <div class="nav flex-column nav-pills me-3" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-                            <button class="nav-link active" id="v-pills-home-tab" data-bs-toggle="pill" data-bs-target="#v-pills-home" type="button" role="tab" aria-controls="v-pills-home" aria-selected="true">Curent Team</button>
-                            <button class="nav-link" id="v-pills-profile-tab" data-bs-toggle="pill" data-bs-target="#v-pills-profile" type="button" role="tab" aria-controls="v-pills-profile" aria-selected="false">Previous Team</button>
 
-                        </div>
-                        <div class="tab-content" id="v-pills-tabContent">
-                            <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab" tabindex="0">
-                                <button type="button" class="btn btn-primary" onclick="window.location.href = '#Executives';">Team EXECUTIVES</button>
-                                <button type="button" class="btn btn-primary" onclick="window.location.href = '#4yr';">4th Year</button>
-                                <button type="button" class="btn btn-primary " onclick="window.location.href = '#3yr';">3rd Year</button>
-                                <button type="button" class="btn btn-primary" onclick="window.location.href = '#2yr';">2nd Year</button>
-                                <!-- <button type="button" class="btn btn-primary" onclick="window.location.href = '#1yr';">1st Year</button> -->
-                                <button type="button" class="btn btn-primary" onclick="window.location.href = '#Inphase';">Inphase Team</button>
-                                <button type="button" class="btn btn-primary" onclick="window.location.href = '#WebOps';">Web Ops Team</button>
-                            </div>
-                            <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab" tabindex="0">
-                                {% for i in year %}
-                                <a href="{% url 'team:prev' i.id %}" class="btn btn-primary">Cepstrum {{i}}</a> {% endfor %}
-
-                            </div>
-                        </div>
-                    </div>
 
 
                 </div>

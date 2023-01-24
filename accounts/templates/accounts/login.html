@@ -80,19 +80,19 @@
                     <div class="container" style="color: white;">
 
 
-                        <h1>{% trans "Sign In" %}</h1>
+                        <h1>{% trans "Sign In" %} using IITG email</h1>
 
                         {% get_providers as socialaccount_providers %} {% if socialaccount_providers %}
-                        <p>{% blocktrans with site.name as site_name %}Please sign in with you IIT Guwahati Microsoft account {% endblocktrans %}</p>
+                        <!-- <p>{% blocktrans with site.name as site_name %}Please sign in with you IIT Guwahati Microsoft account {% endblocktrans %}</p> -->
 
-                        <div class="socialaccount_ballot">
+                        <!-- <span class="socialaccount_ballot"> -->
 
-                            <div class="socialaccount_providers">
-                                <h5 class="btn btn-primary alert-link" style="color:rgb(23, 23, 215);">{% include "socialaccount/snippets/provider_list.html" with process="login" %}</h5>
-                            </div>
+                            <!-- <span class="socialaccount_providers w-auto" > -->
+                                {% include "socialaccount/snippets/provider_list.html" with process="login" %}
+                            <!-- </soan> -->
 
 
-                        </div>
+                        <!-- </span> -->
 
                         {% include "socialaccount/snippets/login_extra.html" %} {% else %}
                         <p>{% blocktrans %}If you have not created an account yet, then please

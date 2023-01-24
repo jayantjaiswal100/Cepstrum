@@ -16,17 +16,41 @@
 
 
 </head>
+<link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
 <style>
+  @import url('https://fonts.googleapis.com/css2?family=Acme&family=Lobster&family=Montserrat:wght@400;600;700;900&family=Nunito:wght@400;500&family=Orbitron&family=Pacifico&family=Poppins&display=swap');
     .my-nav {
         position: absolute;
         z-index: 10;
         width: 100%;
+        padding: 20px 14%;
+        background-color: rgb(0, 0, 0, 0.9);
+        backdrop-filter: blur( 4px );
+        /* border-bottom: 1px solid rgba( 255, 255, 255, 0.18 ); */
+        box-shadow: 0 8px 32px 0 rgba( 255, 255, 255, 0.2 );
     }
+
+    
     
     body {
         background-color: white;
         color: black;
     }
+
+    @media only screen and (max-width: 600px) {
+    .my-nav {
+        padding: 3px 2%;
+    }
+    .navbar-toggler-icon{
+        font-size: 0.8rem;
+    }
+
+    .navbar-brand{
+        width: 60%;
+    }
+}
+
+
 </style>
 
 {% block css %} {% endblock css %}
@@ -39,11 +63,12 @@
     <!-- loaderend -->
     <nav class="my-nav navbar navbar-expand-lg {% block navbar %}navbar-dark{% endblock navbar %}">
         <div class="container-fluid">
-            <a class="navbar-brand" href="{% url 'home' %}"> <img src="https://drive.google.com/uc?id=19n1ov4OCin6-m5CszF7W1CMke4ZG9yDP" style="opacity: 1;" width="40%" height="40%" alt=""></a>
+            <!-- https://drive.google.com/uc?id=19n1ov4OCin6-m5CszF7W1CMke4ZG9yDP -->
+            <a class="navbar-brand" href="{% url 'home' %}"> <img src="/cepstrum/media/inplace/logo.svg" style="opacity: 1; " width="40%" height="40%" alt=""></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <div class="collapse navbar-collapse" id="navbarSupportedContent" style="justify-content: end;">
                 <ul class="navbar-nav ml-auto mb-2 mb-lg-0">
 
                     <!-- <li class="nav-item dropdown active" class="">
