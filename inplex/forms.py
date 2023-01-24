@@ -23,7 +23,9 @@ class StudentForm(forms.ModelForm):
         }
         labels = {
             "selected_company": "Upcoming Intern/Interned at",
-            "resource":"Resources you used while your preparation"
+            "resource":"Resources you used while your preparation",
+            "resume":"Resume Link",
+            "linked_in_profile":"LinkedIn profile"
         }
     # Validate the size of the picture
 
