@@ -37,7 +37,9 @@
         background-color: rgba(0, 0, 0, 0.6);
         width: 100%;
         height: 100%;
-        padding: 15% 20% 0 15%;
+       display: flex;
+       justify-content:center ;
+align-items: center;
     }
     
     .link-button {
@@ -80,7 +82,7 @@
                     <div class="container" style="color: white;">
 
 
-                        <h1>{% trans "Sign In" %} using IITG email</h1>
+                        <h1 class="text-3xl">{% trans "Sign In" %} using IITG email</h1>
 
                         {% get_providers as socialaccount_providers %} {% if socialaccount_providers %}
                         <!-- <p>{% blocktrans with site.name as site_name %}Please sign in with you IIT Guwahati Microsoft account {% endblocktrans %}</p> -->
@@ -96,7 +98,7 @@
 
                         {% include "socialaccount/snippets/login_extra.html" %} {% else %}
                         <p>{% blocktrans %}If you have not created an account yet, then please
-                            <a href="#">sign up</a> first.{% endblocktrans %}</p>
+                            <a href="#" >sign up</a> first.{% endblocktrans %}</p>
                         {% endif %}
 
                     </div>

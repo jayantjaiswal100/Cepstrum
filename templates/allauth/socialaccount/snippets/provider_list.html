@@ -6,6 +6,12 @@
 <style>
     .signin{
         background-color: rgb(0, 0, 0, 0.4);
+        border: 2px solid white;
+        display: flex;
+        align-items: center;
+        padding:1.3vh 1vw;
+        margin-top: 2vh;
+        justify-content: center;
     }
     .mslogo{
         max-width: fit-content;
@@ -13,9 +19,9 @@
     }
 </style>
 <li>
-    <a class="signin p-2 border-2 border-radius-2 inline text-white px-3 pt-3 flex gap-3 mt-5 md:w-2/5 text-sm md:text-3xl h-12 md:h-24" title="{{provider.name}}" class="socialaccount_provider {{provider.id}}" href="{% provider_login_url provider.id process=process scope=scope auth_params=auth_params %}">
-        <img class="mslogo mb-2" alt="Microsoft logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Microsoft_logo.svg/32px-Microsoft_logo.svg.png">
-        <p class="mb-3 md:mb-0 md:mt-1">Sign In with Outlook</p>
+    <a class="signin   border-radius-2 inline text-white  gap-4   text-sm md:text-2xl h-12 " title="{{provider.name}}" style="text-decoration: none;" class="socialaccount_provider {{provider.id}}" href="{% provider_login_url provider.id process=process scope=scope auth_params=auth_params %}">
+      <div> <img class="mslogo " alt="Microsoft logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Microsoft_logo.svg/32px-Microsoft_logo.svg.png"></div> 
+       <div > Sign In with Outlook</div>
     </a>
 
     <!-- <a class="btn btn-primary btn-lg capitalise" title="{{provider.name}}" class="socialaccount_provider {{provider.id}}" href="{% provider_login_url provider.id process=process scope=scope auth_params=auth_params %}"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-microsoft" viewBox="0 0 16 16">
