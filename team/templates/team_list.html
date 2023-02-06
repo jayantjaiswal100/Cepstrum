@@ -17,10 +17,7 @@
         color: white;
     }
     
-    .card {
-        color: black;
-    }
-    
+   
     .sections-frame {
         margin: 20px 10%;
     }
@@ -29,12 +26,13 @@
         font-size: 48px;
         color: black;
         text-align: center;
+        margin-bottom: 5vh;
     }
     
     .sections {
         background-color: white;
         padding: 1%;
-        margin: 40px 0%;
+
     }
     
     .carousel-item-content {
@@ -51,6 +49,32 @@
         height: 100%;
         padding: 15% 20% 0 15%;
     }
+    .card {
+  background: #222;
+ 
+  color: rgba(250, 250, 250, 0.8);
+  margin-bottom: 2rem;
+}
+
+.btn {
+  border: 2px solid royalblue;
+  border-image-slice: 1;
+  background: var(--gradient) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  border-image-source:  var(--gradient) !important; 
+  text-decoration: none;
+  transition: all .4s ease;
+}
+
+.btn:hover, .btn:focus {
+      background: var(--gradient) !important;
+  -webkit-background-clip: none !important;
+  -webkit-text-fill-color: #fff !important;
+  border: 5px solid #fff !important; 
+  box-shadow: #222 1px 0 10px;
+  text-decoration: underline;
+}
 </style>
 
 {% endblock %} {% block carousel %}
@@ -58,7 +82,7 @@
 my-carousel" data-ride="carousel">
     <div class="carousel-inner" role="listbox">
         <!-- <div class="carousel-item active" style="background-image: {% for i in team_list %} {% if i.category.name == 'Cover' %}url('{{i.pic.url}}'){% endif %} {% endfor %} "> -->
-        <div class="carousel-item active" style="background-image: url('/cepstrum/media/team/KP.jfif')">
+        <div class="carousel-item active" style="background-image: url('/cepstrum/static/team/team.jpg')">
             <!-- <div style="text-align: center; padding-top: 40%;"> -->
             <!-- <button type="button" class="btn btn-outline-primary btn-lg" data-toggle="modal" data-target=".bd-example-modal-xl">Team EXECUTIVES</button>
       <button type="button" class="btn btn-outline-primary btn-lg" data-toggle="modal" data-target=".bd-example-modal-xl1">4th Year</button>
@@ -67,9 +91,9 @@ my-carousel" data-ride="carousel">
             <!-- <button type="button" class="btn btn-outline-primary btn-lg" data-toggle="modal" data-target=".bd-example-modal-xl4">Web Ops Team</button> -->
             <div class="carousel-item-screen">
                 <div class="carousel-item-content">
-                    <h1><b>Our Team </b> </h1>
-                    <br>
-                    <p>
+                    <h1 class="text-2xl mt-5 md:text-5xl md:mt-2"><b>Our <font color="yellow">Team</font> </h1>
+                    <br></b>
+                    <p class="text-lg md:text-2xl">
                         We are a bunch of students looking over the welfare of all students of the Department of Electronics and Electrical Engineering, IIT Guwahati. We are the backbone of all the student activities right from fresher's orientation to farewell and we take pride
                         in bridging the gap between students, professors and alumni for continued parallel development of the department.
                     </p>
@@ -136,7 +160,7 @@ my-carousel" data-ride="carousel">
     <!-- <div class="modal fade bd-example-modal-xl1" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-xl">
     <div class="modal-header">
-      <h5 style="padding-left: 40%;" class="modal-title">4th Year Reprentative</h5>
+      <h5 style="padding-left: 40%;" class="modal-title">4th Year Representative</h5>
       <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-circle-fill" viewBox="0 0 16 16">
         <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293 5.354 4.646z"/>
       </svg></button>
@@ -145,7 +169,7 @@ my-carousel" data-ride="carousel">
 
     <div class="container-fluid sections" id="4yr">
 
-        <h1 class="sections-header">4th Year Reprentative</h1>
+        <h1 class="sections-header">4th Year Representative</h1>
         <div class="row row-cols-1 row-cols-md-4 g-4">
 
             {% for i in team_list %} {% if i.category.name == '4th year' %}
@@ -179,7 +203,7 @@ my-carousel" data-ride="carousel">
     <!-- <div class="modal fade bd-example-modal-xl2" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-xl">
     <div class="modal-header">
-      <h5 style="padding-left: 40%;" class="modal-title">3rd Year Reprentative</h5>
+      <h5 style="padding-left: 40%;" class="modal-title">3rd Year Representative</h5>
       <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-circle-fill" viewBox="0 0 16 16">
         <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293 5.354 4.646z"/>
       </svg></button>
@@ -187,7 +211,7 @@ my-carousel" data-ride="carousel">
     <div class="modal-content" > -->
     <div class="container-fluid sections" id="3yr">
 
-        <h1 class="sections-header">3rd Year Reprentative</h1>
+        <h1 class="sections-header">3rd Year Representative</h1>
         <div class="row row-cols-1 row-cols-md-4 g-4">
 
             {% for i in team_list %} {% if i.category.name == '3rd year' %}
@@ -218,7 +242,7 @@ my-carousel" data-ride="carousel">
     </div>
     <div class="container-fluid sections" id="2yr">
 
-        <h1 class="sections-header">2nd Year Reprentative</h1>
+        <h1 class="sections-header">2nd Year Representative</h1>
         <div class="row row-cols-1 row-cols-md-4 g-4">
 
             {% for i in team_list %} {% if i.category.name == '2nd year' %}
@@ -249,7 +273,7 @@ my-carousel" data-ride="carousel">
     </div>
     <!-- <div class="container-fluid sections" id="1yr">
 
-        <h1 class="sections-header">1st Year Reprentative</h1>
+        <h1 class="sections-header">1st Year Representative</h1>
         <div class="row row-cols-1 row-cols-md-4 g-4">
 
             {% for i in team_list %} {% if i.category.name == '1st year' %}
