@@ -18,20 +18,21 @@
     }
     
     .carousel-item-content {
-        /* margin-top: 20%;
-  margin-left: 15%;
-  margin-right: 30%; */
+       
+ 
+   text-align: justify;
+        width: 75%;
         font-size: 24px;
     }
-    
     .carousel-item-screen {
         color: white;
         background-color: rgba(0, 0, 0, 0.6);
         width: 100%;
         height: 100%;
-        padding: 15% 20% 0 15%;
+        padding: 15% 0% 0 0%;
+        display: flex;
+        justify-content: center;
     }
-    
     .link-button {
         color: white;
         background-color: #555555;
@@ -61,8 +62,7 @@
     <div class="carousel-inner" role="listbox">
         <!-- <div class="carousel-item active" style="background-image:
         url('https://static.theprint.in/wp-content/uploads/2020/03/IITG.jpg');"> -->
-        <div class="carousel-item active" style="background: rgb(17,6,35);
-        background: linear-gradient(326deg, rgba(17,6,35,1) 0%, rgba(71,7,20,1) 96%);">
+        <div class="carousel-item active"  style="background-image: url('/cepstrum/static/inplace/inplacecover.png') ">
             <div class="carousel-item-screen">
                 <div class="carousel-item-content">
                     <h1 class="text-2xl mt-5 md:text-5xl md:mt-2"><b>About <font color="yellow">Inplace</font> </h1>
@@ -96,11 +96,11 @@
 {% endblock %} {% block content %}
 <br><br><br><br>
 
-<div class="container" style="align-items: center;">
+<div class="container" style="align-items: center; ">
     {% for i in post_list %}
 
     <div class="col">
-        <div class="card mb-3" style="max-width: 90%;">
+        <div class="card mb-3" style="max-width: 100%;">
             <img src="{{i.pic.url}}" class="card-img-top" alt="...">
             <div class="card-body">
                 <a href="{% url 'inplace:detail' i.id %}">

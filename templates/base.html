@@ -23,14 +23,17 @@
         position: absolute;
         z-index: 10;
         width: 100%;
-        padding: 20px 14%;
+        padding: 20px 5%;
         background-color: rgb(0, 0, 0, 0.9);
         backdrop-filter: blur( 4px );
         /* border-bottom: 1px solid rgba( 255, 255, 255, 0.18 ); */
         box-shadow: 0 8px 32px 0 rgba( 255, 255, 255, 0.2 );
     }
 
-    
+    .navbar-toggler:focus {
+   
+    box-shadow: 0 0 0 2px;
+}
     
     body {
         background-color: white;
@@ -90,7 +93,7 @@
             <a class="dropdown-item" href="{% url 'celebration:all' %}">Celebrations</a>
           </div>
         </li> -->
-                    <li class="nav-item active NavItem mx-3">
+                    <li class="nav-item active NavItem ">
                         <a class="nav-link" aria-current="page" href="{% url 'home' %}">Home</a>
                     </li>
                     <li class="nav-item dropdown">
@@ -157,11 +160,11 @@
                     </li>
                     {% else %} 
                     {% endif %} -->
-                    <li class="nav-item active NavItem mx-3">
+                    <li class="nav-item active NavItem ">
                         <a class="nav-link" aria-current="page" href="{% url 'team:all' %}">Team</a>
                     </li>
                     {% if 'AR' in user.groups.all.0.name %}
-                    <li class="nav-item active NavItem mx-3">
+                    <li class="nav-item active NavItem ">
                         <a class="nav-link" aria-current="page" href="{% url 'timetable:adminpanel' %}">Timetable
                             Admin</a>
                     </li>
@@ -181,7 +184,7 @@
                         </ul>
                     </li>
                     {% else %}
-                    <li class="nav-item active NavItem mx-3">
+                    <li class="nav-item active NavItem ">
                         <a class="nav-link" aria-current="page" href="{% url 'accounts:login' %}">Login</a>
                     </li>
                     {% endif %}
