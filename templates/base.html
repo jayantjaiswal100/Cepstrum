@@ -24,7 +24,7 @@
         z-index: 10;
         width: 100%;
         padding: 20px 5%;
-        background-color: rgb(0, 0, 0, 0.9);
+        background-color: rgb(0, 0, 0, 1);
         backdrop-filter: blur( 4px );
         /* border-bottom: 1px solid rgba( 255, 255, 255, 0.18 ); */
         box-shadow: 0 8px 32px 0 rgba( 255, 255, 255, 0.2 );
@@ -40,9 +40,11 @@
         color: black;
     }
 
-    @media only screen and (max-width: 600px) {
+    @media only screen and (max-width: 1000px) {
     .my-nav {
-        padding: 3px 2%;
+      position: sticky;
+      top: 0;
+        padding: 10px 2%;
     }
     .navbar-toggler-icon{
         font-size: 0.8rem;
@@ -50,6 +52,9 @@
 
     .navbar-brand{
         width: 60%;
+    }
+    .wrapper{
+        height: 92.4vh !important;
     }
 }
 
@@ -67,7 +72,7 @@
     <nav class="my-nav navbar navbar-expand-lg {% block navbar %}navbar-dark{% endblock navbar %}">
         <div class="container-fluid">
             <!-- https://drive.google.com/uc?id=19n1ov4OCin6-m5CszF7W1CMke4ZG9yDP -->
-            <a class="navbar-brand" href="{% url 'home' %}"> <img src="/cepstrum/static/images/logo.svg" style="opacity: 1; " width="40%" height="40%" alt=""></a>
+            <a class="navbar-brand" href="{% url 'home' %}"> <img src="/cepstrum/static/images/logo.svg" style="opacity: 1;width:40%;min-width:70px; height:40%;" alt=""></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
