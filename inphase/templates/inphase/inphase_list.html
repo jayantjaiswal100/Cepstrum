@@ -13,15 +13,27 @@
         /* margin-top: 20%;
   margin-left: 15%;
   margin-right: 30%; */
-        font-size: 24px;
+ 
+   text-align: justify;
+        width: 75%;
+        font-size: 2vh;
     }
     .carousel-item-screen {
         color: white;
         background-color: rgba(0, 0, 0, 0.6);
         width: 100%;
         height: 100%;
-        padding: 15% 20% 0 15%;
+        align-items:center;
+        display: flex;
+        justify-content: center;
     }
+  
+    @media  screen and (max-width:1000px) {
+       .carousel-item{
+        height: 92.4vh;
+       }
+    }
+    
 </style>
 
 {% endblock %} {% block carousel %}
@@ -54,10 +66,10 @@ my-carousel" data-ride="carousel">
 
 </div>
 {% endblock carousel %} {% block content %}
-<br><br>
-<center>
 
-    <div class="row container row-cols-1 row-cols-md-6 g-4">
+<center style="margin-top:15vh;">
+
+    <div class="row container row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-6 g-4 " style=" padding-bottom: 10vh;">
         {% for i in inphase_list %} {% if not i.id == 17 %}
 
         <div class="col">

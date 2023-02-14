@@ -5,6 +5,7 @@
     <meta charset="utf-8">
     <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
     <link rel="stylesheet" href="css/stylewise.css">
+    <link rel="icon" href="/cepstrum/static/images/Group1.png"  type="image/icon type">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>{% block title %} {% endblock title %}</title>
@@ -23,23 +24,32 @@
         position: absolute;
         z-index: 10;
         width: 100%;
-        padding: 20px 14%;
-        background-color: rgb(0, 0, 0, 0.9);
+        padding: 20px 5%;
+        background-color: rgb(0, 0, 0, 1);
         backdrop-filter: blur( 4px );
         /* border-bottom: 1px solid rgba( 255, 255, 255, 0.18 ); */
         box-shadow: 0 8px 32px 0 rgba( 255, 255, 255, 0.2 );
     }
 
-    
+    .navbar-toggler:focus {
+   
+    box-shadow: 0 0 0 2px;
+}
     
     body {
         background-color: white;
         color: black;
     }
+    .nav-link{
+        padding-left: 1vw !important;
+        padding-right: 1vw !important;
+    }
 
-    @media only screen and (max-width: 600px) {
+    @media only screen and (max-width: 1000px) {
     .my-nav {
-        padding: 3px 2%;
+      position: sticky;
+      top: 0;
+        padding: 10px 2%;
     }
     .navbar-toggler-icon{
         font-size: 0.8rem;
@@ -47,6 +57,9 @@
 
     .navbar-brand{
         width: 60%;
+    }
+    .wrapper{
+        height: 92.4vh !important;
     }
 }
 
@@ -64,12 +77,12 @@
     <nav class="my-nav navbar navbar-expand-lg {% block navbar %}navbar-dark{% endblock navbar %}">
         <div class="container-fluid">
             <!-- https://drive.google.com/uc?id=19n1ov4OCin6-m5CszF7W1CMke4ZG9yDP -->
-            <a class="navbar-brand" href="{% url 'home' %}"> <img src="/cepstrum/static/images/logo.svg" style="opacity: 1; " width="40%" height="40%" alt=""></a>
+            <a class="navbar-brand" href="{% url 'home' %}"> <img src="/cepstrum/static/images/logo.svg" style="opacity: 1;width:40%;min-width:70px; height:40%;" alt=""></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent" style="justify-content: end;">
-                <ul class="navbar-nav ml-auto mb-2 mb-lg-0">
+                <ul class="navbar-nav mb-2 mb-lg-0">
 
                     <!-- <li class="nav-item dropdown active" class="">
           <a class="nav-link dropdown-toggle" href="" id="dropdownMenuButton" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -90,7 +103,7 @@
             <a class="dropdown-item" href="{% url 'celebration:all' %}">Celebrations</a>
           </div>
         </li> -->
-                    <li class="nav-item active NavItem mx-3">
+                    <li class="nav-item active NavItem ">
                         <a class="nav-link" aria-current="page" href="{% url 'home' %}">Home</a>
                     </li>
                     <li class="nav-item dropdown">
@@ -157,17 +170,17 @@
                     </li>
                     {% else %} 
                     {% endif %} -->
-                    <li class="nav-item active NavItem mx-3">
+                    <li class="nav-item active NavItem ">
                         <a class="nav-link" aria-current="page" href="{% url 'team:all' %}">Team</a>
                     </li>
                     {% if 'AR' in user.groups.all.0.name %}
-                    <li class="nav-item active NavItem mx-3">
+                    <li class="nav-item active NavItem ">
                         <a class="nav-link" aria-current="page" href="{% url 'timetable:adminpanel' %}">Timetable
                             Admin</a>
                     </li>
                     {% endif %}
                 </ul>
-                <ul class="navbar-nav ml-auto mb-2 mb-lg-0">
+                <ul class="navbar-nav  mb-2 mb-lg-0">
                     {% if user.is_authenticated %}
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -181,7 +194,7 @@
                         </ul>
                     </li>
                     {% else %}
-                    <li class="nav-item active NavItem mx-3">
+                    <li class="nav-item active NavItem ">
                         <a class="nav-link" aria-current="page" href="{% url 'accounts:login' %}">Login</a>
                     </li>
                     {% endif %}

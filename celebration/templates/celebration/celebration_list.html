@@ -16,27 +16,31 @@
         padding-left: 60%;
         color: white;
     }
-    
-    .carousel-item-content {
-        /* margin-top: 20%;
-    margin-left: 15%;
-    margin-right: 30%; */
-        font-size: 24px;
-    }
+  
+   
     
     .carousel-item-screen {
         color: white;
         background-color: rgba(0, 0, 0, 0.6);
         width: 100%;
         height: 100%;
-        padding: 15% 20% 0 15%;
+      padding: 0% 20%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
     }
-    
+    @media  screen and (max-width:1000px) {
+       .carousel-item{
+        height: 92.4vh;
+       }
+    }
+   
     .tabs-secondary {
         float: right;
         padding-top: 7%;
         padding-right: 5%;
-        font-size: 24px;
+      
         color: white;
         line-height: 200%;
     }
@@ -75,12 +79,12 @@
 
 
 
-                <div class="carousel-item-content">
+                <div class="carousel-item-content text-lg md:text-2xl">
                     {{i.desc}}
                 </div>
                 <br>
 
-                <a href="{% url 'celebration:celebration_detail' i.id %}" class="btn btn-outline-info">
+                <a href="{% url 'celebration:celebration_detail' i.id %}" class="btn btn-outline-info text-lg md:text-2xl">
                    See Pics
                 </a>
 

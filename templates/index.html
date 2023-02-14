@@ -16,6 +16,7 @@
     .wrapper{
         font-family: 'Acme', sans-serif;
         font-weight: 400;
+        
     }
 
     span.cursor {
@@ -50,7 +51,7 @@
         background-color: rgb(0, 0, 0, 0.6);
         backdrop-filter: blur(4px);
         border-style: solid ;
-        /* border-width: 0.5em; */
+        
         
     }
     .container::before, .container::after{
@@ -79,7 +80,7 @@
 {% endblock %} {% block carousel %}
 {% endblock %}
 {% block content %}
-<div class="wrapper" style=" height: 110vh; padding-top: 60px; background:linear-gradient(0deg, rgba(4, 32, 58, 0.4), rgba(24, 21, 49, 0.6)), url('/cepstrum/static/images/home_bg.png'); background-position: 0; background-size: cover; text-align: center; display: flex; flex-direction: column; justify-content: center; gap: 20px; align-items: center;">
+<div class="wrapper" style=" height: 100vh;padding: 0% 20%; background:linear-gradient(0deg, rgba(4, 32, 58, 0.5), rgba(24, 21, 49, 0.7)), url('/cepstrum/static/images/home_bg.png'); background-position: 0; background-size: cover; text-align: center; display: flex; flex-direction: column; justify-content: center; gap: 20px; align-items: center;">
     <!-- <h1><span style="color: #fff;">about </span><span style="color: yellow;">cepstrum</span></h1>
     <div class="container w-4/5 text-sm md:text-xl md:w-3/5 flex justify-center">
         <div style="width: 95%; height: 95%; text-align: justify;">
@@ -87,10 +88,11 @@
         </div>
     </div> -->
     <div class="flex w-1/2 flex-column text-left">
-        <span class="text-3xl md:text-6xl text-white welcome">Welcome back</span>
-        <span class="text-xl md:text-4xl" style="font-family: 'Montserrat'; font-weight: 600; color: yellow">to the home of the 
-            <span class="typed-text" style="color: #fff;"></span>
-            <span class="cursor text-yellow" style="color: yellow">
+        <span class=" text-white welcome" style="font-size: 4vh !important
+        ;">Welcome back &nbsp;</span>
+        <span class="" style="font-family: 'Montserrat'; font-weight: 600; color: yellow;font-size:4vh !important;">to the home of 
+            <span class="typed-text" style="color: #fff;font-size: 4vh !important;"></span>
+            <span class="cursor text-yellow" style="color: yellow;font-size: 4vh !important;">
             &nbsp;
         </span> 
     </span>
