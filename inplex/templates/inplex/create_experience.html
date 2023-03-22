@@ -59,39 +59,7 @@
         padding: 1em 1.5em 1em 0;
     }
     
-    .accordion button .icon {
-        display: inline-block;
-        position: absolute;
-        top: 18px;
-        right: 0;
-        width: 22px;
-        height: 22px;
-        border: 1px solid;
-        border-radius: 22px;
-    }
-    
-    .accordion button .icon::before {
-        display: block;
-        position: absolute;
-        content: '';
-        top: 9px;
-        left: 5px;
-        width: 10px;
-        height: 2px;
-        background: currentColor;
-    }
-    
-    .accordion button .icon::after {
-        display: block;
-        position: absolute;
-        content: '';
-        top: 5px;
-        left: 9px;
-        width: 2px;
-        height: 10px;
-        background: currentColor;
-    }
-    
+ 
     .accordion button[aria-expanded='true'] {
         color: #03b5d2;
     }
@@ -123,77 +91,129 @@
     
     .carousel-item {
         height: 50vh;
-        background: no-repeat center center scroll;
+        background-image: url('/cepstrum/static/inplex/cover.png');
+    display: flex;
         -webkit-background-size: cover;
         -moz-background-size: cover;
         -o-background-size: cover;
         background-size: cover;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
     }
-    
-    .carousel-item-content {
-        /* margin-top: 20%;
-  margin-left: 15%;
-  margin-right: 30%; */
-        font-size: 2vh;
+    .select2 {
+        width:50vw !important;
     }
-    
-    .carousel-item-screen {
-        color: white;
-        background-color: rgba(0, 0, 0, 0.6);
-        width: 100%;
-        height: 100%;
-        padding: 10% 7% 0 5%;
+    .form-group{
+        display: flex;
+        flex-direction: column;
+       
     }
+  .type_select span{
+    width: 80% !important;
+  }
+.type_select div{
+    gap: 1vh;
+}
+  .type_select{
+    width: 40%;
+   
+  }
+ .body{
+    min-height: 0vh;
+ }
+ .company_profile{
+    display: flex;
+    align-items: center;
+flex-direction: column;
+ }
+ .row{
+    width: 100%;
+    gap: 3vh;
+    padding: 2vw 2vh;
+    margin: 0;
+ }
+ .django-ckeditor-widget{
+    width: 100%;
+ }
+ /* .select2-container{
+    width: 17vw !important;
+ } */
+ #div_id_experience1,#div_id_experience2,#div_id_experience3,#div_id_experience4,#div_id_experience5,#div_id_experience6,#div_id_experience7{
+    gap: 1vh;
+    overflow:scroll;
+ }
+ .requiredField{
+    font-weight: 800;
+ }
+@media screen and (max-width:1300px) {
+    .accordion{
+        width: 80% !important;
+    }
+    .accordion-item{
+        width: 80vw !important;
+    }
+    .accordion-body{
+    padding: 0;
+   }
+}
+@media screen and (max-width:450px) {
+.row div{
+    flex-direction: column;
+
+}
+.form-group{
+    gap: 1vh;
+    margin-top: 1vh;
+}
+}
+@media screen and (max-width:1023px) {
+    #div_id_experience1{
+        
+    }
+}
+.dropdown_span span{
+    width: 15vw !important;
+}
 </style>
 {% endblock css %} {% block carousel %}
-<div id="carouselExampleIndicators" class="carousel slide my-carousel
-my-carousel" data-ride="carousel">
-    <div class="carousel-inner" role="listbox">
-        <!-- <div class="carousel-item active" style="background-image: url('/static/inphase/cover.png') "> -->
-        <div class="carousel-item active" style="background: rgb(16,6,35);
-        background: linear-gradient(326deg, rgba(16,6,35,1) 0%, rgba(61,11,26,1) 100%);">
-            <!-- <div style="padding-top: 40%; padding-left: 10%;">
-        <button type="button" class="btn btn-secondary btn-lg" data-toggle="modal" data-target=".bd-example-modal-xl">Know more</button>
 
-      </div> -->
+   
 
-            <div class="carousel-item-screen">
-                <div class="carousel-item-content">
-                    <h1><b style="font-family: 'Nunito', serif;">Inplex </b>|
-                        <span style="font-size: 1.4rem;">Add Your Experiences</span>
-                    </h1>
-                    <br>
-                </div>
-
-
-            </div>
+        <div class="carousel-item">
+        
+          
+        
+                    <div class="text-3xl" style="color:white;"><b>Inplex </b>|
+                        <span class="text-2xl" style="color:yellow">Add Your Experiences</span>
+                    </div>
+                 
+           
         </div>
+  
 
 
-    </div>
 
-</div>
 {% endblock carousel %} {% block content %}
-<section class="container mt-5">
-    <h1>Add Experience</h1>
-    <form method="POST" enctype="multipart/form-data">
+<div class="m-0 " style="display: flex; flex-direction: column;">
+    <div class="text-3xl bold mt-6" style="font-weight: 800;text-align: center;font-size: xx-large;width: 100vw;display: flex;justify-content: center;">Add Experience</div>
+    <form class="mt-2" method="POST" enctype="multipart/form-data">
         {% csrf_token %} {{ form.media }}
-        <div class="row">
-            <div class="form-group col-md-6 mb-0">
+        <div class="company_profile mt-6 text-2xl sm:text-xl" style="gap: 2vh;">
+            <div  style="width: 50vw;">
                 {{ form.company|as_crispy_field }}
             </div>
-            <div class="form-group col-md-6 mb-0">
+            <div class="form-group  mb-0">
                 {{ form.profile|as_crispy_field }}
             </div>
-
-            <div class="form-group col-md-6 mb-0">
-                <br><span style="display: flex">Selected :  &nbsp; {{ form.selected|as_crispy_field }}</span>
+            <div class="form-group  mb-2">
+                <span style="display: flex">Selected :  &nbsp; {{ form.selected|as_crispy_field }}</span>
             </div>
         </div>
-        <br>
-        <div class="accordion" id="accordionPanelsStayOpenExample">
-            <div class="accordion-item">
-                <h2 class="accordion-header" id="panelsStayOpen-headingOne">
+        <div style="display: flex;width: 100vw;justify-content: center;">
+      <div class="accordion mt-6" id="accordionPanelsStayOpenExample" style="display:flex ; width: 50%;">
+            <div class="accordion-item" style=" width:50vw;">
+                <h2 class="accordion-header"   id="panelsStayOpen-headingOne">
                     <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
               Add Round 1
             </button>
@@ -201,13 +221,15 @@ my-carousel" data-ride="carousel">
                 <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingOne">
                     <div class="accordion-body">
                         <div class="row">
-                            <div class="form-group col-md-6 mb-0">
+                            <div style="display: flex;gap: 5vw;">
+                            <div class="form-group type_select  mb-2 " style="font-weight:800;">
                                 {{ form.roundtype1|as_crispy_field }}
                             </div>
-                            <div class="form-group col-md-6 mb-0">
+                            <div class="form-group col-md-2 mb-2 ">
                                 {{ form.difficulty1|as_crispy_field }}
                             </div>
-                            <div class="form-group col-md-6 mb-0">
+                        </div>
+                            <div class="form-group col-md-12 mb-2"  style="font-weight:800;">
                                 {{ form.experience1|as_crispy_field }}
                             </div>
                         </div>
@@ -221,13 +243,15 @@ my-carousel" data-ride="carousel">
                             <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingTwo">
                                 <div class="accordion-body">
                                     <div class="row">
-                                        <div class="form-group col-md-6 mb-0">
+                                        <div style="display: flex;gap: 5vw;">
+                                        <div class="form-group type_select  mb-2" style="font-weight:800;">
                                             {{ form.roundtype2|as_crispy_field }}
                                         </div>
-                                        <div class="form-group col-md-6 mb-0">
+                                        <div class="form-group col-md-2 mb-2">
                                             {{ form.difficulty2|as_crispy_field }}
                                         </div>
-                                        <div class="form-group col-md-6 mb-0">
+                                    </div>
+                                        <div class="form-group col-md-12 mb-2" style="font-weight:800;">
                                             {{ form.experience2|as_crispy_field }}
                                         </div>
                                     </div>
@@ -242,15 +266,17 @@ my-carousel" data-ride="carousel">
                                     <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingThree">
                                         <div class="accordion-body">
                                             <div class="row">
-                                                <div class="form-group col-md-6 mb-0">
+                                                <div style="display: flex;gap: 5vw;">
+                                                <div class="form-group type_select  mb-2" style="font-weight:800;">
                                                     {{ form.roundtype3|as_crispy_field }}
                                                 </div>
-                                                <div class="form-group col-md-6 mb-0">
+                                                <div class="form-group col-md-2 mb-2 dropdown_span">
                                                     {{ form.difficulty3|as_crispy_field }}
                                                 </div>
-                                                <div class="form-group col-md-6 mb-0">
-                                                    {{ form.experience3|as_crispy_field }}
-                                                </div>
+                                            </div>
+                                            <div class="form-group col-md-12 mb-2"  style="font-weight:800;">
+                                                {{ form.experience3|as_crispy_field }}
+                                            </div>
                                             </div>
                                         </div>
                                         <br>
@@ -263,15 +289,17 @@ my-carousel" data-ride="carousel">
                                             <div id="panelsStayOpen-collapseFour" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingFour">
                                                 <div class="accordion-body">
                                                     <div class="row">
-                                                        <div class="form-group col-md-6 mb-0">
+                                                        <div style="display: flex;gap: 5vw;">
+                                                        <div class="form-group type_select  mb-2"  style="font-weight:800;">
                                                             {{ form.roundtype4|as_crispy_field }}
                                                         </div>
-                                                        <div class="form-group col-md-6 mb-0">
+                                                        <div class="form-group col-md-2 mb-2 dropdown_span">
                                                             {{ form.difficulty4|as_crispy_field }}
                                                         </div>
-                                                        <div class="form-group col-md-6 mb-0">
-                                                            {{ form.experience4|as_crispy_field }}
-                                                        </div>
+                                                    </div>
+                                                    <div class="form-group col-md-12 mb-2"  style="font-weight:800;">
+                                                        {{ form.experience4|as_crispy_field }}
+                                                    </div>
                                                     </div>
                                                 </div>
                                                 <br>
@@ -284,15 +312,17 @@ my-carousel" data-ride="carousel">
                                                     <div id="panelsStayOpen-collapseFive" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingFive">
                                                         <div class="accordion-body">
                                                             <div class="row">
-                                                                <div class="form-group col-md-6 mb-0">
+                                                                <div style="display: flex;gap: 5vw;">
+                                                                <div class="form-group type_select  mb-2"  style="font-weight:800;">
                                                                     {{ form.roundtype5|as_crispy_field }}
                                                                 </div>
-                                                                <div class="form-group col-md-6 mb-0">
+                                                                <div class="form-group col-md-2 mb-2 dropdown_span">
                                                                     {{ form.difficulty5|as_crispy_field }}
                                                                 </div>
-                                                                <div class="form-group col-md-6 mb-0">
-                                                                    {{ form.experience5|as_crispy_field }}
-                                                                </div>
+                                                            </div>
+                                                            <div class="form-group col-md-12 mb-2"  style="font-weight:800;">
+                                                                {{ form.experience5|as_crispy_field }}
+                                                            </div>
                                                             </div>
                                                             <br>
                                                             <div class="accordion-item">
@@ -304,15 +334,17 @@ my-carousel" data-ride="carousel">
                                                                 <div id="panelsStayOpen-collapseSix" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingSix">
                                                                     <div class="accordion-body">
                                                                         <div class="row">
-                                                                            <div class="form-group col-md-6 mb-0">
+                                                                            <div style="display: flex;gap: 5vw;">
+                                                                            <div class="form-group type_select  mb-2"  style="font-weight:800;">
                                                                                 {{ form.roundtype6|as_crispy_field }}
                                                                             </div>
-                                                                            <div class="form-group col-md-6 mb-0">
+                                                                            <div class="form-group col-md-2 mb-2 dropdown_span">
                                                                                 {{ form.difficulty6|as_crispy_field }}
                                                                             </div>
-                                                                            <div class="form-group col-md-6 mb-0">
-                                                                                {{ form.experience6|as_crispy_field }}
-                                                                            </div>
+                                                                        </div>
+                                                                        <div class="form-group col-md-12 mb-2"  style="font-weight:800;">
+                                                                            {{ form.experience6|as_crispy_field }}
+                                                                        </div>
                                                                         </div>
                                                                         <br>
                                                                         <div class="accordion-item">
@@ -324,15 +356,17 @@ my-carousel" data-ride="carousel">
                                                                             <div id="panelsStayOpen-collapseSeven" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingSeven">
                                                                                 <div class="accordion-body">
                                                                                     <div class="row">
-                                                                                        <div class="form-group col-md-6 mb-0">
+                                                                                        <div style="display: flex;gap: 5vw;">
+                                                                                        <div class="form-group type_select  mb-2" style="font-weight:800;">
                                                                                             {{ form.roundtype7|as_crispy_field }}
                                                                                         </div>
-                                                                                        <div class="form-group col-md-6 mb-0">
+                                                                                        <div class="form-group col-md-2 mb-2 dropdown_span">
                                                                                             {{ form.difficulty7|as_crispy_field }}
                                                                                         </div>
-                                                                                        <div class="form-group col-md-6 mb-0">
-                                                                                            {{ form.experience7|as_crispy_field }}
-                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div class="form-group col-md-12 mb-2"  style="font-weight:800;">
+                                                                                        {{ form.experience7|as_crispy_field }}
+                                                                                    </div>
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
@@ -352,19 +386,17 @@ my-carousel" data-ride="carousel">
                     </div>
                 </div>
             </div>
-        </div>
+        </div> 
+    </div>
 
 
-
-        <br>
-
+      
+<div class="my-4" style="display: flex;justify-content: center; width: 100vw;">
         <input type="submit" value="Submit" class="btn btn-large btn-primary">
 
-        <br><br>
-
-        <br><br>
+    </div>
     </form>
-</section>
+</div>
 
 <script>
     $(document).ready(function() {

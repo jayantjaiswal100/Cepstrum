@@ -1,5 +1,5 @@
 from urllib import request
-from django.shortcuts import render
+from django.shortcuts import render,HttpResponse
 from django.views.generic import TemplateView,ListView, DetailView, CreateView, UpdateView,DeleteView
 from .models import *
 from .filters import *
@@ -66,3 +66,16 @@ class ExperienceCreateView(LoginRequiredMixin,CreateView):
     def form_valid(self, form):
         form.instance.owner = self.request.user
         return super().form_valid(form)
+
+def experienceprofile(request):
+    return render(request, 'inplex/student_experienceprofile.html')
+
+class ExperienceListView(ListView):
+    model = Experience
+    template_name = "inplex/student_experience.html"
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['exp'] = Experience.objects.all()
+        return context
+
+  
