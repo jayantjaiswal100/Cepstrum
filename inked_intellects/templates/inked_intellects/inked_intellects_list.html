@@ -1,50 +1,60 @@
 {% extends 'base.html' %} {% load static %} {% block title %} Inked Intellects | Cepstrum {% endblock title %} {% block css %}
 <style>
-    .carousel-item {
-        height: 100vh;
-        background: no-repeat center center scroll;
-        -webkit-background-size: cover;
-        -moz-background-size: cover;
-        -o-background-size: cover;
-        background-size: cover;
-    }
-    
-    .content {
-        text-align: center;
-        padding-top: 5%;
-        padding-right: 4%;
-        padding-left: 60%;
-        color: white;
-    }
     
     .carousel-item-content {
-        /* margin-top: 20%;
-  margin-left: 15%;
-  margin-right: 30%; */
- 
-   text-align: justify;
-        width: 75%;
-        font-size: 2vh;
+        color: white;
+
+        text-align: left;
+        width: 80%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        font-size: 2.5vh;
+
     }
-    .container1{
-        margin-right: 0;
-        width: 100%;
-        margin-left: 0;
-        padding: 0% 5%;
-        padding-bottom: 10vh;
-    }
+
     .carousel-item-screen {
         color: white;
-        background-color: rgba(0, 0, 0, 0.6);
-        width: 100%;
-        height: 100%;align-items:center;
+
+
         display: flex;
         justify-content: center;
+        align-items: center;
     }
-    @media  screen and (max-width:1000px) {
-       .carousel-item{
-        height: 92.4vh;
-       }
+
+    .card-img-top {
+        aspect-ratio: 3/2 !important;
+    }
+
+    .container1 {
+        margin-right: 0;
+
+        margin-left: 0;
+
+    }
+
+    .background-black {
+        width: 100%;
+        height: 100%;
+           background-color: rgba(0, 0, 0, 0.6);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding-bottom: 5vh;
+        padding-top: 5vh;
+    }
+    .background{
+       
+       background-image: url('/cepstrum/static/inkedintellects/cover.png');
+        background-size: cover;
+        background-repeat: no-repeat; 
+       
+   }
+ 
+    .container2 {
+        display: flex;
+        flex-grow: 1;
     }
     .link-button {
         color: white;
@@ -71,45 +81,26 @@
 </style>
 
 {% endblock %} {% block carousel %}
-<div id="carouselExampleIndicators" class="carousel slide my-carousel
-    my-carousel" data-ride="carousel">
-    <ol class="carousel-indicators">
-        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-    </ol>
-    <div class="carousel-inner" role="listbox">
-        <!-- <div class="carousel-item active" style="background-image:
-        url('https://static.theprint.in/wp-content/uploads/2020/03/IITG.jpg');"> -->
-        <div class="carousel-item active" style="background: rgb(6,35,30);
-        background: linear-gradient(326deg, rgba(6,35,30,1) 0%, rgba(5,54,29,1) 96%);">
-            <div class="carousel-item-screen">
-                <div class="carousel-item-content">
-                    <h1 class="text-2xl mt-5 md:text-5xl md:mt-2"><b>About <font color="yellow">Inked Intellects</font> </b> </h1>
-                    <br>
-                    <p class="text-lg md:text-2xl">
-                        This series features articles by sophomores of the EEE department, chronicling their experiences at various conferences and contests as well as their adventures in exploring new fields and domains like Finance, Competitive Programming and Machine Learning.
-                    </p>
 
+<div class="container2">
+
+
+
+
+    <div
+         class="background">
+        <div class="background-black">
+            <div class="carousel-item-content">
+
+                <div class="text-2xl  md:text-5xl mb-4"><b>About <font color="yellow">Inked Intellects</font>
                 </div>
-
-
+                <div class="text-lg md:text-2xl">
+                    This series features articles by sophomores of the EEE department, chronicling their experiences at various conferences and contests as well as their adventures in exploring new fields and domains like Finance, Competitive Programming and Machine Learning.
+                </div>
             </div>
 
         </div>
-
-
-
-
-
-
-        <!-- <div class="carousel-item" data-interval="9000">
-      <video autoplay muted loop width="100%" height="130%" id="myVideo">
-        <source src="https://drive.google.com/uc?export=download&id=1EZyLXoTGOUd2YLC11fzvXRCZ-vTVzta9" type="video/mp4">
-      </video>
-
-    </div> -->
-
     </div>
-
 
 </div>
 

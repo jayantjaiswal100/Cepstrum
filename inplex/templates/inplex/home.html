@@ -1,93 +1,141 @@
 {% extends "base.html" %}{% load bootstrap %} {% block title %} Inplex | Cepstrum {% endblock title %} {% block head %}
 <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
-<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js" integrity="sha512-2ImtlRlf2VVmiGZsjm9bEyhjGW4dU7B6TNwh/hx/iSByxNENtj3WVE6o/9Lj4TJeVXPi4bnOIMXFIJJAeufa0A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"
+    integrity="sha512-2ImtlRlf2VVmiGZsjm9bEyhjGW4dU7B6TNwh/hx/iSByxNENtj3WVE6o/9Lj4TJeVXPi4bnOIMXFIJJAeufa0A=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
 {% endblock head %} {% block css %}
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Acme&family=Lobster&family=Montserrat:wght@400;600;700;900&family=Nunito:wght@500&family=Pacifico&family=Poppins&display=swap');
-    .carousel-item {
-        height: 100vh;
-        background: no-repeat center center scroll;
-        -webkit-background-size: cover;
-        -moz-background-size: cover;
-        -o-background-size: cover;
-        background-size: cover;
-    }
-    
+
     .carousel-item-content {
-        /* margin-top: 20%;
-  margin-left: 15%;
-  margin-right: 30%; */
-        font-size: 2vh;
+        color: white;
+
+        text-align: left;
+        width: 80%;
+     
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        font-size: 2.5vh;
+
     }
-    
+
     .carousel-item-screen {
         color: white;
-        background-color: rgba(0, 0, 0, 0.6);
+
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .card-img-top {
+        aspect-ratio: 3/2 !important;
+    }
+
+    .container1 {
+        margin-right: 0;
+
+        margin-left: 0;
+
+    }
+
+    .background-black {
         width: 100%;
         height: 100%;
-        padding: 10% 7% 0 5%;
+           background-color: rgba(0, 0, 0, 0.6);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding-bottom: 5vh;
+        padding-top: 5vh;
     }
+    .background{
+       
+       background-image: url('/cepstrum/static/inplex/cover.png');
+        background-size: cover;
+        background-repeat: no-repeat; 
+       
+   }
+    .container2 {
+        display: flex;
+        flex-grow: 1;
+    }
+.experience_btn{
+    display: flex;
+    
+}
+    @media  screen and (max-width:450px) {
+        .experience_btn{
+           flex-direction: column;
+           }
+        
+        .experience_btn1{
+            margin-left: 0px;
+            margin-top: 4vh;
+        }
+        }
+        @media  screen and (min-width:451px) {
+    
+        
+        .experience_btn1{
+            margin-left: 3vw;
+            
+        }
+        }
+
+       
+
 </style>
 
 {% endblock %}{% block carousel %}
-<div id="carouselExampleIndicators" class="carousel slide my-carousel
-my-carousel" data-ride="carousel">
-    <div class="carousel-inner" role="listbox">
-        <div class="carousel-item active" style="background: rgb(16,6,35);
-        background: linear-gradient(326deg, rgba(16,6,35,1) 0%, rgba(61,11,26,1) 100%);">
-            <!-- <div style="padding-top: 40%; padding-left: 10%;">
-        <button type="button" class="btn btn-secondary btn-lg" data-toggle="modal" data-target=".bd-example-modal-xl">Know more</button>
 
-      </div> -->
+<div class="container2">
+    <div
+         class="background">
+        <div class="background-black" style="display: flex;flex-direction: column;">
+            <div class="carousel-item-content">
 
-            <div class="carousel-item-screen">
-                <div class="carousel-item-content">
-                    <h1><b style="font-family: 'Nunito', serif;">Inplex</b>
-                    </h1>
-                    <br>
-                    <p>
-                        Internships and placements are some of the most important milestones of one's college life. Hence, we at Cepstrum, IIT Guwahati have come up with yet another initiative, Inplex. It aims to provide a platform for seniors to share their valuable placement
-                        and intern season experiences for the upcoming batches to learn from.
-                    </p>
-{% comment %}                     
-                    <div class="d-flex align-items-start">
-                        <div class="nav flex-column nav-pills me-3" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-                            <button class="nav-link active" id="v-pills-home-tab" data-bs-toggle="pill" data-bs-target="#v-pills-home" type="button" role="tab" aria-controls="v-pills-home" aria-selected="true">Company</button>
-                            <button class="nav-link" id="v-pills-profile-tab" data-bs-toggle="pill" data-bs-target="#v-pills-profile" type="button" role="tab" aria-controls="v-pills-profile" aria-selected="false">Student Name</button>
-                        </div>
-                        <form method="GET" class="">
-                            <div class="tab-content" id="v-pills-tabContent">
-                                <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab" tabindex="0">{{filter.form.company|bootstrap}}<br/><button type="submit" class="btn btn-primary">Search</button></div>
-                                <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab" tabindex="0">{{filter.form.owner|bootstrap}}<br/><button type="submit" class="btn btn-primary">Search</button></div>
-                            </div>
-
-
-                        </form>
-                    </div> {% endcomment %}
-
-
-                    <br> {% if created %}
-                    <a class='btn btn-primary' href="{% url 'inplex:experience_create' %}">Add your experience</a> {% else %}
-                    <a class='btn btn-primary' href="{% url 'inplex:student_create' %}">Create profile</a> {% endif %}
+                <div class="text-2xl  md:text-5xl mb-4"><b>About <font color="yellow">Inplex</font>
                 </div>
-
-
+                <div class="text-lg md:text-2xl">
+                    Internships and placements are some of the most important milestones of one's college life.
+                    Hence, we at Cepstrum, IIT Guwahati have come up with yet another initiative, Inplex. It aims to
+                    provide a platform for seniors to share their valuable placement
+                    and intern season experiences for the upcoming batches to learn from.
+                </div>
+            </div>
+         
+            <div class="experience_btn " style="margin-top: 6vh;">
+                <div >
+                    {% if created %}
+    
+                    <a class='btn btn-primary' href="{% url 'inplex:experience_create' %}">Add your
+                        experience</a> {% else %}
+                    <a class='btn btn-primary' href="{% url 'inplex:student_create' %}">Create profile</a>
+                     {% endif %}
+    
+                </div>
+                <!-- <div>
+                    <a class='btn btn-primary experience_btn1 ml-4  ' href="{% url 'inplex:experience' %}">Show
+                        experience</a>
+                </div> -->
             </div>
         </div>
-
-
+       
     </div>
 
 </div>
 <script>
-    $(document).ready(function() {
+    $(document).ready(function () {
         $("#id_owner").select2();
     });
 </script>
 <script>
-    $(document).ready(function() {
+    $(document).ready(function () {
         $("#id_company").select2();
     });
 </script>
@@ -103,8 +151,8 @@ my-carousel" data-ride="carousel">
             <div class="card-footer" style="text-align: center;">
 
                 {% for j in student_list %}
-                {% if i.owner == j.owner  %}
-                <a class="btn btn-info" href="{% url 'inplex:detail' j.id %}">View</a> 
+                {% if i.owner == j.owner %}
+                <a class="btn btn-info" href="{% url 'inplex:detail' j.id %}">View</a>
                 {% endif %}
                 {% endfor %}
 

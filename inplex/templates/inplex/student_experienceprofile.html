@@ -1,0 +1,77 @@
+{% extends "base.html" %}{% load bootstrap %} {% block title %} Inplex | Cepstrum {% endblock title %} {% block head %}
+
+
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.17/dist/tailwind.min.css" rel="stylesheet">
+{% endblock head %} {% block css %}
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Acme&family=Lobster&family=Montserrat:wght@400;600;700;900&family=Nunito:wght@500&family=Pacifico&family=Poppins&display=swap');
+    .carousel-item {
+        height: 90vh;
+        background: no-repeat center center scroll;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+    }
+    
+    .carousel-item-content {
+    
+ 
+   text-align:left;
+        width: 75%;
+        font-size: 2vh;
+    }
+    .carousel-item-screen {
+        color: white;
+        background-color: rgba(0, 0, 0, 0.6);
+        width: 100%;
+        height: 100%;align-items:center;
+        display: flex;
+        justify-content: center;
+    }
+
+	
+.my-nav{
+    position: static;
+}
+
+
+</style>
+
+{% endblock %}
+
+
+{% block carousel %}
+<div class="min-h-screen bg-gray-100 py-6 flex flex-col justify-center sm:py-10">
+    <div class="relative py-3 sm:max-w-xl sm:mx-auto">
+        <div class="absolute inset-0 bg-gradient-to-r from-purple-500 to-indigo-500 shadow-lg transform -skew-y-6 sm:skew-y-0 sm:-rotate-6 sm:rounded-3xl"></div>
+        <div class="relative px-4 py-6 bg-white shadow-lg sm:rounded-3xl ">
+            <div class="max-w-md mx-auto">
+                <div class="flex items-center space-x-5">
+                    <div class="h-14 w-14 rounded-full bg-purple-500 flex items-center justify-center">
+                        <span class="text-white text-2xl font-bold uppercase">PP</span>
+                    </div>
+                    <div class="block pl-2 font-semibold text-xl self-start text-gray-700">
+                        <h2 class="leading-relaxed">Paramveer Prakash</h2>
+                        <p class="text-sm text-gray-500 font-normal leading-relaxed">Electronics and Communication Engineering</p>
+                    </div>
+                </div>
+                <div class="divide-y divide-gray-200">
+                    <div class="py-8 text-base leading-6 space-y-4 text-gray-700 sm:text-lg sm:leading-7">
+                        <p class="leading-relaxed"><span class="leading-relaxed font-bold">Intern Profile: </span>Full-Stack Developer</p>
+                        <p class="leading-relaxed"><span class="leading-relaxed font-bold">Company Name: </span>Acme Corporatiopn</p>
+                        <p class="leading-relaxed"><span class="leading-relaxed font-bold">Duration: </span>June 2021 - September 2021</p>
+                        <p class="leading-relaxed font-bold">Experience:</p>
+                        <ul class="list-disc space-y-2 pl-6">
+                            <li class="leading-relaxed">Developed and maintained the company's main website using React and Node.js.</li>
+                            <li class="leading-relaxed">Worked on various front-end and back-end features of the website.</li>
+                            <li class="leading-relaxed">Collaborated with other developers and designers to ensure a high-quality user experience.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
