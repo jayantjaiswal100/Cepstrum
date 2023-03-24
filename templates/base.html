@@ -130,6 +130,8 @@
                                 <li><a class="dropdown-item" href="{% url 'paperman:all' %}">PaperMan</a></li>
                                 <li><a class="dropdown-item" href="{% url 'inked_intellects:all' %}">Inked Intelect</a>
                                 </li>
+                                <li><a class="dropdown-item" href="https://docs.google.com/spreadsheets/d/1XBDo5w4SpHgahtuIakB6RUJC6hJlqZrAfhx5-T0gso8/edit?usp=sharing" target="_blank">Department Library Catalogue</a>
+                                </li>
                                 {% if user.is_authenticated %}
                                 <li><a class="dropdown-item" href="{% url 'inplex:all' %}">Inplex | Intern</a></li>
                                 {% else %}
@@ -143,7 +145,7 @@
 
                             </ul>
                         </li>
-                        <li class="nav-item dropdown">
+                        <!-- <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                                 aria-expanded="false">
                                 Events
@@ -153,7 +155,7 @@
                                 <li><a class="dropdown-item" href="{% url 'talk:all' %}">Lectures/Workshop</a></li>
 
                             </ul>
-                        </li>
+                        </li> -->
                         <!-- {% if user.is_authenticated %}
                     <li class="nav-item dropdown active" class="">
                         <a class="nav-link dropdown-toggle" href="" id="dropdownMenuButton" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
