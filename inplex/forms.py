@@ -40,6 +40,11 @@ class ExperienceForm(forms.ModelForm):
         widgets = {
            'difficulty1':  forms.RadioSelect(),
            'difficulty2':  forms.RadioSelect(),
+           'difficulty3':  forms.RadioSelect(),
+           'difficulty4':  forms.RadioSelect(),
+           'difficulty5':  forms.RadioSelect(),
+           'difficulty6':  forms.RadioSelect(),
+           'difficulty7':  forms.RadioSelect(),
         }
         labels = {
             'roundtype1': 'Type',
