@@ -549,7 +549,7 @@ body{
 														<th style="color: white;border-top-left-radius: 16px;" class="column100 column1" data-column="column1">NAME</th>
 														<th style="color: white;" class="column100 column2" data-column="column2">Program</th>
 														<th style="color: white;" class="column100 column3" data-column="column3">Branch</th>
-														<th style="color: white;" class="column100 column4" data-column="column4">Roll No.</th>
+														<th style="color: white;" class="column100 column4" data-column="column4">Contact No.</th>
 														<th style="color: white;" class="column100 column5 " data-column="column5">Company</th>
 										
 														<th style="color: white;border-top-right-radius:  16px;" class="column100 column6" data-column="column6">Profile</th>
@@ -570,21 +570,20 @@ body{
                                                         <td class="column100 column6" data-column="column6">uokp</td>
                                                       
                                                       </tr> -->
-													  {% for i in experience_list %}
+													  
+													  	{% for j in students %}
 														<tr class = "row100">
 															<td class="column100 column1" data-column="column1">
-																<a href="{% url 'inplex:experienceprofile' %}">
-																	{{i.owner}}
+																<a href="{% url 'inplex:experienceprofile' {{j.owner}} %}">
+																	{{j.name}}
 															</a></td>
-															<td class="column100 column2" data-column="column2">{{i.owner}}</td>
-															<td class="column100 column3" data-column="column3">{{i.difficulty1}}</td>
-															<td class="column100 column4" data-column="column4">{{i.selected}}</td>
-															<td class="column100 column5" data-column="column5">{{i.company}}</td>
-															<td class="column100 column6" data-column="column6">{{i.profile}}</td>
-														  
+															<td class="column100 column2" data-column="column2">{{j.program}}</td>
+															<td class="column100 column3" data-column="column3">{{j.branch}}</td>
+															<td class="column100 column4" data-column="column4">{{j.number}}</td>
+															<td class="column100 column5" data-column="column5">{{j.selected_company}}</td>
+															<td class="column100 column6" data-column="column6">{{j.profile}}</td>
 														  </tr>
-													  {% endfor %}
-                                                
+														  {% endfor %} 
 												</tbody>
 												<!-- <tfoot class="bg-custom">
 													<tr class="row100 head">

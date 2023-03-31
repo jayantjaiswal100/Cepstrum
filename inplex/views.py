@@ -67,15 +67,27 @@ class ExperienceCreateView(LoginRequiredMixin,CreateView):
         form.instance.owner = self.request.user
         return super().form_valid(form)
 
-def experienceprofile(request):
-    return render(request, 'inplex/student_experienceprofile.html')
+# def experienceprofile(request):
+#     experiences=Experience.objects.all()
+#     students=Student.objects.all()
+#     context={
+#         'students':students,
+#         'experiences':experiences,
+#     }
+#     return render(request, 'inplex/student_experienceprofile.html',context)
 
-class ExperienceListView(ListView):
-    model = Experience
-    template_name = "inplex/student_experience.html"
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['exp'] = Experience.objects.all()
-        return context
+def experienceprofile(request, owner):
+    experience = Experience.objects.get(owner = owner)
+    return render(request,"inplex/student_experienceprofile.html", context ={"experience":experience})
+
+
+def experience(request):
+    experiences=Experience.objects.all()
+    students=Student.objects.all()
+    context={
+        'students':students,
+        'experiences':experiences,
+    }
+    return render(request, 'inplex/student_experience.html',context)
 
   

@@ -4,13 +4,12 @@
       width: 80%;
         background: #ffffff;
   justify-content: center;
-        
+        height: 40vh;
         font-size: 0;
-        margin-top: 10vh;
-        overflow: hidden;
+       
+        
         background-color: rgba(0, 0, 0, 1);
-padding-bottom: 10vh;
-padding-top: 10vh;
+
     }
     
     figure#spinner {
@@ -75,7 +74,9 @@ padding-top: 10vh;
         border-bottom: none;
         line-height: 0;
     }
-    
+    figure{
+        margin: 0;
+    }
     div#carousel~span:hover {
         color: #888;
         cursor: pointer;
@@ -83,7 +84,7 @@ padding-top: 10vh;
 </style>
 <style>
     .carousel-item {
-        height: 100vh;
+        height: 100%;
         background: no-repeat center center scroll;
         -webkit-background-size: cover;
         -moz-background-size: cover;
@@ -91,21 +92,13 @@ padding-top: 10vh;
         background-size: cover;
     }
     
-    .content {
-        text-align: center;
-        padding-top: 5%;
-        padding-right: 4%;
-        padding-left: 60%;
-        color: white;
-    }
+  
     
     .carousel-item-content {
-        /* margin-top: 20%;
-  margin-left: 15%;
-  margin-right: 30%; */
+   
  
    text-align: center;
-        width: 75%;
+        width: 80%;
         font-size: 2vh;
     }
     .carousel-item-screen {
@@ -113,16 +106,12 @@ padding-top: 10vh;
         background-color: rgba(0, 0, 0, 0.6);
         width: 100%;
         height: 100%;
-        /* padding: 15% 0% 0 0%; */
+        padding: 10% 0%;
         display: flex;
         justify-content: center;
         align-items: center;
     }
-    @media  screen and (max-width:1000px) {
-       .carousel-item{
-        height: 92.4vh;
-       }
-    }
+   
     .link-button {
         color: white;
         background-color: #555555;
@@ -141,6 +130,13 @@ padding-top: 10vh;
         padding: 5px 10px;
         border-radius: 5px;
     }
+    .carousel-indicators{
+        display:none ;
+    }
+    .carousel {
+        display: flex;
+        flex-grow: 1;
+    }
 </style>
 
 {% endblock %} {% block carousel %}
@@ -154,9 +150,9 @@ padding-top: 10vh;
         url('{{object.pic.url}}');">
             <div class="carousel-item-screen">
                 <div class="carousel-item-content">
-                    <h1 style="color:yellow  ;" class="text-2xl mt-5 md:text-5xl">{{object.name|safe}}</h1>
+                    <h1 style="color:yellow  ;" class="text-lg sm:text-lg md:text-lg">{{object.name|safe}}</h1>
                     <div class="addthis_inline_share_toolbox"></div><br><br>
-                    <h5 class="text-lg md:text-2xl">{{object.desc|safe}}</h5>
+                    <h5 class="sm:text-sm md:text-2xl text-3xl">{{object.desc|safe}}</h5>
                 </div>
 
 
@@ -181,8 +177,8 @@ padding-top: 10vh;
 </div>
 
 {% endblock %} {% block content %}
-<div class="flex" style="width:100%;padding: 0% 5%; background-color: rgba(0, 0, 0, 1);justify-content: space-evenly;">
-    <div style="width:5%;justify-content: center;align-items: center;" class="flex"><span style="float:left;font-size: 10vh; color: yellow;" class="ss-icon" onclick="galleryspin('-')">&lt;</span></div>
+<div  style="display: flex;width:100%;padding: 10% 5%; background-color: rgba(0, 0, 0, 1);justify-content: space-evenly;">
+    <div style="width:10%;justify-content: center;align-items: center;display: flex;" ><span style="float:left;font-size: 10vh; color: yellow;" class="ss-icon" onclick="galleryspin('-')">&lt;</span></div>
 <div id="carousel">
 
     {% for i in pictures_list %} {% if i.id == object.id %}
@@ -201,7 +197,7 @@ padding-top: 10vh;
     
 </div>
 
-<div style="justify-content: center;align-items: center;" class="flex"><span style="float:right; font-size: 10vh; color: yellow;" class="ss-icon" onclick="galleryspin('')">&gt;</span></div>
+<div style="width:10%;justify-content: center;align-items: center;display: flex;" ><span style="float:right; font-size: 10vh; color: yellow;" class="ss-icon" onclick="galleryspin('')">&gt;</span></div>
 </div>
  {% endblock content %} {% block js %}
 <script>

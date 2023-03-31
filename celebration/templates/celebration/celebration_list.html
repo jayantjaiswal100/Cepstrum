@@ -1,7 +1,7 @@
 {% extends "base.html" %} {% load static %} {% block title %} Celebrations | Cepstrum {% endblock title %} {% block css %}
 <style>
     .carousel-item {
-        height: 100vh;
+   height: 100%;
         background: no-repeat center center scroll;
         -webkit-background-size: cover;
         -moz-background-size: cover;
@@ -24,22 +24,20 @@
         background-color: rgba(0, 0, 0, 0.6);
         width: 100%;
         height: 100%;
-      padding: 0% 20%;
+      padding: 10% 20%;
+      box-sizing: border-box;
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
     }
-    @media  screen and (max-width:1000px) {
-       .carousel-item{
-        height: 92.4vh;
-       }
-    }
+  
    
     .tabs-secondary {
         float: right;
         padding-top: 7%;
         padding-right: 5%;
+        box-sizing: border-box;
       
         color: white;
         line-height: 200%;
@@ -53,6 +51,13 @@
     .link-active {
         color: white;
         font-weight: bold;
+    }
+    .carousel-indicators{
+        display:none ;
+    }
+    .carousel {
+        display: flex;
+        flex-grow: 1;
     }
 </style>
 
@@ -79,12 +84,12 @@
 
 
 
-                <div class="carousel-item-content text-lg md:text-2xl">
+                <div class="carousel-item-content sm:text-sm md:text-2xl text-3xl">
                     {{i.desc}}
                 </div>
                 <br>
 
-                <a href="{% url 'celebration:celebration_detail' i.id %}" class="btn btn-outline-info text-lg md:text-2xl">
+                <a href="{% url 'celebration:celebration_detail' i.id %}" class="btn btn-outline-info text-xs md:text-2xl lg:text-3xl">
                    See Pics
                 </a>
 
