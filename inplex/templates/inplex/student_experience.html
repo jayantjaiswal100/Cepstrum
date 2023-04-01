@@ -573,7 +573,7 @@ body{
 													  	{% for j in students %}
 														<tr class = "row100">
 															<td class="column100 column1" data-column="column1">
-															<a href="{% url 'inplex:experienceprofile' j.owner.id %}">
+															<a href="{% url 'inplex:experienceprofile' j.id %}">
 																	{{j.name}}
 															</a>
 														</td>

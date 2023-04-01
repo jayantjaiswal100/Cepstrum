@@ -1,87 +1,5 @@
 {% extends 'base.html' %} {% block title %} {{object}} | Cepstrum {% endblock title %} {% block css %}
-<style>
-    div#carousel {
-      width: 80%;
-        background: #ffffff;
-  justify-content: center;
-        height: 40vh;
-        font-size: 0;
-       
-        
-        background-color: rgba(0, 0, 0, 1);
 
-    }
-    
-    figure#spinner {
-        transform-style: preserve-3d;
-        height: 250px;
-        transform-origin: 50% 50% -500px;
-        transition: 1s;
-        background-color: rgba(0, 0, 0, 1);
-    }
-    
-    figure#spinner img {
-        width:45%;
-        max-width: 425px;
-        position: absolute;
-        left: 30%;
-        transform-origin: 50% 50% -500px;
-        outline: 1px solid transparent;
-        margin-right: 2%;
-    }
-    
-    figure#spinner img:nth-child(1) {
-        transform: rotateY(0deg);
-    }
-    
-    figure#spinner img:nth-child(2) {
-        transform: rotateY(-45deg);
-    }
-    
-    figure#spinner img:nth-child(3) {
-        transform: rotateY(-90deg);
-    }
-    
-    figure#spinner img:nth-child(4) {
-        transform: rotateY(-135deg);
-    }
-    
-    figure#spinner img:nth-child(5) {
-        transform: rotateY(-180deg);
-    }
-    
-    figure#spinner img:nth-child(6) {
-        transform: rotateY(-225deg);
-    }
-    
-    figure#spinner img:nth-child(7) {
-        transform: rotateY(-270deg);
-    }
-    
-    figure#spinner img:nth-child(8) {
-        transform: rotateY(-315deg);
-    }
-    
-    div#carousel~span {
-        color: rgb(0, 0, 0);
-        margin: 5%;
-        display: inline-block;
-        text-decoration: none;
-        font-size: 2rem;
-        transition: 0.6s color;
-        position: relative;
-        margin-top: -6rem;
-        border-bottom: none;
-        line-height: 0;
-    }
-    figure{
-        margin: 0;
-    }
-    div#carousel~span:hover {
-        color: #888;
-        cursor: pointer;
-    }
-</style>
 <style>
     .carousel-item {
         height: 100%;
@@ -91,16 +9,17 @@
         -o-background-size: cover;
         background-size: cover;
     }
-    
-  
-    
+
+
+
     .carousel-item-content {
-   
- 
-   text-align: center;
+
+
+        text-align: center;
         width: 80%;
         font-size: 2vh;
     }
+
     .carousel-item-screen {
         color: white;
         background-color: rgba(0, 0, 0, 0.6);
@@ -111,7 +30,7 @@
         justify-content: center;
         align-items: center;
     }
-   
+
     .link-button {
         color: white;
         background-color: #555555;
@@ -120,7 +39,7 @@
         padding: 5px 10px;
         border-radius: 5px;
     }
-    
+
     .link-button:hover {
         text-decoration: none;
         color: white;
@@ -129,9 +48,6 @@
         text-decoration: none;
         padding: 5px 10px;
         border-radius: 5px;
-    }
-    .carousel-indicators{
-        display:none ;
     }
     .carousel {
         display: flex;
@@ -176,41 +92,45 @@
 
 </div>
 
-{% endblock %} {% block content %}
-<div  style="display: flex;width:100%;padding: 10% 5%; background-color: rgba(0, 0, 0, 1);justify-content: space-evenly;">
-    <div style="width:10%;justify-content: center;align-items: center;display: flex;" ><span style="float:left;font-size: 10vh; color: yellow;" class="ss-icon" onclick="galleryspin('-')">&lt;</span></div>
-<div id="carousel">
+{% endblock %}{% block content %}
 
-    {% for i in pictures_list %} {% if i.id == object.id %}
-    <figure id="spinner">
-        <img src="{{i.pic1}}" alt>
-        <img src="{{i.pic2}}" alt>
-        <img src="{{i.pic3}}" alt>
-        <img src="{{i.pic4}}" alt>
-        <img src="{{i.pic5}}" alt>
-        <img src="{{i.pic6}}" alt>
-        <img src="{{i.pic7}}" alt>
-        <img src="{{i.pic8}}" alt>
-    </figure>
-    {% endif %} {% endfor %}
 
-    
+
+    <div id="carouselExampleIndicators" class="carousel slide my-carousel
+    my-carousel" data-ride="carousel">
+        <ol class="carousel-indicators">
+            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+        </ol>
+        <div class="carousel-inner" role="listbox">
+            {% for i in pictures_list %} {% if i.id == object.id %}
+            <div class="carousel-item active" style="background-image:
+        url('{{i.pic1}}');">
+
+            </div>
+
+            <div class="carousel-item active" style="background-image:
+        url('{{i.pic2}}');">
+
+            </div>
+            <div class="carousel-item active" style="background-image:
+        url('{{i.pic3}}');">
+
+            </div>
+            <div class="carousel-item active" style="background-image:
+        url('{{i.pic4}}');">
+
+            </div>
+            <div class="carousel-item active" style="background-image:
+        url('{{i.pic5}}');">
+
+            </div>
+            <div class="carousel-item active" style="background-image:
+        url('{{i.pic6}}');">
+
+            </div>
+            {% endif %} {% endfor %}
 </div>
+    {% endblock content %}
+    {% block js %}
 
-<div style="width:10%;justify-content: center;align-items: center;display: flex;" ><span style="float:right; font-size: 10vh; color: yellow;" class="ss-icon" onclick="galleryspin('')">&gt;</span></div>
-</div>
- {% endblock content %} {% block js %}
-<script>
-    var angle = 0;
-
-    function galleryspin(sign) {
-        spinner = document.querySelector("#spinner");
-        if (!sign) {
-            angle = angle + 45;
-        } else {
-            angle = angle - 45;
-        }
-        spinner.setAttribute("style", "-webkit-transform: rotateY(" + angle + "deg); -moz-transform: rotateY(" + angle + "deg); transform: rotateY(" + angle + "deg);");
-    }
-</script>
-{% endblock js %}
+    {% endblock js %}

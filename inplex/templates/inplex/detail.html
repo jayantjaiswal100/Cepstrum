@@ -1,86 +1,163 @@
-{% extends "base.html" %}{% load bootstrap %}{% load crispy_forms_tags %} {% block title %} Inplex | Cepstrum {% endblock title %} {% block css %}
+{% extends "base.html" %} {% load humanize %} {% load bootstrap %} {% load static %}{% block title %} Inplex | Cepstrum {% endblock title %} {% block css %}
 <style>
-    @import url('https://fonts.googleapis.com/css2?family=Acme&family=Lobster&family=Montserrat:wght@400;600;700;900&family=Nunito:wght@500&family=Pacifico&family=Poppins&display=swap');
-    .carousel-item {
-        height: 50vh;
-        background: no-repeat center center scroll;
-        -webkit-background-size: cover;
-        -moz-background-size: cover;
-        -o-background-size: cover;
-        background-size: cover;
-    }
-    
+
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+@import url('https://fonts.googleapis.com/css2?family=Acme&family=Lobster&family=Montserrat:wght@400;600;700;900&family=Nunito:wght@500&family=Pacifico&family=Poppins&display=swap');
     .carousel-item-content {
-        /* margin-top: 20%;
-  margin-left: 15%;
-  margin-right: 30%; */
-        font-size: 2vh;
+        color: white;
+
+        text-align: left;
+        width: 80%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        font-size: 2.5vh;
+
     }
-    
+
     .carousel-item-screen {
         color: white;
-        background-color: rgba(0, 0, 0, 0.6);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+
+    .background-black {
         width: 100%;
         height: 100%;
-        padding: 10% 7% 0 5%;
+        background-color: rgba(62, 62, 75, 0.479);
+        padding-bottom:5vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding-top: 5vh;
     }
+    .background{
+        height:50vh;
+        background-image: url('/cepstrum/static/inplex/cover.png');
+        background-size: cover;
+        background-repeat: no-repeat; 
+        
+    }
+    a{
+        text-decoration: none;
+        color: unset;
+    }
+    a:hover{
+        color: yellow;
+    }
+    .container{
+        margin-top: -30vh;
+        max-width: 100%;
+        
+    }
+    .details{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+    }
+    .cards{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        background: linear-gradient(326deg, rgba(16,6,35,1) 0%, rgba(26,2,105,1) 100%);
+        font-weight: 500;
+        font-size: 1.2rem;
+        overflow: hidden;
+        position: relative;
+        padding: 3vh;
+        min-width: 15%;
+        
+    }
+    .resources{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        background: linear-gradient(326deg, rgba(16,6,35,1) 0%, rgba(26,2,105,1) 100%);
+        font-weight: 500;
+        font-size: 1.2rem;
+        color: #fff;
+        padding: 5vh;
+        margin-top: 5vh;
+        margin-bottom: 5vh; 
+        margin-left: 3vh;  
+        margin-right: 3vh;   
+    }
+    .resources_container{
+        background-color: white;
+        border-radius:7px;
+        color: black;
+        padding: 5vh;
+        min-width: 85%;
+    }
+    @media screen and (max-width:1300px) {
+        .details{
+            flex-direction:column;
+            gap: 15px;
+        }
+        .container{
+            margin-top: -40vh;
+        }
+        .cards{
+            padding-top: 1vh;
+            padding-bottom: 2vh;
+        }
+        .resources{
+            margin-left: 0%;
+            margin-right: 0%;
+        }
+    }
+
+    
 </style>
 
-{% endblock %}{% block carousel %}
-<div id="carouselExampleIndicators" class="carousel slide my-carousel
-my-carousel" data-ride="carousel">
-    <div class="carousel-inner" role="listbox">
-        <div class="carousel-item active" style="background: rgb(16,6,35);
-        background: linear-gradient(326deg, rgba(16,6,35,1) 0%, rgba(61,11,26,1) 100%);">
-            <!-- <div style="padding-top: 40%; padding-left: 10%;">
-        <button type="button" class="btn btn-secondary btn-lg" data-toggle="modal" data-target=".bd-example-modal-xl">Know more</button>
+{% endblock %} {% block carousel %}
 
-      </div> -->
-
-            <div class="carousel-item-screen">
-                <div class="carousel-item-content">
-                    <h1><b style="font-family: 'Nunito', serif;">{{object}}' Profile</b>
-                    </h1>
-                    <br>
-                    <div class="addthis_inline_share_toolbox"></div><br><br>
+    <div class="background">
+        <div class="background-black">
+            <div class="carousel-item-content">
+                <div class="text-2xl  md:text-5xl mb-4"><b>{{object.owner.first_name}}'s <font color="yellow">Profile</font>
                 </div>
-
-
+                <div class="text-lg md:text-1xl" style="display: flex;flex-direction: row;">
+                    <div><a href="{{object.linked_in_profile}}">LinkedIn</a></div>
+                    <div style="padding-left: 8px;padding-right: 8px;"><font color="yellow"> | </font></div>
+                    <div><a href="{{object.resume}}">Resume</a></div>
+                </div>
             </div>
         </div>
-
-
     </div>
 
-</div>
-{% endblock carousel %} {% block content %}
-
-<div class="container"><br><br>
-    <div class="row">
-        <div class="col">
-            <h1>{{object.owner.first_name}}</h1>
-            <h1>{{object.program}} {{object.branch}}</h1>
-            <h1>Selected in {{object.selected_company}} for {{object.profile}} profile</h1>
-            <h2>
-                <a href="{{object.linked_in_profile}}">Linkedin</a>|
-                <a href="{{i.resume}}">CV</a> | contact me : {{object.number}}
-            </h2>
-            <h2>{{object.resource|safe}}</h2>
+{% endblock %}
+{% block content %}
+    <div class="container">
+        <div class="details">
+            <div class="cards">
+                <div style="font-size: 2rem;color: yellow;font-variant-caps: small-caps; ">Branch-</div>
+                <div style="background-color: white;border-radius:7px;color: black;">{{object.branch}}</div>
+            </div>
+            <div class="cards">
+                <div style="font-size: 2rem;color: yellow;font-variant-caps: small-caps; ">Program-</div>
+                <div style="background-color: white;border-radius:7px;color: black;">{{object.program}}</div>
+            </div>
+            <div class="cards">
+                <div style="font-size: 2rem;color: yellow;font-variant-caps: small-caps; ">Year-</div>
+                <div style="background-color: white;border-radius:7px;color: black;">{{object.year}}</div>
+            </div>
+            <div class="cards">
+                <div style="font-size: 2rem;color: yellow;font-variant-caps: small-caps; ">Ph. No.-</div>
+                <div style="background-color: white;border-radius:7px;color: black;">{{object.number}}</div>
+            </div>
+            <div class="cards">
+                <div style="font-size: 2rem;color: yellow;font-variant-caps: small-caps; ">Profile-</div>
+                <div style="background-color: white;border-radius:7px;color: black;">{{object.profile}}</div>
+            </div>
         </div>
-        <div class="col">
-
-            {% for i in exp %} {% if i.owner == object.owner %}
-            <details>
-                <summary>{{i.company}} : {{i.profile}}</summary>
-                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Molestias optio voluptatem repudiandae commodi excepturi consectetur! Quod repellendus beatae suscipit error velit rem quo cum, voluptates expedita aut molestiae tenetur quos!</p>
-            </details>
-
-            {% endif %} {% endfor %}
-
-
+        <div class="resources">
+            <div style="font-size: 2rem;color: yellow;font-variant-caps: small-caps;align-self: center; margin-right: 2vh;">Resources</div>
+            <div class="resources_container">{{object.resource|safe}}</div>
         </div>
     </div>
-</div>
-<br><br><br><br><br> {% endblock %} {% block js %}
-<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-60a8891d6f283957"></script>
-{% endblock js %}
+
+{% endblock %}

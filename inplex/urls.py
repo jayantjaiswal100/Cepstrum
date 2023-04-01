@@ -4,7 +4,7 @@ from . import views
 app_name='inplex'
 urlpatterns = [
     path('', views.HomeView.as_view(), name='all'),
-    #  path('<int:pk>', views.StudentDetailView.as_view(), name='detail'),
+     path('<int:pk>', views.StudentDetailView.as_view(), name='detail'),
     path('create',views.StudentCreateView.as_view(success_url=reverse_lazy('inplex:all')), name='student_create'),
     path('create_experience',views.ExperienceCreateView.as_view(success_url=reverse_lazy('inplex:all')), name='experience_create'),
     path('experience', views.experience, name='experience'),
