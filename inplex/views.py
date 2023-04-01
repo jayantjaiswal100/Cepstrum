@@ -76,8 +76,9 @@ class ExperienceCreateView(LoginRequiredMixin,CreateView):
 #     }
 #     return render(request, 'inplex/student_experienceprofile.html',context)
 
-def experienceprofile(request, owner):
-    experience = Experience.objects.get(owner = owner)
+def experienceprofile(request,owner_id):
+    experience = Experience.objects.get(id=owner_id)
+    print(experience.company)
     return render(request,"inplex/student_experienceprofile.html", context ={"experience":experience})
 
 
@@ -89,5 +90,3 @@ def experience(request):
         'experiences':experiences,
     }
     return render(request, 'inplex/student_experience.html',context)
-
-  

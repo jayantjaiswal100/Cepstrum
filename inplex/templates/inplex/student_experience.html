@@ -560,7 +560,6 @@ body{
 <!--                                                    
                                                     <tr class = "row100">
                                                         <td class="column100 column1" data-column="column1">
-                                                            <a href="{% url 'inplex:experienceprofile' %}">
                                                             yuyg
                                                         </a></td>
                                                         <td class="column100 column2" data-column="column2">uhyb</td>
@@ -574,9 +573,10 @@ body{
 													  	{% for j in students %}
 														<tr class = "row100">
 															<td class="column100 column1" data-column="column1">
-																<a href="{% url 'inplex:experienceprofile' {{j.owner}} %}">
+															<a href="{% url 'inplex:experienceprofile' j.owner.id %}">
 																	{{j.name}}
-															</a></td>
+															</a>
+														</td>
 															<td class="column100 column2" data-column="column2">{{j.program}}</td>
 															<td class="column100 column3" data-column="column3">{{j.branch}}</td>
 															<td class="column100 column4" data-column="column4">{{j.number}}</td>
