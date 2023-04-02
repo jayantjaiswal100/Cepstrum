@@ -3,7 +3,9 @@
 <style>
     @import url('https://fonts.googleapis.com/css?family=Montserrat');
     @import url('https://fonts.googleapis.com/css2?family=Acme&family=Lobster&family=Montserrat:wght@400;600;700;900&family=Nunito:wght@500&family=Pacifico&family=Poppins&display=swap');
-
+    .company{
+        margin: 2.5vh 0;
+    }
     .carousel-item-content {
         color: white;
 
@@ -104,7 +106,7 @@
         margin-bottom: 5vh;
         margin-left: 3vh;
         margin-right: 3vh;
-
+border-radius: 5px;
     }
 
     .resources_container {
@@ -187,11 +189,6 @@
             font-size: 12px !important;
         }
     }
-</style>
-<style>
-    .company{
-        margin: 2.5vh 0;
-    }
     .collapsible {
         background-color: #14043f;
         color: white;
@@ -201,37 +198,34 @@
         border: none;
         text-align: left;
         outline: none;
-        
+        border-radius: 5px;
     }
-
-    .active,
+    .active1,
     .collapsible:hover {
         background-color: linear-gradient(326deg, rgba(16, 6, 35, 1) 0%, rgba(26, 2, 105, 1) 100%);
         ;
     }
-
     .collapsible:after {
         content: '\002B';
-        color: white;
+        color: yellow;
         font-weight: bold;
         float: right;
         margin-left: 5px;
     }
 
-    .active:after {
-        content: "\2212";
-    }
-
     .content {
     
-        max-height: 0;
-        overflow: hidden;
-        transition: max-height 0.2s ease-out;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
 
+}
+.active1:after {
+        content: "\2212";
     }
    
-    
 </style>
+
 {% endblock %} {% block carousel %}
 
 <div class="background">
@@ -292,7 +286,7 @@
         {% for i in exp %} {% if i.owner == object.owner %}
         <div class="company" >
             <div class="collapsible"
-                style="text-align: center;font-size: 1.5rem;font-variant-caps: small-caps;color: yellow;">{{i.company}}
+                style="text-align: center;font-size: 1.5rem;font-variant-caps: small-caps;color: yellow !important;">{{i.company}}
             </div>
             <div class="content">
                 <div class="roundwise_experience">
@@ -447,7 +441,7 @@
 
     for (i = 0; i < coll.length; i++) {
         coll[i].addEventListener("click", function () {
-            this.classList.toggle("active");
+            this.classList.toggle("active1");
             var content = this.nextElementSibling;
             if (content.style.maxHeight) {
                 content.style.maxHeight = null;
