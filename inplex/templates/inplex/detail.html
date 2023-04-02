@@ -15,7 +15,9 @@
         font-size: 2.5vh;
 
     }
-
+.body{
+    min-height: 60vh;
+}
     .carousel-item-screen {
         color: white;
         display: flex;
@@ -49,14 +51,20 @@
         color: yellow;
     }
     .container{
-        margin-top: -30vh;
-        max-width: 100%;
+   
+        max-width: 92%;
         
     }
     .details{
         display: flex;
         flex-direction: row;
-        justify-content: space-around;
+        justify-content: center;
+        align-items: center;
+        gap: 3%;
+        width: 90%;
+    }
+    p{
+        margin-bottom: 0;
     }
     .cards{
         display: flex;
@@ -65,11 +73,12 @@
         background: linear-gradient(326deg, rgba(16,6,35,1) 0%, rgba(26,2,105,1) 100%);
         font-weight: 500;
         font-size: 1.2rem;
-        overflow: hidden;
+        /* overflow: hidden; */
         position: relative;
         padding: 3vh;
+    
         min-width: 15%;
-        
+        border-radius: 5px;
     }
     .resources{
         display: flex;
@@ -83,32 +92,73 @@
         margin-top: 5vh;
         margin-bottom: 5vh; 
         margin-left: 3vh;  
-        margin-right: 3vh;   
+        margin-right: 3vh;  
+
     }
     .resources_container{
         background-color: white;
         border-radius:7px;
         color: black;
-        padding: 5vh;
+        padding: 2.5vh;
         min-width: 85%;
+    
+    }
+    .resources_container a{
+        color: blue;
+    }
+    .company{
+        display: flex;
+        flex-direction: column;
+        min-width: 85%;
+        
+    }
+    .desc{
+        background-color: white;
+        border-radius:7px;
+        color: black;
+        padding: 2vh;
+       min-width: 70vw;
+    }
+    .resources_detail{
+        min-width:25vw ;
     }
     @media screen and (max-width:1300px) {
         .details{
             flex-direction:column;
-            gap: 15px;
+            gap: 1.5vh;
         }
-        .container{
-            margin-top: -40vh;
-        }
+  
         .cards{
             padding-top: 1vh;
             padding-bottom: 2vh;
+            min-width: 100%;
         }
         .resources{
             margin-left: 0%;
             margin-right: 0%;
         }
     }
+    @media screen and (max-width:1200px) {
+       
+        .resources{
+     flex-direction: column;
+        }
+    }
+
+    @media screen and (max-width:600px) {
+       
+       .resources_container{
+    
+        font-size: 18px !important;
+       }
+   }
+   @media screen and (max-width:400px) {
+       
+       .resources_container{
+    
+        font-size: 13px !important;
+       }
+   }
 
     
 </style>
@@ -128,36 +178,157 @@
             </div>
         </div>
     </div>
-
+    <div style="display: flex;justify-content: center;margin-top: 5vh;">
+    <div class="details" >
+        <div class="cards">
+            <div style="font-size: 1.5rem;color: yellow;font-variant-caps: small-caps; ">Branch-</div>
+            <div style="background-color: white;border-radius:7px;color: black;padding-left: 10px;">{{object.branch}}</div>
+        </div>
+        <div class="cards">
+            <div style="font-size: 1.5rem;color: yellow;font-variant-caps: small-caps; ">Program-</div>
+            <div style="background-color: white;border-radius:7px;color: black;padding-left: 10px;">{{object.program}}</div>
+        </div>
+        <div class="cards">
+            <div style="font-size: 1.5rem;color: yellow;font-variant-caps: small-caps; ">Year-</div>
+            <div style="background-color: white;border-radius:7px;color: black;padding-left: 10px;">{{object.year}}</div>
+        </div>
+        <div class="cards">
+            <div style="font-size: 1.5rem;color: yellow;font-variant-caps: small-caps; ">Ph. No.-</div>
+            <div style="background-color: white;border-radius:7px;color: black;padding-left: 10px;">{{object.number}}</div>
+        </div>
+        <div class="cards">
+            <div style="font-size: 1.5rem;color: yellow;font-variant-caps: small-caps; ">Profile-</div>
+            <div style="background-color: white;border-radius:7px;color: black;padding-left: 10px;">{{object.profile}}</div>
+        </div>
+    </div>
+</div>
 {% endblock %}
 {% block content %}
     <div class="container">
-        <div class="details">
-            <div class="cards">
-                <div style="font-size: 2rem;color: yellow;font-variant-caps: small-caps; ">Branch-</div>
-                <div style="background-color: white;border-radius:7px;color: black;">{{object.branch}}</div>
-            </div>
-            <div class="cards">
-                <div style="font-size: 2rem;color: yellow;font-variant-caps: small-caps; ">Program-</div>
-                <div style="background-color: white;border-radius:7px;color: black;">{{object.program}}</div>
-            </div>
-            <div class="cards">
-                <div style="font-size: 2rem;color: yellow;font-variant-caps: small-caps; ">Year-</div>
-                <div style="background-color: white;border-radius:7px;color: black;">{{object.year}}</div>
-            </div>
-            <div class="cards">
-                <div style="font-size: 2rem;color: yellow;font-variant-caps: small-caps; ">Ph. No.-</div>
-                <div style="background-color: white;border-radius:7px;color: black;">{{object.number}}</div>
-            </div>
-            <div class="cards">
-                <div style="font-size: 2rem;color: yellow;font-variant-caps: small-caps; ">Profile-</div>
-                <div style="background-color: white;border-radius:7px;color: black;">{{object.profile}}</div>
-            </div>
-        </div>
+       
         <div class="resources">
             <div style="font-size: 2rem;color: yellow;font-variant-caps: small-caps;align-self: center; margin-right: 2vh;">Resources</div>
             <div class="resources_container">{{object.resource|safe}}</div>
         </div>
+        <div class="experience_list">
+            {% for i in exp %} {% if i.owner == object.owner %}
+            <div class="company">
+                <div style="text-align: center;font-size: 2rem;">{{i.company}}</div>
+                <div class="roundwise_experience">
+                    {% if i.experience1 != "" %}
+                    <div class="resources">
+                    <div class="round_detail">
+                        <div>Round 1</div>
+                        <div>Round Type: </div>
+                        <div style="color: yellow;">{{i.roundtype1}}</div>
+                        <div>Difficulty type: </div>
+                        <div style="color: yellow;">{{i.difficulty1}}</div>
+                    </div>
+                 
+
+                    <div class="desc">
+                       <b> Experience:</b>
+                        {{i.experience1|safe}}
+                    </div>
+                    </div>
+                    {% endif %}
+                    {% if i.experience2 != "" %}
+                    <div class="resources">
+                        <div class="round_detail">
+                            <div>Round 2</div>
+                            <div>Round Type: </div>
+                            <div style="color: yellow;">{{i.roundtype2}}</div>
+                            <div>Difficulty type: </div>
+                            <div style="color: yellow;">{{i.difficulty2}}</div>
+                        </div>
+                    <div class="desc">
+                        <b> Experience:</b>
+                        {{i.experience2|safe}}
+                    </div>
+                    </div>
+                    {% endif %}
+                    {% if i.experience3 != "" %}
+                    <div class="resources">
+                    <div class="round_detail">
+                        <div>Round 3</div>
+                        <div>Round Type: </div>
+                        <div style="color: yellow;">{{i.roundtype3}}</div>
+                        <div>Difficulty type: </div>
+                        <div style="color: yellow;">{{i.difficulty3}}</div>
+                    </div>
+                    <div class="desc">
+                        <b> Experience:</b>
+                        {{i.experience3|safe}}
+                    </div>
+                    </div>
+                    {% endif %}
+                    {% if i.experience4 != "" %}
+                    <div class="resources">
+                    <div class="round_detail">
+                        <div>Round 4</div>
+                        <div>Round Type: </div>
+                        <div style="color: yellow;">{{i.roundtype4}}</div>
+                        <div>Difficulty type: </div>
+                        <div style="color: yellow;">{{i.difficulty4}}</div>
+                    </div>
+                    <div class="desc">
+                        <b> Experience:</b>
+                        {{i.experience4|safe}}
+                    </div>
+                    </div>
+                    {% endif %}
+                    {% if i.experience5 != "" %}
+                    <div class="resources">
+                    <div class="round_detail">
+                        <div>Round 5</div>
+                        <div>Round Type: </div>
+                        <div style="color: yellow;">{{i.roundtype5}}</div>
+                        <div>Difficulty type: </div>
+                        <div style="color: yellow;">{{i.difficulty5}}</div>
+                    </div>
+                    <div class="desc">
+                        <b> Experience:</b>
+                        {{i.experience5|safe}}
+                    </div>
+                    </div>
+                    {% endif %}
+                    {% if i.experience6 != "" %}
+                    <div class="resources">
+                    <div class="round_detail">
+                        <div>Round 6</div>
+                        <div>Round Type: </div>
+                        <div style="color: yellow;">{{i.roundtype6}}</div>
+                        <div>Difficulty type: </div>
+                        <div style="color: yellow;">{{i.difficulty6}}</div>
+                    </div>
+                    <div class="desc">
+                        <b> Experience:</b>
+                        {{i.experience6|safe}}
+                    </div>
+                    </div>
+                    {% endif %}
+                    {% if i.experience7 != "" %}
+                    <div class="resources">
+                    <div class="round_detail">
+                        <div>Round 7</div>
+                        <div>Round Type: </div>
+                        <div style="color: yellow;">{{i.roundtype7}}</div>
+                        <div>Difficulty type: </div>
+                        <div style="color: yellow;">{{i.difficulty7}}</div>
+                    </div>
+                    <div class="desc">
+                        <b> Experience:</b>
+                        {{i.experience7|safe}}
+                    </div>
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+    
+            {% endif %}
+            {% endfor %}
+        </div>
+        
     </div>
 
 {% endblock %}
