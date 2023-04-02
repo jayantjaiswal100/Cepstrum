@@ -122,6 +122,7 @@
     .resources_detail{
         min-width:25vw ;
     }
+
     @media screen and (max-width:1300px) {
         .details{
             flex-direction:column;
@@ -213,12 +214,12 @@
         <div class="experience_list">
             {% for i in exp %} {% if i.owner == object.owner %}
             <div class="company">
-                <div style="text-align: center;font-size: 2rem;">{{i.company}}</div>
+                <div style="text-align: center;font-size: 2.3rem;font-variant-caps: small-caps;">{{i.company}}</div>
                 <div class="roundwise_experience">
                     {% if i.experience1 != "" %}
                     <div class="resources">
                     <div class="round_detail">
-                        <div>Round 1</div>
+                        <div style="color: yellow;">Round 1:</div>
                         <div>Round Type: </div>
                         <div style="color: yellow;">{{i.roundtype1}}</div>
                         <div>Difficulty type: </div>
@@ -235,7 +236,7 @@
                     {% if i.experience2 != "" %}
                     <div class="resources">
                         <div class="round_detail">
-                            <div>Round 2</div>
+                            <div style="color: yellow;">Round 2:</div>
                             <div>Round Type: </div>
                             <div style="color: yellow;">{{i.roundtype2}}</div>
                             <div>Difficulty type: </div>
@@ -250,7 +251,7 @@
                     {% if i.experience3 != "" %}
                     <div class="resources">
                     <div class="round_detail">
-                        <div>Round 3</div>
+                        <div style="color: yellow;">Round 3:</div>
                         <div>Round Type: </div>
                         <div style="color: yellow;">{{i.roundtype3}}</div>
                         <div>Difficulty type: </div>
@@ -265,7 +266,7 @@
                     {% if i.experience4 != "" %}
                     <div class="resources">
                     <div class="round_detail">
-                        <div>Round 4</div>
+                        <div style="color: yellow;">Round 4:</div>
                         <div>Round Type: </div>
                         <div style="color: yellow;">{{i.roundtype4}}</div>
                         <div>Difficulty type: </div>
@@ -280,7 +281,7 @@
                     {% if i.experience5 != "" %}
                     <div class="resources">
                     <div class="round_detail">
-                        <div>Round 5</div>
+                        <div style="color: yellow;">Round 5:</div>
                         <div>Round Type: </div>
                         <div style="color: yellow;">{{i.roundtype5}}</div>
                         <div>Difficulty type: </div>
@@ -295,7 +296,7 @@
                     {% if i.experience6 != "" %}
                     <div class="resources">
                     <div class="round_detail">
-                        <div>Round 6</div>
+                        <div style="color: yellow;">Round 6:</div>
                         <div>Round Type: </div>
                         <div style="color: yellow;">{{i.roundtype6}}</div>
                         <div>Difficulty type: </div>
@@ -310,7 +311,7 @@
                     {% if i.experience7 != "" %}
                     <div class="resources">
                     <div class="round_detail">
-                        <div>Round 7</div>
+                        <div style="color: yellow;">Round 7:</div>
                         <div>Round Type: </div>
                         <div style="color: yellow;">{{i.roundtype7}}</div>
                         <div>Difficulty type: </div>
