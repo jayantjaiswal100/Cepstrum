@@ -49,9 +49,23 @@
         padding: 5px 10px;
         border-radius: 5px;
     }
+
     .carousel {
         display: flex;
         flex-grow: 1;
+    }
+    .image_carousel img{
+height: 100vh;
+width: 100vw;
+    }
+    @media  screen and (max-width:600px) {
+        .image_carousel img{
+height: 50vh;
+    }  
+    }
+    .carousel-control-next-icon, .carousel-control-prev-icon {
+width: 4rem;
+height: 4rem;
     }
 </style>
 
@@ -92,45 +106,52 @@
 
 </div>
 
-{% endblock %}{% block content %}
+{% endblock %}
+
+{% block content %}
 
 
 
-    <div id="carouselExampleIndicators" class="carousel slide my-carousel
+ <div id="carouselExampleIndicators" class="carousel slide my-carousel
     my-carousel" data-ride="carousel">
-        <ol class="carousel-indicators">
-            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-        </ol>
-        <div class="carousel-inner" role="listbox">
-            {% for i in pictures_list %} {% if i.id == object.id %}
-            <div class="carousel-item active" style="background-image:
-        url('{{i.pic1}}');">
+    <ol class="carousel-indicators">
+        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="1" class="active"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="2" class="active"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="3" class="active"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="4" class="active"></li>
+    </ol>
+    <div class="carousel-inner" role="listbox">
+        {% for i in pictures_list %} {% if i.id == object.id %}
+        <div class="carousel-item active image_carousel">
+<img src="/media/celebration_list/20230124_220504.jpgrukya" alt="">
 
-            </div>
+        </div>
 
-            <div class="carousel-item active" style="background-image:
-        url('{{i.pic2}}');">
-
-            </div>
-            <div class="carousel-item active" style="background-image:
-        url('{{i.pic3}}');">
-
-            </div>
-            <div class="carousel-item active" style="background-image:
-        url('{{i.pic4}}');">
-
-            </div>
-            <div class="carousel-item active" style="background-image:
-        url('{{i.pic5}}');">
-
-            </div>
-            <div class="carousel-item active" style="background-image:
-        url('{{i.pic6}}');">
-
-            </div>
-            {% endif %} {% endfor %}
+        <div class="carousel-item " >
+<img src="/media/{{i.pic2}}" alt="">
+        </div>
+        <div class="carousel-item " >
+            <img src="/media/{{i.pic3}}" alt="">
+        </div>
+        <div class="carousel-item " >
+            <img src="/media/{{i.pic4}}"  alt="">
+        </div>
+        <div class="carousel-item " >
+            <img src="/media/{{i.pic5}}" alt="">
+        </div>
+        <div class="carousel-item " >
+            <img src="/media/{{i.pic6}}" alt="">
+        </div>
+        {% endif %} {% endfor %}
+    </div>
+    <button class="carousel-control-prev" data-bs-target="#carouselExampleIndicators" type="button" data-bs-slide="prev" style="c">
+        <span class="carousel-control-prev-icon"  aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" data-bs-target="#carouselExampleIndicators" type="button" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
 </div>
     {% endblock content %}
-    {% block js %}
-
-    {% endblock js %}
