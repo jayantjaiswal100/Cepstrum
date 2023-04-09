@@ -59,6 +59,14 @@
         display: flex;
         flex-grow: 1;
     }
+    .carousel-item-content{
+        font-size: 2rem;
+    }
+    @media screen and (max-width:1100px) {
+        .carousel-item-content{
+        font-size: 1rem;
+    } 
+    }
 </style>
 
 {% endblock %} {% block carousel %}
@@ -84,7 +92,7 @@
 
 
 
-                <div class="carousel-item-content sm:text-sm md:text-2xl text-3xl">
+                <div class="carousel-item-content   ">
                     {{i.desc}}
                 </div>
                 <br>
