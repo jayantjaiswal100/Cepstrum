@@ -214,7 +214,11 @@
         <div class="experience_list">
             {% for i in exp %} {% if i.owner == object.owner %}
             <div class="company">
-                <div style="text-align: center;font-size: 2.3rem;font-variant-caps: small-caps;">{{i.company}}</div>
+                <div style="text-align: center;font-size: 2.3rem;font-variant-caps: small-caps;">{{i.company}} 
+                {% if i.selected %}
+                (Selected)
+                {%endif%}
+                </div>
                 <div class="roundwise_experience">
                     {% if i.experience1 != "" %}
                     <div class="resources">
