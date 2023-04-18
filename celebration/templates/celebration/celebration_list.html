@@ -60,7 +60,7 @@
         flex-grow: 1;
     }
     .carousel-item-content{
-        font-size: 2rem;
+        font-size: 1.5rem;
     }
     @media screen and (max-width:1100px) {
         .carousel-item-content{
@@ -86,12 +86,11 @@
 
 
         <div class="carousel-item {% if i.id == 3 %}active{% else %}{% endif %}" style="background-image:
-        url('{{i.pic.url}}'); opacity: 0.8;">
+        url('{{i.pic.url}}'); opacity: 0.9;">
 
             <div class="carousel-item-screen">
-
-
-
+                <h1 style="color:yellow ;font-weight:700;" class="text-4xl sm:text-3.5xl md:text-4xl">{{i.name|safe}}</h1>
+                <br>
                 <div class="carousel-item-content   ">
                     {{i.desc}}
                 </div>
@@ -103,8 +102,6 @@
 
 
             </div>
-
-     
 
         </div>
         {% endfor %}
