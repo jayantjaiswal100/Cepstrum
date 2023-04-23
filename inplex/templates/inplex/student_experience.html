@@ -38,7 +38,6 @@
 	body,
 	html {
 		height: 100%;
-		font-family: sans-serif;
 	}
 
 	/* ------------------------------------ */
@@ -435,7 +434,9 @@ body{
     background-color: rgb(233 238 244);
 	}
 
-
+a {
+	text-decoration: none;
+}
 
 	#student-table_length{
 		display: block;
@@ -454,7 +455,7 @@ body{
 	<br><br>
 	<div class="text-center ">
 
-		<h2 class="display-5">Experience</h2>
+		<h2 class="display-5">Experiences</h2>
 	</div>
 	<br>
 
@@ -466,67 +467,81 @@ body{
 					<div class="acad_row">
 
 						<div class="acad_col"  id="zoomable-table-div">
-							<div style="background: rgb(233, 238, 244);border-top-left-radius:16px ;border-top-right-radius:46px;">
-							</div>
-
-							<div style="background: rgb(233, 238, 244);margin-bottom: 5vh;padding-left: 5vw;">
+							<div style="background: rgb(233, 238, 244);border-top-left-radius:16px ;border-top-right-radius:46px; margin-bottom: 5vh;margin-left: 5vw;">
+								<div class="col-6 col-lg-3" style="display: inline-block;max-width: 299px;">
+									<div class="form-group">
+										<label for="branch">Name</label>
+										<input type="text" id="name" class="form-control" id="branch" style="border-color: #7774e7;">
+											
+										
+									</div>
+								</div>
 
 								<div class="col-6 col-lg-3" style="display: inline-block;max-width: 299px;">
 									<div class="form-group">
 										<label for="branch">Branch</label>
-										<select class="form-control" id="branch_filter" style="border-color: #7774e7;">
-											<option selected="true" value="all">All</option>
-									
-											<option value="htfg">ghfgh</option>
-									
+										<select class="form-control" id="branch" style="border-color: #7774e7;">
+											<option selected="true" value="" disabled>All</option>
+                                            {%for j in branches%}
+											<option value='{{j.name}}'>{{j.name}}</option>
+                                            {%endfor%}
+										</select>
+									</div>
+								</div>
+
+								<!-- <div class="col-6 col-lg-3" style="display: inline-block;max-width: 299px;">
+									<div class="form-group">
+										<label for="year">Graduation Year</label>
+										<select class="form-control" id="year" style="border-color: #7774e7;">
+                                            {%for j in years%}
+											<option value={{j.name}}>{{j.name}}</option>
+                                            {%endfor%}
+										</select>
+									</div>
+								</div> -->
+
+
+								<div class="col-6 col-lg-3" style="display: inline-block;max-width: 299px;">
+									<div class="form-group">
+										<label for="SortBy">Company</label>
+										<select class="form-control" id="company" style="border-color: #7774e7;">
+                                            <option selected="true" value="" disabled>All</option>
+                                            {%for j in companies%}
+                                        
+											<option value='{{j.name}}'>{{j.name}}</option>
+                                            {%endfor%}
+										</select>
+									</div>
+								</div>
+								<div class="col-6 col-lg-3" style="display: inline-block;max-width: 299px;">
+									<div class="form-group">
+										<label for="SortBy">Profile</label>
+										<select class="form-control" id="profile" style="border-color: #7774e7;">
+                                            <option selected="true" value="" disabled>All</option>
+                                            {%for j in profiles%}
+											<option value='{{j.name}}'>{{j.name}}</option>
+                                            {%endfor%}
 										</select>
 									</div>
 								</div>
 
 								<div class="col-6 col-lg-3" style="display: inline-block;max-width: 299px;">
 									<div class="form-group">
-										<label for="branch">Program</label>
-										<select class="form-control" id="program_filter" style="border-color: #7774e7;">
-											<option selected="true" value="all">All</option>
-											<option value="B.Tech">B.Tech</option>
-											<option value="B.Des">B.Des</option>
-											<option value="M.Tech">M.Tech</option>
-											<option value="M.Des">M.Des</option>
-											<option value="M.Sc">M.Sc</option>
-											<option value="Phd">Phd</option>
-											<option value="Others">Others</option>
-										</select>
+										<button class="form-control" id="filter" style="border-color: #7774e7;">
+                                            Filter
+                                        </button>
 									</div>
 								</div>
-
 								<div class="col-6 col-lg-3" style="display: inline-block;max-width: 299px;">
 									<div class="form-group">
-										<label for="branch">Year</label>
-										<select class="form-control" id="program_filter" style="border-color: #807cee;">
-											<option selected="true" value="2023">2023</option>
-											<option value="2022">2022</option>
-											<option value="2021">2021</option>
-										</select>
+										<button class="form-control" id="reset" style="border-color: #7774e7;">
+                                            Reset
+                                        </button>
 									</div>
 								</div>
-
-
-								<div class="col-6 col-lg-3" style="display: inline-block;max-width: 299px;">
-									<div class="form-group">
-										<label for="SortBy">Sort By</label>
-										<select class="form-control" id="sort" style="border-color: #7774e7;">
-											<option selected="true" value='roll'>Roll No</option>
-											<option value='name'>Name</option>
-											<option value='programs'>Program</option>
-											<option value='branch'>Branch</option>
-											<option value='company'>Company</option>
-											<option value='profile'>Profile</option>
-											<option value='sector'>Sector</option>
-										</select>
-									</div>
-								</div>
-
 							</div>
+
+							
 
 							<div class="acad_row">
 
@@ -549,7 +564,7 @@ body{
 														<th style="color: white;border-top-left-radius: 16px;" class="column100 column1" data-column="column1">NAME</th>
 														<th style="color: white;" class="column100 column2" data-column="column2">Program</th>
 														<th style="color: white;" class="column100 column3" data-column="column3">Branch</th>
-														<th style="color: white;" class="column100 column4" data-column="column4">Roll No.</th>
+														<th style="color: white;" class="column100 column4" data-column="column4">Contact No.</th>
 														<th style="color: white;" class="column100 column5 " data-column="column5">Company</th>
 										
 														<th style="color: white;border-top-right-radius:  16px;" class="column100 column6" data-column="column6">Profile</th>
@@ -557,34 +572,21 @@ body{
                                               
 												</thead>
 												<tbody style="background-color: white;" class="child_class">
-<!--                                                    
-                                                    <tr class = "row100">
-                                                        <td class="column100 column1" data-column="column1">
-                                                            <a href="{% url 'inplex:experienceprofile' %}">
-                                                            yuyg
-                                                        </a></td>
-                                                        <td class="column100 column2" data-column="column2">uhyb</td>
-                                                        <td class="column100 column3" data-column="column3">yu</td>
-                                                        <td class="column100 column4" data-column="column4">uihu9</td>
-                                                        <td class="column100 column5" data-column="column5">hi</td>
-                                                        <td class="column100 column6" data-column="column6">uokp</td>
-                                                      
-                                                      </tr> -->
-													  {% for i in experience_list %}
+													  
+													  	{% for j in students %}
 														<tr class = "row100">
 															<td class="column100 column1" data-column="column1">
-																<a href="{% url 'inplex:experienceprofile' %}">
-																	{{i.owner}}
-															</a></td>
-															<td class="column100 column2" data-column="column2">{{i.owner}}</td>
-															<td class="column100 column3" data-column="column3">{{i.difficulty1}}</td>
-															<td class="column100 column4" data-column="column4">{{i.selected}}</td>
-															<td class="column100 column5" data-column="column5">{{i.company}}</td>
-															<td class="column100 column6" data-column="column6">{{i.profile}}</td>
-														  
+															<a href="{% url 'inplex:experienceprofile' j.id %}">
+																	{{j.name}}
+															</a>
+														</td>
+															<td class="column100 column2" data-column="column2">{{j.program}}</td>
+															<td class="column100 column3" data-column="column3">{{j.branch}}</td>
+															<td class="column100 column4" data-column="column4">{{j.number}}</td>
+															<td class="column100 column5" data-column="column5">{{j.selected_company}}</td>
+															<td class="column100 column6" data-column="column6">{{j.profile}}</td>
 														  </tr>
-													  {% endfor %}
-                                                
+														  {% endfor %} 
 												</tbody>
 												<!-- <tfoot class="bg-custom">
 													<tr class="row100 head">
@@ -627,4 +629,49 @@ body{
 
 </div>
 
+
+
+<script>
+    document.getElementById('filter').addEventListener('click', (e) => {
+        const name = document.getElementById('name').value;
+        const branch = document.getElementById('branch').value;
+        // const year = document.getElementById('year').value;
+        const company = document.getElementById('company').value;
+        const profile = document.getElementById('profile').value;
+        // company.replace(' ', '+')
+        console.log(company);
+        var filter_argument = '';
+        if(name != ''){
+            if(filter_argument === '') filter_argument = '?';
+            else filter_argument += '&';
+            filter_argument += 'name='
+            filter_argument += name;
+        }
+        if(branch != ''){
+            if(filter_argument === '') filter_argument = '?';
+            else filter_argument += '&';
+            filter_argument += 'branch='
+            filter_argument += branch;
+        }
+        // if(year != ''){
+        //     if(filter_argument === '') filter_argument = '?';
+        //     else filter_argument += '&';
+        //     filter_argument += 'year='
+        //     filter_argument += year;
+        // }
+        if(company != ''){
+            if(filter_argument === '') filter_argument = '?';
+            else filter_argument += '&';
+            filter_argument += 'company='
+            filter_argument += company;
+        }
+        if(profile != ''){
+            if(filter_argument === '') filter_argument = '?';
+            else filter_argument += '&';
+            filter_argument += 'profile='
+            filter_argument += profile;
+        }
+        window.location = filter_argument;
+    })
+</script>
 {% endblock %}

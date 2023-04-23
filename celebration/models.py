@@ -18,14 +18,14 @@ class Year(models.Model):
 class Pictures(models.Model):
     celebration = models.OneToOneField(Celebration, on_delete=models.CASCADE)
     year = models.OneToOneField(Year, on_delete=models.CASCADE)
-    pic1 = models.URLField(default=None)
-    pic2 = models.URLField(default=None)
-    pic3 = models.URLField(default=None)
-    pic4 = models.URLField(default=None)
-    pic5 = models.URLField(default=None)
-    pic6 = models.URLField(default=None)
-    pic7 = models.URLField(default=None)
-    pic8 = models.URLField(default=None)
+    pic1 = models.ImageField(upload_to='celebration_list', height_field=None, width_field=None, max_length=None,null=True)
+    pic2 = models.ImageField(upload_to='celebration_list', height_field=None, width_field=None, max_length=None,null=True)
+    pic3 = models.ImageField(upload_to='celebration_list', height_field=None, width_field=None, max_length=None,null=True)
+    pic4 = models.ImageField(upload_to='celebration_list', height_field=None, width_field=None, max_length=None,null=True)
+    pic5 = models.ImageField(upload_to='celebration_list', height_field=None, width_field=None, max_length=None,null=True)
+    pic6 = models.ImageField(upload_to='celebration_list', height_field=None, width_field=None, max_length=None,null=True)
+    pic7 = models.ImageField(upload_to='celebration_list', height_field=None, width_field=None, max_length=None,null=True)
+    pic8 = models.ImageField(upload_to='celebration_list', height_field=None, width_field=None, max_length=None,null=True)
 
     def __str__(self):
         return self.celebration.name
