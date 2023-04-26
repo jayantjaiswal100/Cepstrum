@@ -148,17 +148,9 @@ body{
 
                             </ul>
                         </li>
-                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                                aria-expanded="false">
-                                Events
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="{% url 'celebration:all' %}">Celebrations</a></li>
-                                <!-- <li><a class="dropdown-item" href="{% url 'talk:all' %}">Lectures/Workshop</a></li> -->
+                        <li style="display: flex; align-items: center;"><a class="nav-link" href="{% url 'celebration:all' %}" style="color: grey;">Celebrations</a>
+                        </li>
 
-                            </ul>
-                        </li> 
                         <!-- {% if user.is_authenticated %}
                     <li class="nav-item dropdown active" class="">
                         <a class="nav-link dropdown-toggle" href="" id="dropdownMenuButton" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
