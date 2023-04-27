@@ -532,6 +532,13 @@ a {
                                         </button>
 									</div>
 								</div>
+									<div class="col-6 col-lg-3" style="display: inline-block;max-width: 299px;margin-right:3vw ;margin-top: 3vh;">
+									<div class="form-group">
+										<button class="form-control bg-red-500 text-white" id="Reset" style="border-color: white;">
+                                            Reset
+                                        </button>
+									</div>
+								</div>
 								<!-- <div class="col-6 col-lg-3" style="display: inline-block;max-width: 299px;">
 									<div class="form-group">
 										<button class="form-control" id="reset" style="border-color: #7774e7;">
@@ -632,15 +639,15 @@ a {
 
 
 <script>
+	var filter_argument = '';
     document.getElementById('filter').addEventListener('click', (e) => {
         const name = document.getElementById('name').value;
         const branch = document.getElementById('branch').value;
-        // const year = document.getElementById('year').value;
+     
         const company = document.getElementById('company').value;
         const profile = document.getElementById('profile').value;
-        // company.replace(' ', '+')
-        console.log(company);
-        var filter_argument = '';
+       
+        
         if(name != ''){
             if(filter_argument === '') filter_argument = '?';
             else filter_argument += '&';
@@ -672,6 +679,11 @@ a {
             filter_argument += profile;
         }
         window.location = filter_argument;
+    })
+    document.getElementById('Reset').addEventListener('click', (f) => {
+
+    filter_argument = "/cepstrum/inplex/experience";	
+    window.location = filter_argument;
     })
 </script>
 {% endblock %}
