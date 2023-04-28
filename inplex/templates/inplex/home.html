@@ -118,11 +118,11 @@
                 <div >
                     {% if created %}
     
-                    <a class='btn btn-primary' href="{% url 'inplex:experience_create' %}" style="display: flex;gap: 12px;"><span style="display: flex;align-items: center;" class="material-symbols-outlined">
+                    <a class='btn btn-primary' href="{% url 'inplex:experience_create' %}" style="display: flex;gap: 12px; background-color: green;"><span style="display: flex;align-items: center;" class="material-symbols-outlined">
                         add
-                        </span>   Add your
-                        experience</a> {% else %}
-                    <a class='btn ' href="{% url 'inplex:student_create' %}" style="gap: 12px; color: white;background-color: green;display: flex;"> <span style="display: flex;align-items: center;" class="material-symbols-outlined">
+                        </span>   Add an
+                        Experience</a> {% else %}
+                    <a class='btn btn-primary' href="{% url 'inplex:student_create' %}" style="gap: 12px; color: white;background-color: green;display: flex;"> <span style="display: flex;align-items: center;" class="material-symbols-outlined">
                         person_add
                         </span>  Create Profile</a>
                      {% endif %}

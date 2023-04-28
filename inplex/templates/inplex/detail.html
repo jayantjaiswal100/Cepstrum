@@ -256,7 +256,9 @@ border-radius: 5px;
                 <div style="padding-left: 8px;padding-right: 8px;">
                     <font color="yellow"> | </font>
                 </div>
+                {% if object.resume %}
                 <div><a href="{{object.resume}}" class="font-medium">Resume</a></div>
+                {% endif %}
             </div>
         </div>
     </div>
