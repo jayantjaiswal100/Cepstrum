@@ -466,9 +466,9 @@ a {
 
 					<div class="acad_row">
 
-						<div class="acad_col"  id="zoomable-table-div">
-							<div style="background: rgb(233, 238, 244);border-top-left-radius:16px ;border-top-right-radius:46px; margin-bottom: 5vh;margin-left: 5vw;">
-								<div class="col-6 col-lg-3" style="display: inline-block;max-width: 299px;">
+						<div class="acad_col"  id="zoomable-table-div" >
+							<div style="background: rgb(233, 238, 244);border-top-left-radius:16px ;border-top-right-radius:46px; margin-bottom: 5vh;margin-left: 5vw; ">
+								<div class="col-6 col-lg-3" style="display: inline-block;max-width: 299px;margin-right:3vw ;margin-top: 3vh;">
 									<div class="form-group">
 										<label for="branch">Name</label>
 										<input type="text" id="name" class="form-control" id="branch" style="border-color: #7774e7;">
@@ -477,7 +477,7 @@ a {
 									</div>
 								</div>
 
-								<div class="col-6 col-lg-3" style="display: inline-block;max-width: 299px;">
+								<div class="col-6 col-lg-3" style="display: inline-block;max-width: 299px;margin-right:3vw ;margin-top: 3vh;">
 									<div class="form-group">
 										<label for="branch">Branch</label>
 										<select class="form-control" id="branch" style="border-color: #7774e7;">
@@ -501,7 +501,7 @@ a {
 								</div> -->
 
 
-								<div class="col-6 col-lg-3" style="display: inline-block;max-width: 299px;">
+								<div class="col-6 col-lg-3" style="display: inline-block;max-width: 299px;margin-right:3vw ;margin-top: 3vh;">
 									<div class="form-group">
 										<label for="SortBy">Company</label>
 										<select class="form-control" id="company" style="border-color: #7774e7;">
@@ -513,7 +513,7 @@ a {
 										</select>
 									</div>
 								</div>
-								<div class="col-6 col-lg-3" style="display: inline-block;max-width: 299px;">
+								<div class="col-6 col-lg-3" style="display: inline-block;max-width: 299px;margin-right:3vw ;margin-top: 3vh;">
 									<div class="form-group">
 										<label for="SortBy">Profile</label>
 										<select class="form-control" id="profile" style="border-color: #7774e7;">
@@ -525,10 +525,17 @@ a {
 									</div>
 								</div>
 
-								<div class="col-6 col-lg-3" style="display: inline-block;max-width: 299px;">
+								<div class="col-6 col-lg-3" style="display: inline-block;max-width: 299px;margin-right:3vw ;margin-top: 3vh;">
 									<div class="form-group">
 										<button class="form-control bg-green-500 text-white" id="filter" style="border-color: #7774e7;">
                                             Filter
+                                        </button>
+									</div>
+								</div>
+									<div class="col-6 col-lg-3" style="display: inline-block;max-width: 299px;margin-right:3vw ;margin-top: 3vh;">
+									<div class="form-group">
+										<button class="form-control bg-red-500 text-white" id="Reset" style="border-color: white;">
+                                            Reset
                                         </button>
 									</div>
 								</div>
@@ -632,15 +639,15 @@ a {
 
 
 <script>
+	var filter_argument = '';
     document.getElementById('filter').addEventListener('click', (e) => {
         const name = document.getElementById('name').value;
         const branch = document.getElementById('branch').value;
-        // const year = document.getElementById('year').value;
+     
         const company = document.getElementById('company').value;
         const profile = document.getElementById('profile').value;
-        // company.replace(' ', '+')
-        console.log(company);
-        var filter_argument = '';
+       
+        
         if(name != ''){
             if(filter_argument === '') filter_argument = '?';
             else filter_argument += '&';
@@ -672,6 +679,11 @@ a {
             filter_argument += profile;
         }
         window.location = filter_argument;
+    })
+    document.getElementById('Reset').addEventListener('click', (f) => {
+
+    filter_argument = "/cepstrum/inplex/experience";	
+    window.location = filter_argument;
     })
 </script>
 {% endblock %}

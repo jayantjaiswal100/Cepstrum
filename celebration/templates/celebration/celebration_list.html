@@ -85,7 +85,7 @@
 
 
 
-        <div class="carousel-item {% if i.id == 3 %}active{% else %}{% endif %}" style="background-image:
+        <div class="carousel-item {% if forloop.counter == 1 %}active{% else %}{% endif %}" style="background-image:
         url('{{i.pic.url}}'); opacity: 0.9;">
 
             <div class="carousel-item-screen">
@@ -96,9 +96,9 @@
                 </div>
                 <br>
 
-                <a href="{% url 'celebration:celebration_detail' i.id %}" class="btn btn-outline-info text-xs md:text-2xl lg:text-3xl">
+                <!-- <a href="{% url 'celebration:celebration_detail' i.id %}" class="btn btn-outline-info text-xs md:text-2xl lg:text-3xl">
                    See Pics
-                </a>
+                </a> -->
 
 
             </div>

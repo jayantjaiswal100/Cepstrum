@@ -18,7 +18,9 @@
 <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Acme&family=Lobster&family=Montserrat:wght@400;600;700;900&family=Nunito:wght@400;500&family=Orbitron&family=Pacifico&family=Poppins&display=swap');
-
+body{
+    cursor: default;
+}
     .my-nav {
 
         z-index: 10;
@@ -146,17 +148,9 @@
 
                             </ul>
                         </li>
-                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                                aria-expanded="false">
-                                Events
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="{% url 'celebration:all' %}">Celebrations</a></li>
-                                <!-- <li><a class="dropdown-item" href="{% url 'talk:all' %}">Lectures/Workshop</a></li> -->
+                        <li style="display: flex; align-items: center;"><a class="nav-link" href="{% url 'celebration:all' %}">Events</a>
+                        </li>
 
-                            </ul>
-                        </li> 
                         <!-- {% if user.is_authenticated %}
                     <li class="nav-item dropdown active" class="">
                         <a class="nav-link dropdown-toggle" href="" id="dropdownMenuButton" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
