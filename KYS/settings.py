@@ -23,7 +23,7 @@ TEMPLATES_DIR = BASE_DIR/'templates'
 SECRET_KEY = 'k37l65ayz^p*0!l6*ir(mww*v@(@jy==mw=n7e@km59$%cm%co'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 ACCOUNT_DEFAULT_HTTP_PROTOCOL = 'https'
