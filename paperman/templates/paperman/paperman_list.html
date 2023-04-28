@@ -1,38 +1,112 @@
 {% extends "base.html" %} {% load humanize %} {% load bootstrap %} {% load static %}{% block title %} Paperman | Cepstrum {% endblock title %} {% block css %}
 <style>
+
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+    .year-card{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        background: linear-gradient(326deg, rgb(19, 13, 29) 0%, rgb(52, 48, 64) 100%);
+        font-weight: 700;
+        font-size: 1.4rem;
+        color: #fff;
+        overflow: hidden;
+        position: relative;
+      
+    }
+
+    /* .year-card:hover{
+        transform: scale(1.01);
+    } */
+    .year-card::before{
+        color: rgba(216, 211, 161, 0.2);
+        position: absolute;
+        width: 50%;
+        height: 50%;
+        font-size: 24vw;
+        top: -70%; 
+        left: -2%;
+        font-weight: 900;
+        transition: all 0.5s linear;
+    }
+    
+    .year-card:hover::before{
+        top: -50%;
+    }
+    .first::before{
+        content: "1";
+    }
+    .second::before{
+        content: "2";
+    }
+    .third::before{
+        content: "3";
+    }
+    .forth::before{
+        content: "4";
+    }
     @import url('https://fonts.googleapis.com/css2?family=Acme&family=Lobster&family=Montserrat:wght@400;600;700;900&family=Nunito:wght@500&family=Pacifico&family=Poppins&display=swap');
-    .carousel-item {
-        height: 100vh;
-        background: no-repeat center center scroll;
-        -webkit-background-size: cover;
-        -moz-background-size: cover;
-        -o-background-size: cover;
-        background-size: cover;
-    }
-    
-    .content {
-        text-align: center;
-        padding-top: 5%;
-        padding-right: 4%;
-        padding-left: 60%;
-        color: white;
-    }
-    
     .carousel-item-content {
-        /* margin-top: 20%;
-  margin-left: 15%;
-  margin-right: 30%; */
-        font-size: 24px;
+        color: white;
+
+        text-align: left;
+        width: 80%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        font-size: 2.5vh;
+
     }
-    
+
     .carousel-item-screen {
         color: white;
-        background-color: rgba(0, 0, 0, 0.6);
+
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .card-img-top {
+        aspect-ratio: 3/2 !important;
+    }
+
+    .container1 {
+        margin-right: 0;
+
+        margin-left: 0;
+
+    }
+
+    .background-black {
         width: 100%;
         height: 100%;
-        padding: 15% 20% 0 15%;
+           background-color: rgba(0, 0, 0, 0.6);
+        padding-bottom: 5vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding-top: 5vh;
     }
-    
+
+    .container2 {
+        display: flex;
+        flex-grow: 1;
+    }
+    .background{
+       
+        background-image: url('/cepstrum/static/Paperman/cover.png');
+         background-size: cover;
+         background-repeat: no-repeat; 
+        
+    }
+    @media screen and (max-width:500px) {
+        .background{
+        background-position-x: -20vw; 
+    }
+}
+   
     .link-button {
         color: white;
         background-color: #555555;
@@ -79,122 +153,34 @@
 </style>
 
 {% endblock %} {% block carousel %}
-<div id="carouselExampleIndicators" class="carousel slide my-carousel
-    my-carousel" data-ride="carousel">
-    <ol class="carousel-indicators">
-        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-    </ol>
-    <div class="carousel-inner" role="listbox">
-        <div class="carousel-item active" style="background: rgb(16,6,35);
-        background: linear-gradient(326deg, rgba(16,6,35,1) 0%, rgba(26,2,105,1) 100%);">
-            <div class="carousel-item-screen">
-                <div class="carousel-item-content">
-                    <h1 class="text-2xl mt-5 md:text-5xl md:mt-2"><b>About <font color="yellow">Paperman</font> </b> </h1>
-                    <br>
-                    <p class="text-lg md:text-2xl">
-                        Not only the hero you need, but also the one you deserve! Paperman is one of its kind initiative by Cepstrum with the sole aim of creating a repository of past question papers and study resources to aid your academic needs. We have all the courses of
-                        first year and B.tech courses taught by Department of EEE covered.
-                    </p>
-                    <br><br>
-                    <!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                        Filter out your Course
-                      </button> -->
-                      
-                      
-                      <!-- Modal -->
-                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" style="color: black;">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel">Filter out your Course</h5>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                </div>
-                                <div class="modal-body">
-                                    <form method="GET" class="">
-                                        {{filter.form|bootstrap}}
 
-                                        <a href="{% url 'paperman:all' %}" class="btn btn-secondary">Clear</a>
-                                        <button type="submit" class="btn btn-primary">Search</button>
-                                        
-                                    </form>
-                                </div>
-                                <div class="modal-footer">
-                                    
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+<div class="container2">
+
+
+
+
+    <div
+       class="background">
+        <div class="background-black">
+            <div class="carousel-item-content">
+
+                <div class="text-2xl  md:text-5xl mb-4"><b>About <font color="yellow">Paperman</font>
                 </div>
-
-
+                <div class="text-lg md:text-2xl">
+                    Not only the hero you need, but also the one you deserve! Paperman is one of its kind initiative by Cepstrum with the sole aim of creating a repository of past question papers and study resources to aid your academic needs. We have all the courses of
+                    first year and B.tech courses taught by Department of EEE covered.
+                </div>
             </div>
-            
+
         </div>
-        
-        
-        
-        
-        
-        
-        <!-- <div class="carousel-item" data-interval="9000">
-            <video autoplay muted loop width="100%" height="130%" id="myVideo">
-                <source src="https://drive.google.com/uc?export=download&id=1EZyLXoTGOUd2YLC11fzvXRCZ-vTVzta9" type="video/mp4">
-            </video>
-            
-        </div> -->
-        
     </div>
-    
-    
+
 </div>
 
 {% endblock %} {% block content %}
-<style>
-    @import url('https://fonts.googleapis.com/css?family=Montserrat');
-    .year-card{
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        background: linear-gradient(326deg, rgba(16,6,35,1) 0%, rgba(26,2,105,1) 100%);
-        font-weight: 700;
-        font-size: 1.4rem;
-        color: #fff;
-        overflow: hidden;
-        position: relative;
-    }
-    .year-card:hover{
-        transform: scale(1.01);
-    }
-    .year-card::before{
-        color: rgba(216, 211, 161, 0.2);
-        position: absolute;
-        width: 50%;
-        height: 50%;
-        font-size: 24vw;
-        top: -70%; 
-        left: -2%;
-        font-weight: 900;
-        transition: all 0.5s linear;
-    }
-    
-    .year-card:hover::before{
-        top: -50%;
-    }
-    .first::before{
-        content: "1";
-    }
-    .second::before{
-        content: "2";
-    }
-    .third::before{
-        content: "3";
-    }
-    .forth::before{
-        content: "4";
-    }
-</style>
+
 <div class="container h-screen grid grid-cols-1 gap-5 md:grid-cols-2  w-3/4 text-center mt-4 p-2 py-5 md:gap-5">
-  <a class = "year-card first" target=”_blank” href="https://iitgoffice-my.sharepoint.com/:f:/g/personal/cepstrum_iitg_ac_in/EuQ5luYjd-JNsnD7V_VNmN0BQb55lewXQlSAQ2Q9aZFdOA" >
+  <a class = "year-card first"  target=”_blank” href="https://iitgoffice-my.sharepoint.com/:f:/g/personal/cepstrum_iitg_ac_in/EuQ5luYjd-JNsnD7V_VNmN0BQb55lewXQlSAQ2Q9aZFdOA" >
       Freshmen Year
   </a>
   <a class = "year-card second" target=”_blank” href="https://iitgoffice-my.sharepoint.com/:f:/g/personal/cepstrum_iitg_ac_in/EokGx0Y6uEBNgpMSR1vdYHYBaBH2PGmHbr50kV6vWWC-Cw" >

@@ -1,0 +1,689 @@
+{% extends "base.html" %}{% load bootstrap %} {% block title %} Inplex | Cepstrum {% endblock title %} {% block head %}
+<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js" integrity="sha512-2ImtlRlf2VVmiGZsjm9bEyhjGW4dU7B6TNwh/hx/iSByxNENtj3WVE6o/9Lj4TJeVXPi4bnOIMXFIJJAeufa0A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+{% endblock head %} {% block css %}
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Acme&family=Lobster&family=Montserrat:wght@400;600;700;900&family=Nunito:wght@500&family=Pacifico&family=Poppins&display=swap');
+    .carousel-item {
+   
+        background: no-repeat center center scroll;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+    }
+    
+    .carousel-item-content {
+   text-align:left;
+        width: 75%;
+        font-size: 2vh;
+    }
+    .carousel-item-screen {
+        color: white;
+        background-color: rgba(0, 0, 0, 0.6);
+        width: 100%;
+        height: 100%;align-items:center;
+        display: flex;
+        justify-content: center;
+    }
+
+	* {
+		margin: 0px;
+		padding: 0px;
+		box-sizing: border-box;
+	}
+
+	body,
+	html {
+		height: 100%;
+	}
+
+	/* ------------------------------------ */
+	a {
+		margin: 0px;
+		transition: all 0.4s;
+		-webkit-transition: all 0.4s;
+		-o-transition: all 0.4s;
+		-moz-transition: all 0.4s;
+	}
+
+	a:focus {
+		outline: none !important;
+	}
+
+	a:hover {
+		text-decoration: none;
+	}
+
+	/* ------------------------------------ */
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		margin: 0px;
+	}
+
+	p {
+		margin: 0px;
+	}
+
+	
+
+
+	/* ------------------------------------ */
+	input {
+		display: block;
+		outline: none;
+		/* border: none !important; */
+		border: 1px solid rgb(195, 195, 195);
+		width: 269px;
+	}
+
+	textarea {
+		display: block;
+		outline: none;
+	}
+
+	textarea:focus,
+	input:focus {
+		border-color: transparent !important;
+	}
+
+	/* ------------------------------------ */
+	button {
+		outline: none !important;
+		border: none;
+		background: transparent;
+	}
+
+	button:hover {
+		cursor: pointer;
+	}
+
+	iframe {
+		border: none !important;
+	}
+
+
+
+	/*//////////////////////////////////////////////////////////////////
+[ Table ]*/
+
+	.limiter {
+		width: 100%;
+		margin: auto;
+	}
+
+	.container-table100 {
+		width: 100%;
+		min-height: 100vh;
+		/* background: #d1d1d1; */
+		/* background-image: url(../color_vignette.png); */
+		background: rgb(233, 245, 248);
+		/* background: #E9EEF4; */
+
+		display: -webkit-box;
+		/* display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex; */
+		align-items: center;
+		justify-content: center;
+		flex-wrap: wrap;
+		/* padding: 33px 30px; */
+	}
+
+	.wrap-table100 {
+		width: 1400px;
+
+	}
+
+	/*//////////////////////////////////////////////////////////////////
+[ Table ]*/
+	table {
+		width: 100%;
+		background-color: #fff;
+	}
+
+	th,
+	td {
+		font-weight: unset;
+		padding-right: 10px;
+	}
+
+	.column100 {
+		width: 130px;
+		padding-left: 25px;
+	}
+
+	.column100.column1 {
+		width: 265px;
+		padding-left: 42px;
+	}
+
+	.row100.head th {
+		padding-top: 24px;
+		padding-bottom: 20px;
+	}
+
+	.row100 td {
+		padding-top: 18px;
+		padding-bottom: 14px;
+	}
+
+	.newcolumn {
+		width: 100%;
+		height: 30px;
+		padding: 10px 15px;
+	}
+
+	.column0 {
+		width: 30px;
+		padding: 0;
+		display: inline-block;
+	}
+
+	.row100 {
+		border-bottom: 2.3px solid #E9EEF4;
+	}
+
+	.table100.ver6 {
+		border-radius: 16px;
+		/* overflow: hidden; */
+		background: rgb(233 238 244);
+		/* box-shadow: 1px 1px 20px rgba(50, 50, 50, 0.12); */
+	}
+
+
+	.table100.ver6 table {
+		background-color: transparent;
+	}
+
+	.table100.ver6 td {
+		/* font-family: Lato-Regular; */
+		font-size: 16px;
+		color: black;
+		line-height: 1.4;
+	}
+
+	.table100.ver6 th {
+		/* font-family: Lato-Bold; */
+		font-size: 18px;
+		color: #000;
+		line-height: 1.4;
+		text-transform: uppercase;
+
+		background-color: rgb(0, 0, 0, 0.5);
+	}
+
+	.table100.ver6 .row100:hover td {
+		background-color: #90e0ef;
+	}
+
+	.table100.ver6 .hov-column-ver6 {
+		background-color: #90e0ef;
+	}
+
+
+	.table100.ver6 .row100 td:hover {
+		background-color: #90e0ef;
+	}
+
+	.acad_row {
+		display: -webkit-box;
+		display: -webkit-flex;
+		display: flex;
+		-webkit-flex-wrap: wrap;
+		flex-wrap: wrap;
+		/* margin-right: -15px; */
+		/* margin-left: -15px; */
+	}
+
+	.acad_col {
+		-ms-flex-preferred-size: 0;
+		flex-basis: 0;
+		-ms-flex-positive: 1;
+		flex-grow: 1;
+		min-width: 0;
+		max-width: 100%;
+		position: relative;
+		width: 100%;
+		/* padding-right: 15px;
+    padding-left: 15px; */
+	}
+
+	.acad_col-1 {
+		-webkit-box-flex: 0;
+		-webkit-flex: 0 0 8.3333333333%;
+		flex: 0 0 8.3333333333%;
+		max-width: 8.3333333333%;
+	}
+
+	.acad_col-1-sm {
+		-webkit-box-flex: 0;
+		-webkit-flex: 0 0 3.3333333333%;
+		flex: 0 0 3.3333333333%;
+		max-width: 3.3333333333%;
+	}
+
+	.acad_col-1-sm-sm {
+		-webkit-box-flex: 0;
+		-webkit-flex: 0 0 2.3333333333%;
+		flex: 0 0 2.3333333333%;
+		max-width: 2.3333333333%;
+	}
+
+	.acad_col-1-lg {
+		-webkit-box-flex: 0;
+		-webkit-flex: 0 0 5.6333333333%;
+		flex: 0 0 5.6333333333%;
+		max-width: 5.6333333333%;
+	}
+
+
+	.acad_btn-outline-info {
+		color: #17a2b8;
+		border-color: #17a2b8;
+	}
+
+	.acad_btn {
+		display: inline-block;
+		font-weight: 400;
+		color: #212529;
+		text-align: center;
+		vertical-align: middle;
+		-webkit-user-select: none;
+		-moz-user-select: none;
+		-ms-user-select: none;
+		user-select: none;
+		background-color: transparent;
+		border: 1px solid transparent;
+		padding: .375rem .75rem;
+		font-size: 1rem;
+		line-height: 1.5;
+		border-radius: 2.25rem;
+		transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+	}
+
+	.child_class tr:nth-child(even) {
+		background-color: #f8f6ff;
+	}
+
+	.dropdown-menu.show {
+		display: block;
+		margin-left: 70px;
+		border: 1px solid black;
+
+	}
+
+	.drop_class {
+		border-radius: 2.25rem;
+		margin-left: 90px;
+		margin-right: 30px;
+	}
+
+	.search_class {
+		border-radius: 2.25rem;
+		margin-right: 30px;
+	}
+
+	.form_class {
+		float: right;
+	}
+
+	.dataTables_wrapper {
+		background-color: rgb(233, 238, 244);
+	}
+
+	/* .dataTables_length {
+		display: block;
+		float: right;
+		margin-right: 20px;
+	} */
+
+	.dataTables_length select {
+		border-color: #7774e7;
+	}
+
+	.dataTables_filter {
+		/* margin-left: 5px; */
+	}
+
+	.dataTables_filter input {
+		position: relative;
+		/* padding: 10px 10px 1px 10px; */
+		width: 269px;
+		color: #5c4949;
+		font-size: 16px;
+		font-weight: 100;
+		letter-spacing: 1.5px;
+		border-radius: 5px;
+		border-style: solid;
+		/* border-color: #7774e7; */
+		border-color: rgb(108, 122, 224);
+		transition: width 0.4s ease;
+		outline: none;
+	}
+
+	.dataTables_filter input:focus {
+		border-radius: 5px;
+	}
+
+	.dataTables_info {
+		margin-top: 30px;
+		display: inline-block;
+		color: gray;
+		/* margin-left: 10px; */
+		padding-bottom: 10px;
+	}
+
+	.dataTables_paginate {
+		margin-top: 20px;
+		display: block;
+		/* float: right; */
+		padding-bottom: 10px;
+		border-color: #000000;
+
+	}
+
+
+	.dataTables_paginate ul li a {
+		background-color: #6376af;
+		color: white;
+		border-color: #000000;
+	}
+
+
+	.page-item.active .page-link {
+		/* z-index: 2; */
+		color: #fff;
+		background-color: #023e8a;
+		border-color: #0063e2;
+	}
+
+	.page-item.disabled .page-link {
+		color: #fff;
+		pointer-events: none;
+		cursor: auto;
+		background-color: #c1d5ef;
+		border-color: #0063e2;
+	}
+
+	.page-link:hover {
+		background-color: #90e0ef;
+		border-color: #033e8a;
+	}
+
+	@media (min-width: 276px) {
+		.mr-sm-2 {
+			margin-right: .5rem !important;
+		}
+	}
+
+
+
+	.main_wrapper {	
+
+		background-color: rgb(233 238 244);
+	}
+body{
+    background-color: rgb(233 238 244);
+	}
+
+a {
+	text-decoration: none;
+}
+
+	#student-table_length{
+		display: block;
+		float: right;
+	}
+    .my-nav{
+        position: static;
+    }
+</style>
+
+{% endblock %}
+
+
+{% block carousel %}
+<div class="main_wrapper" style="overflow-x:hidden;">
+	<br><br>
+	<div class="text-center ">
+
+		<h2 class="display-5">Experiences</h2>
+	</div>
+	<br>
+
+	<div class="">
+		<div class="">
+			<div class="table100 ver6  " style="border-radius: 16px;">
+				<div class="">
+
+					<div class="acad_row">
+
+						<div class="acad_col"  id="zoomable-table-div" >
+							<div style="background: rgb(233, 238, 244);border-top-left-radius:16px ;border-top-right-radius:46px; margin-bottom: 5vh;margin-left: 5vw; ">
+								<div class="col-6 col-lg-3" style="display: inline-block;max-width: 299px;margin-right:3vw ;margin-top: 3vh;">
+									<div class="form-group">
+										<label for="branch">Name</label>
+										<input type="text" id="name" class="form-control" id="branch" style="border-color: #7774e7;">
+											
+										
+									</div>
+								</div>
+
+								<div class="col-6 col-lg-3" style="display: inline-block;max-width: 299px;margin-right:3vw ;margin-top: 3vh;">
+									<div class="form-group">
+										<label for="branch">Branch</label>
+										<select class="form-control" id="branch" style="border-color: #7774e7;">
+											<option selected="true" value="" disabled>All</option>
+                                            {%for j in branches%}
+											<option value='{{j.name}}'>{{j.name}}</option>
+                                            {%endfor%}
+										</select>
+									</div>
+								</div>
+
+								<!-- <div class="col-6 col-lg-3" style="display: inline-block;max-width: 299px;">
+									<div class="form-group">
+										<label for="year">Graduation Year</label>
+										<select class="form-control" id="year" style="border-color: #7774e7;">
+                                            {%for j in years%}
+											<option value={{j.name}}>{{j.name}}</option>
+                                            {%endfor%}
+										</select>
+									</div>
+								</div> -->
+
+
+								<div class="col-6 col-lg-3" style="display: inline-block;max-width: 299px;margin-right:3vw ;margin-top: 3vh;">
+									<div class="form-group">
+										<label for="SortBy">Company</label>
+										<select class="form-control" id="company" style="border-color: #7774e7;">
+                                            <option selected="true" value="" disabled>All</option>
+                                            {%for j in companies%}
+                                        
+											<option value='{{j.name}}'>{{j.name}}</option>
+                                            {%endfor%}
+										</select>
+									</div>
+								</div>
+								<div class="col-6 col-lg-3" style="display: inline-block;max-width: 299px;margin-right:3vw ;margin-top: 3vh;">
+									<div class="form-group">
+										<label for="SortBy">Profile</label>
+										<select class="form-control" id="profile" style="border-color: #7774e7;">
+                                            <option selected="true" value="" disabled>All</option>
+                                            {%for j in profiles%}
+											<option value='{{j.name}}'>{{j.name}}</option>
+                                            {%endfor%}
+										</select>
+									</div>
+								</div>
+
+								<div class="col-6 col-lg-3" style="display: inline-block;max-width: 299px;margin-right:3vw ;margin-top: 3vh;">
+									<div class="form-group">
+										<button class="form-control bg-green-500 text-white" id="filter" style="border-color: #7774e7;">
+                                            Filter
+                                        </button>
+									</div>
+								</div>
+									<div class="col-6 col-lg-3" style="display: inline-block;max-width: 299px;margin-right:3vw ;margin-top: 3vh;">
+									<div class="form-group">
+										<button class="form-control bg-red-500 text-white" id="Reset" style="border-color: white;">
+                                            Reset
+                                        </button>
+									</div>
+								</div>
+								<!-- <div class="col-6 col-lg-3" style="display: inline-block;max-width: 299px;">
+									<div class="form-group">
+										<button class="form-control" id="reset" style="border-color: #7774e7;">
+                                            Reset
+                                        </button>
+									</div>
+								</div> -->
+							</div>
+
+							
+
+							<div class="acad_row">
+
+								<div class="acad_col " style="background-color: rgb(233, 238, 244);">
+
+
+									<div id="student-table_wrapper" class="dataTables_wrapper ">
+										<div class="row" style="padding-left:15px">
+
+										<div class="col-6" id="student-table_filter-div"></div>
+										<div class="col-6" id="student-table_length-div"></div>
+									</div>
+										<div class="table-responsive-lg" style="padding:0 3vw">
+
+
+											<table id="student-table" data-vertable="ver6" style="background-color:rgb(233, 238, 244);">
+												<thead class="bg-custom">
+                                                  
+													<tr class="row100 head">
+														<th style="color: white;border-top-left-radius: 16px;" class="column100 column1" data-column="column1">NAME</th>
+														<th style="color: white;" class="column100 column2" data-column="column2">Program</th>
+														<th style="color: white;" class="column100 column3" data-column="column3">Branch</th>
+														<th style="color: white;" class="column100 column4" data-column="column4">Contact No.</th>
+														<th style="color: white;" class="column100 column5 " data-column="column5">Company</th>
+										
+														<th style="color: white;border-top-right-radius:  16px;" class="column100 column6" data-column="column6">Profile</th>
+													</tr>
+                                              
+												</thead>
+												<tbody style="background-color: white;" class="child_class">
+													  
+													  	{% for j in students %}
+														<tr class = "row100">
+															<td class="column100 column1" data-column="column1">
+															<a href="{% url 'inplex:experienceprofile' j.id %}">
+																	{{j.name}}
+															</a>
+														</td>
+															<td class="column100 column2" data-column="column2">{{j.program}}</td>
+															<td class="column100 column3" data-column="column3">{{j.branch}}</td>
+															<td class="column100 column4" data-column="column4">{{j.number}}</td>
+															<td class="column100 column5" data-column="column5">{{j.selected_company}}</td>
+															<td class="column100 column6" data-column="column6">{{j.profile}}</td>
+														  </tr>
+														  {% endfor %} 
+												</tbody>
+												<!-- <tfoot class="bg-custom">
+													<tr class="row100 head">
+														<th style="color: white;border-bottom-left-radius: 16px;" class="column100 column1" data-column="column1">NAME</th>
+														<th style="color: white;" class="column100 column2" data-column="column2">Program</th>
+														<th style="color: white;" class="column100 column3" data-column="column3">Branch</th>
+														<th style="color: white;" class="column100 column4" data-column="column4">Roll No.</th>
+														<th style="color: white;" class="column100 column5 " data-column="column5">Company</th>
+												
+														<th style="color: white;border-bottom-right-radius:  16px;" class="column100 column6" data-column="column6">Profile</th>
+													</tr>
+												</tfoot> -->
+											</table>
+
+
+										</div>
+										<!-- <div class="row pl-3 pr-3" style="padding:2%;">
+											<div class="col-12 col-lg-6" id="student-table_info-div">
+                                                
+											</div>
+											<div class="col-12 col-lg-6" id="student-table_paginate_div" style="overflow-x:scroll;">
+
+											</div>
+										</div> -->
+									</div>
+								</div>
+
+
+							</div>
+
+						</div>
+					</div>
+				</div>
+
+			</div>
+		
+		</div>
+	</div>
+
+
+</div>
+
+
+
+<script>
+	var filter_argument = '';
+    document.getElementById('filter').addEventListener('click', (e) => {
+        const name = document.getElementById('name').value;
+        const branch = document.getElementById('branch').value;
+     
+        const company = document.getElementById('company').value;
+        const profile = document.getElementById('profile').value;
+       
+        
+        if(name != ''){
+            if(filter_argument === '') filter_argument = '?';
+            else filter_argument += '&';
+            filter_argument += 'name='
+            filter_argument += name;
+        }
+        if(branch != ''){
+            if(filter_argument === '') filter_argument = '?';
+            else filter_argument += '&';
+            filter_argument += 'branch='
+            filter_argument += branch;
+        }
+        // if(year != ''){
+        //     if(filter_argument === '') filter_argument = '?';
+        //     else filter_argument += '&';
+        //     filter_argument += 'year='
+        //     filter_argument += year;
+        // }
+        if(company != ''){
+            if(filter_argument === '') filter_argument = '?';
+            else filter_argument += '&';
+            filter_argument += 'company='
+            filter_argument += company;
+        }
+        if(profile != ''){
+            if(filter_argument === '') filter_argument = '?';
+            else filter_argument += '&';
+            filter_argument += 'profile='
+            filter_argument += profile;
+        }
+        window.location = filter_argument;
+    })
+    document.getElementById('Reset').addEventListener('click', (f) => {
+
+    filter_argument = "/cepstrum/inplex/experience";	
+    window.location = filter_argument;
+    })
+</script>
+{% endblock %}

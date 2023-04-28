@@ -1,63 +1,101 @@
 {% extends 'base.html' %} {% block title %} Inphase | Cepstrum {% endblock title %} {% block css %}
 <style>
-    .carousel-item {
-        height: 100vh;
-        background: no-repeat center center scroll;
-        -webkit-background-size: cover;
-        -moz-background-size: cover;
-        -o-background-size: cover;
-        background-size: cover;
-    }
-    
     .carousel-item-content {
-        /* margin-top: 20%;
-  margin-left: 15%;
-  margin-right: 30%; */
-        font-size: 24px;
+        color: white;
+
+        text-align: left;
+        width: 80%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        font-size: 2.5vh;
+
     }
+
     .carousel-item-screen {
         color: white;
-        background-color: rgba(0, 0, 0, 0.6);
+
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .card-img-top {
+        aspect-ratio: 3/2 !important;
+    }
+
+    .container1 {
+        margin-right: 0;
+
+        margin-left: 0;
+
+    }
+
+    .background-black {
         width: 100%;
         height: 100%;
-        padding: 15% 20% 0 15%;
+           background-color: rgba(0, 0, 0, 0.6);
+        padding-bottom: 5vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding-top: 5vh;
     }
+
+    .container2 {
+        display: flex;
+        flex-grow: 1;
+    }
+    .background{
+       
+        background-image: url('/cepstrum/static/inphase/cover.png');
+         background-size: cover;
+         background-repeat: no-repeat; 
+        
+    }
+
+    body{
+        overflow-x: hidden;
+    }
+    @media screen and (max-width:500px) {
+        .background{
+        background-position-x: -20vw; 
+    }
+}
 </style>
 
 {% endblock %} {% block carousel %}
-<div id="carouselExampleIndicators" class="carousel slide my-carousel
-my-carousel" data-ride="carousel">
-    <div class="carousel-inner" role="listbox">
-        <div class="carousel-item active" style="background-image: url('/cepstrum/static/inphase/cover.png') ">
-            <!-- <div style="padding-top: 40%; padding-left: 10%;">
-        <button type="button" class="btn btn-secondary btn-lg" data-toggle="modal" data-target=".bd-example-modal-xl">Know more</button>
 
-      </div> -->
+<div class="container2">
 
-            <div class="carousel-item-screen">
-                <div class="carousel-item-content">
-                    <!-- <h1> About Inphase</b>
-                    </h1> -->
-                    <h1 class="text-2xl mt-5 md:text-5xl md:mt-2"><b>About <font color="yellow">Inphase</font> </h1>
-                        <br></b>
-                        <p  class="text-lg md:text-2xl">
-                            Inphase is the departmental magazine of the Department of EEE, IIT Guwahati. Curated and published by the student body Cepstrum, it will also be a medium to gain valuable insights from the experiences of our alumni and from prominent people in the industry as well as academia. InPhase aims to encompass all this and also act a creative outlet for students and professors alike.
-                        </p>
+
+
+
+    <div
+       class="background">
+        <div class="background-black">
+            <div class="carousel-item-content">
+
+                <div class="text-2xl  md:text-5xl mb-4"><b>About <font color="yellow">Inphase</font>
                 </div>
-
-
+                <div class="text-lg md:text-2xl">
+                    Inphase is the departmental magazine of the Department of EEE, IIT Guwahati. Curated and published by the student body Cepstrum, it will also be a medium to gain valuable insights from the experiences of our alumni and from prominent people in the industry as well as academia. InPhase aims to encompass all this and also act a creative outlet for students and professors alike.
+                </div>
             </div>
+
         </div>
-
-
     </div>
 
 </div>
-{% endblock carousel %} {% block content %}
-<br><br>
-<center>
 
-    <div class="row container row-cols-1 row-cols-md-6 g-4">
+{% endblock carousel %} 
+{% block content %}
+<div>
+<div style="margin-top:15vh;">
+
+    <div class="row  row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-6 g-4 " style="display: flex; padding-bottom: 10vh;align-items: center;padding:0vh 5vw;">
         {% for i in inphase_list %} {% if not i.id == 17 %}
 
         <div class="col">
@@ -77,5 +115,7 @@ my-carousel" data-ride="carousel">
         {% endif %} {% endfor %}
 
     </div>
-</center>
+</div>
+
 {% endblock content %}
+
